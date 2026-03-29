@@ -36,10 +36,10 @@ export default function Nav() {
         {/* Logo */}
         <Link
           href="/"
-          className="group flex items-center gap-1 text-white font-bold text-[15px] tracking-tight focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-vg-violet/60 rounded-sm"
+          className="group flex items-center gap-1 text-white font-bold text-[15px] tracking-tight focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-vl-blue/60 rounded-sm"
         >
           <span className="text-white group-hover:text-white/80 transition-colors">Vice</span>
-          <span className="text-vg-violet">Lab</span>
+          <span className="text-vl-blue">Lab</span>
         </Link>
 
         {/* Desktop links */}
@@ -52,7 +52,7 @@ export default function Nav() {
                 href={link.href}
                 className={`
                   relative px-3.5 py-2 text-[13px] font-medium rounded-md transition-all duration-200
-                  focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-vg-violet/60
+                  focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-vl-blue/60
                   ${active
                     ? "text-white bg-white/[0.06]"
                     : "text-white/50 hover:text-white/90 hover:bg-white/[0.04]"
@@ -61,7 +61,7 @@ export default function Nav() {
               >
                 {link.label}
                 {active && (
-                  <span className="absolute bottom-1 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full bg-vg-violet" />
+                  <span className="absolute bottom-1 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full bg-vl-blue" />
                 )}
               </Link>
             );

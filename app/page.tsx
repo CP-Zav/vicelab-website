@@ -6,31 +6,42 @@ export default function HomePage() {
     {
       name: "Cooked Pilot",
       href: "/cooked-pilot",
-      tagline: "Real-time harm reduction for festivals & nightlife.",
+      tagline: "Real-time safety for festivals, raves, and nights that stretch to next light.",
       description:
-        "Get live alerts on bad batches, contamination warnings, and safety info — all based on your location. Non-judgmental. Anonymous. Always on.",
+        "Live alerts on bad batches and contamination warnings. Location-aware. Anonymous by default. No account, no tracking — just the information that keeps people safer.",
       badge: "live" as const,
       badgeLabel: "Live",
-      accent: "text-cp-cyan",
-      border: "hover:border-cp-cyan/25",
+      accent: "text-cp-pink",
+      border: "hover:border-cp-pink/25",
     },
     {
       name: "VibeGuard",
       href: "/vibeguard",
-      tagline: "AI-powered crowd safety for events.",
+      tagline: "Crowd safety and compliance tools for event organisers.",
       description:
-        "Real-time crowd density monitoring and automated safety alerts for event organisers, security teams, and venue managers.",
-      badge: "violet" as const,
+        "Real-time density monitoring, automated threshold alerts, and audit-ready reporting — built for the people managing the event, not attending it.",
+      badge: "teal" as const,
       badgeLabel: "Coming Soon",
-      accent: "text-vg-violet",
-      border: "hover:border-vg-violet/25",
+      accent: "text-vg-teal",
+      border: "hover:border-vg-teal/25",
+    },
+    {
+      name: "ViceLab",
+      href: "/vicelab",
+      tagline: "Research, education, and harm reduction resources.",
+      description:
+        "Drug information sheets, printable safety guides, and evidence-based resources — for crews, community workers, and anyone who wants to know more.",
+      badge: "blue" as const,
+      badgeLabel: "Open",
+      accent: "text-vl-blue",
+      border: "hover:border-vl-blue/25",
     },
   ];
 
   const pillars = [
     { label: "Peer-led" },
-    { label: "Evidence-informed" },
-    { label: "Privacy-conscious" },
+    { label: "Evidence-based" },
+    { label: "Privacy-first" },
     { label: "Non-judgmental" },
   ];
 
@@ -38,8 +49,8 @@ export default function HomePage() {
     <div className="min-h-screen">
       {/* ── Hero ─────────────────────────────────────────────────────────── */}
       <section className="relative overflow-hidden pt-36 pb-28 lg:pt-44 lg:pb-36">
-        {/* Background radial glow */}
-        <div className="absolute inset-0 bg-hero-radial pointer-events-none" />
+        {/* ViceLab electric blue radial */}
+        <div className="absolute inset-0 bg-hero-radial-blue pointer-events-none" />
         {/* Subtle grid */}
         <div
           className="absolute inset-0 bg-grid-faint bg-grid opacity-[0.5] pointer-events-none"
@@ -48,18 +59,18 @@ export default function HomePage() {
 
         <Container>
           <div className="max-w-3xl mx-auto text-center">
-            <Eyebrow color="violet">ViceLab</Eyebrow>
+            <Eyebrow color="blue">ViceLab</Eyebrow>
 
             <h1 className="text-display-xl text-balance mb-6">
-              Safety tech for{" "}
-              <span className="text-gradient-violet">
-                the night.
+              Safety culture,{" "}
+              <span className="text-gradient-blue">
+                built for the culture.
               </span>
             </h1>
 
             <p className="text-lg text-white/50 max-w-xl mx-auto leading-relaxed mb-10">
-              We build tools that keep people safer in festivals, clubs, and
-              nightlife — without judgment, without friction.
+              Tools for festivals, raves, and nightlife — grounded in harm
+              reduction, not moralising.
             </p>
 
             {/* Pillars */}
@@ -80,7 +91,7 @@ export default function HomePage() {
       {/* ── Products ─────────────────────────────────────────────────────── */}
       <Section>
         <Container>
-          <div className="grid md:grid-cols-2 gap-5">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
             {products.map((product) => (
               <Link
                 key={product.name}
@@ -89,7 +100,7 @@ export default function HomePage() {
                   group relative rounded-card border border-white/[0.07] bg-white/[0.03]
                   p-8 flex flex-col transition-all duration-300
                   hover:bg-white/[0.055] hover:border-white/[0.12]
-                  focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-vg-violet/60
+                  focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-vl-blue/50
                   ${product.border}
                 `}
               >
@@ -122,13 +133,12 @@ export default function HomePage() {
         <Container>
           <div className="max-w-2xl mx-auto text-center">
             <h2 className="text-display-md text-balance mb-5">
-              Why we build this
+              Built for real conditions.
             </h2>
             <p className="text-white/50 text-lg leading-relaxed">
-              Nightlife isn&apos;t going away. Neither is risk. We believe the
-              answer isn&apos;t shame or restriction — it&apos;s better
-              information, smarter tools, and technology that meets people where
-              they are.
+              Nightlife isn&apos;t going anywhere. Neither is risk. We don&apos;t
+              moralise about that — we build tools that put accurate information
+              in people&apos;s hands, fast. In the field. Before it matters.
             </p>
           </div>
         </Container>

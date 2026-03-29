@@ -32,12 +32,15 @@ export function Section({
 }
 
 // ── Eyebrow label ─────────────────────────────────────────────────────────────
-export function Eyebrow({ children, color = "violet" }: { children: ReactNode; color?: "violet" | "cyan" | "green" | "muted" }) {
+export function Eyebrow({ children, color = "blue" }: { children: ReactNode; color?: "blue" | "pink" | "teal" | "violet" | "cyan" | "green" | "muted" }) {
   const colorMap = {
+    blue:   "text-vl-blue",
+    pink:   "text-cp-pink",
+    teal:   "text-vg-teal",
     violet: "text-vg-violet",
-    cyan: "text-cp-cyan",
-    green: "text-vl-green",
-    muted: "text-white/40",
+    cyan:   "text-cp-cyan",
+    green:  "text-vl-green",
+    muted:  "text-white/40",
   };
   return (
     <p className={`text-xs font-semibold tracking-[0.18em] uppercase mb-5 ${colorMap[color]}`}>
@@ -63,12 +66,15 @@ export function Card({
 }: {
   children: ReactNode;
   className?: string;
-  accent?: "violet" | "cyan" | "green";
+  accent?: "blue" | "pink" | "teal" | "violet" | "cyan" | "green";
 }) {
   const accentBorder = {
+    blue:   "hover:border-vl-blue/30",
+    pink:   "hover:border-cp-pink/30",
+    teal:   "hover:border-vg-teal/30",
     violet: "hover:border-vg-violet/30",
-    cyan: "hover:border-cp-cyan/30",
-    green: "hover:border-vl-green/30",
+    cyan:   "hover:border-cp-cyan/30",
+    green:  "hover:border-vl-green/30",
   };
   return (
     <div
@@ -132,24 +138,27 @@ export function ButtonGhost({
 // ── Status Badge ──────────────────────────────────────────────────────────────
 export function Badge({
   children,
-  variant = "violet",
+  variant = "blue",
 }: {
   children: ReactNode;
-  variant?: "violet" | "cyan" | "green" | "live";
+  variant?: "blue" | "pink" | "teal" | "live" | "violet" | "cyan" | "green";
 }) {
   const styles = {
+    blue:   "bg-vl-blue/15  text-vl-blue  border-vl-blue/25",
+    pink:   "bg-cp-pink/15  text-cp-pink  border-cp-pink/25",
+    teal:   "bg-vg-teal/15  text-vg-teal  border-vg-teal/25",
+    live:   "bg-cp-pink/15  text-cp-pink  border-cp-pink/25",
     violet: "bg-vg-violet/15 text-vg-violet border-vg-violet/25",
     cyan:   "bg-cp-cyan/15   text-cp-cyan   border-cp-cyan/25",
     green:  "bg-vl-green/15  text-vl-green  border-vl-green/25",
-    live:   "bg-vl-green/15  text-vl-green  border-vl-green/25",
   };
   const dot = variant === "live";
   return (
     <span className={`inline-flex items-center gap-1.5 text-[11px] font-semibold tracking-wide px-2.5 py-1 rounded-full border ${styles[variant]}`}>
       {dot && (
         <span className="relative flex h-1.5 w-1.5">
-          <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-vl-green opacity-75" />
-          <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-vl-green" />
+          <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cp-pink opacity-75" />
+          <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-cp-pink" />
         </span>
       )}
       {children}
@@ -161,16 +170,19 @@ export function Badge({
 export function FeatureCard({
   title,
   body,
-  accent = "violet",
+  accent = "blue",
 }: {
   title: string;
   body: string;
-  accent?: "violet" | "cyan" | "green";
+  accent?: "blue" | "pink" | "teal" | "violet" | "cyan" | "green";
 }) {
   const accentColor = {
+    blue:   "text-vl-blue",
+    pink:   "text-cp-pink",
+    teal:   "text-vg-teal",
     violet: "text-vg-violet",
-    cyan: "text-cp-cyan",
-    green: "text-vl-green",
+    cyan:   "text-cp-cyan",
+    green:  "text-vl-green",
   };
   return (
     <Card accent={accent}>

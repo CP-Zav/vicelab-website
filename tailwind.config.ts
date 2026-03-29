@@ -13,9 +13,14 @@ const config: Config = {
         canvas: "#080808",
         surface: "#0f0f0f",
         border: "rgba(255,255,255,0.08)",
-        // Brand accents
-        "vl-green": "#39d98a",
-        "cp-cyan": "#22d3ee",
+        // Brand accents — canonical
+        "vl-blue":  "#60a5fa",  // ViceLab — electric blue
+        "cp-pink":  "#f472b6",  // Cooked Pilot — magenta / neon pink
+        "vg-teal":  "#2dd4bf",  // VibeGuard — blue-green
+        // Status / utility
+        "vl-green": "#39d98a",  // live indicator dot only
+        // Legacy — kept for pages not yet corrected
+        "cp-cyan":   "#22d3ee",
         "vg-violet": "#a78bfa",
       },
       fontFamily: {
@@ -38,7 +43,12 @@ const config: Config = {
       },
       backgroundImage: {
         "grid-faint": "linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px)",
-        "hero-radial": "radial-gradient(ellipse 80% 60% at 50% -10%, rgba(167,139,250,0.15) 0%, transparent 60%)",
+        // Canonical brand radials
+        "hero-radial-blue":   "radial-gradient(ellipse 80% 60% at 50% -10%, rgba(96,165,250,0.13) 0%, transparent 60%)",
+        "hero-radial-pink":   "radial-gradient(ellipse 80% 60% at 50% -10%, rgba(244,114,182,0.12) 0%, transparent 60%)",
+        "hero-radial-teal":   "radial-gradient(ellipse 80% 60% at 50% -10%, rgba(45,212,191,0.11) 0%, transparent 60%)",
+        // Legacy — kept for pages not yet corrected
+        "hero-radial":      "radial-gradient(ellipse 80% 60% at 50% -10%, rgba(167,139,250,0.15) 0%, transparent 60%)",
         "hero-radial-cyan": "radial-gradient(ellipse 80% 60% at 50% -10%, rgba(34,211,238,0.12) 0%, transparent 60%)",
       },
       backgroundSize: {

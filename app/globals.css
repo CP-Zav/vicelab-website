@@ -3,10 +3,15 @@
 @tailwind utilities;
 
 :root {
+  /* Canonical brand colours */
+  --vl-blue:  #60a5fa;
+  --cp-pink:  #f472b6;
+  --vg-teal:  #2dd4bf;
+  /* Status / utility */
   --vl-green: #39d98a;
-  --cp-cyan: #22d3ee;
+  /* Legacy — remove when all pages corrected */
+  --cp-cyan:   #22d3ee;
   --vg-violet: #a78bfa;
-  --accent: #a78bfa;
 }
 
 @layer base {
@@ -26,7 +31,7 @@
   }
 
   ::selection {
-    background: rgba(167, 139, 250, 0.3);
+    background: rgba(96, 165, 250, 0.25);
     color: #fff;
   }
 }
@@ -54,7 +59,26 @@
     box-shadow: 0 0 40px rgba(34, 211, 238, 0.12), 0 0 80px rgba(34, 211, 238, 0.06);
   }
 
-  /* Gradient text utility */
+  /* Gradient text utilities — canonical brand colours */
+  .text-gradient-blue {
+    background: linear-gradient(135deg, #60a5fa 0%, #38bdf8 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .text-gradient-pink {
+    background: linear-gradient(135deg, #f472b6 0%, #e879f9 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .text-gradient-teal {
+    background: linear-gradient(135deg, #2dd4bf 0%, #34d399 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  /* Legacy — keep until other pages are corrected */
   .text-gradient-violet {
     background: linear-gradient(135deg, #a78bfa 0%, #e879f9 100%);
     -webkit-background-clip: text;
