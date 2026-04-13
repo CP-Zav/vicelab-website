@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import {
   Container,
   Section,
@@ -56,6 +57,16 @@ export default function VibeGuardPage() {
           <div className="max-w-2xl">
             <div className="mb-6">
               <Badge variant="teal">Coming Soon</Badge>
+            </div>
+            <div className="mb-6">
+              <Image
+                src="/logos/vibeguard.png"
+                alt="VibeGuard"
+                height={52}
+                width={208}
+                className="h-13 w-auto"
+                priority
+              />
             </div>
             <h1 className="text-display-lg text-balance mb-6">VibeGuard</h1>
             <p className="text-lg text-white/50 leading-relaxed mb-10">
