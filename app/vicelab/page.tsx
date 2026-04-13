@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import {
   Container,
   Section,
@@ -43,6 +44,16 @@ export default function ViceLabPage() {
         <Container>
           <div className="max-w-2xl">
             <Eyebrow color="blue">About</Eyebrow>
+            <div className="mb-6">
+              <Image
+                src="/logos/vicelab.png"
+                alt="ViceLab"
+                height={52}
+                width={156}
+                className="h-13 w-auto"
+                priority
+              />
+            </div>
             <h1 className="text-display-lg text-balance mb-6">ViceLab</h1>
             <p className="text-lg text-white/50 leading-relaxed">
               Festival safety intelligence, harm reduction education, and operationally
