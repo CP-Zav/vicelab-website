@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import {
   Container,
   Section,
@@ -7,6 +8,12 @@ import {
   ButtonPrimary,
   ButtonGhost,
 } from "@/components/ui";
+
+export const metadata: Metadata = {
+  title: "About ViceLab — Festival Safety Intelligence",
+  description:
+    "Festival safety intelligence, harm reduction education, and operationally honest safety systems built for real-world environments.",
+};
 
 const values = [
   {
@@ -32,15 +39,15 @@ export default function ViceLabPage() {
     <div className="min-h-screen">
       {/* ── Hero ─────────────────────────────────────────────────────────── */}
       <section className="relative overflow-hidden pt-36 pb-20 lg:pt-44 lg:pb-24">
-        <div className="absolute inset-0 bg-hero-radial pointer-events-none" />
+        <div className="absolute inset-0 bg-hero-radial-blue pointer-events-none" />
         <Container>
           <div className="max-w-2xl">
-            <Eyebrow color="violet">About</Eyebrow>
+            <Eyebrow color="blue">About</Eyebrow>
             <h1 className="text-display-lg text-balance mb-6">ViceLab</h1>
             <p className="text-lg text-white/50 leading-relaxed">
-              A safety technology studio building tools for nightlife, festivals,
-              and the spaces in between. We combine harm reduction principles with
-              modern software to keep people safer.
+              Festival safety intelligence, harm reduction education, and operationally
+              honest safety systems built for real-world environments. Non-preachy.
+              Evidence-informed. Built for the people who actually show up.
             </p>
           </div>
         </Container>
@@ -52,8 +59,8 @@ export default function ViceLabPage() {
           <SectionHeader>What we stand for</SectionHeader>
           <div className="grid sm:grid-cols-2 gap-4">
             {values.map((v) => (
-              <Card key={v.title} accent="violet">
-                <h3 className="text-sm font-semibold text-vg-violet mb-2">{v.title}</h3>
+              <Card key={v.title} accent="blue">
+                <h3 className="text-sm font-semibold text-vl-blue mb-2">{v.title}</h3>
                 <p className="text-white/50 text-sm leading-[1.75]">{v.body}</p>
               </Card>
             ))}
@@ -74,7 +81,7 @@ export default function ViceLabPage() {
               </p>
             </div>
             <div className="flex flex-wrap gap-3 shrink-0">
-              <ButtonPrimary href="/cooked-pilot" gradient="bg-vg-violet">
+              <ButtonPrimary href="/cooked-pilot" gradient="bg-cp-pink">
                 Cooked Pilot
               </ButtonPrimary>
               <ButtonGhost href="/vibeguard">

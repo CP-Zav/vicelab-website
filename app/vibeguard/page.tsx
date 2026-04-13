@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import {
   Container,
   Section,
@@ -7,6 +8,12 @@ import {
   ButtonPrimary,
   ButtonGhost,
 } from "@/components/ui";
+
+export const metadata: Metadata = {
+  title: "VibeGuard — Crowd Safety for Events",
+  description:
+    "AI-powered crowd safety for events and venues. Real-time density monitoring, automated alerts, and actionable data for security teams.",
+};
 
 const features = [
   {
@@ -40,19 +47,15 @@ export default function VibeGuardPage() {
     <div className="min-h-screen">
       {/* ── Hero ─────────────────────────────────────────────────────────── */}
       <section className="relative overflow-hidden pt-36 pb-20 lg:pt-44 lg:pb-24">
-        <div
-          className="absolute inset-0 pointer-events-none"
-          style={{ background: "radial-gradient(ellipse 80% 60% at 50% -10%, rgba(167,139,250,0.12) 0%, transparent 60%)" }}
-        />
+        <div className="absolute inset-0 bg-hero-radial-teal pointer-events-none" />
         <div
           className="absolute inset-0 bg-grid-faint bg-grid opacity-[0.4] pointer-events-none"
           style={{ maskImage: "radial-gradient(ellipse 70% 50% at 50% 0%, black 0%, transparent 80%)" }}
         />
-
         <Container>
           <div className="max-w-2xl">
             <div className="mb-6">
-              <Badge variant="violet">Coming Soon</Badge>
+              <Badge variant="teal">Coming Soon</Badge>
             </div>
             <h1 className="text-display-lg text-balance mb-6">VibeGuard</h1>
             <p className="text-lg text-white/50 leading-relaxed mb-10">
@@ -60,7 +63,7 @@ export default function VibeGuardPage() {
               monitoring, automated alerts, and actionable data for security
               teams and event organisers.
             </p>
-            <ButtonPrimary href="mailto:hello@vicelab.co" gradient="bg-vg-violet">
+            <ButtonPrimary href="mailto:hello@thevicelab.com" gradient="bg-vg-teal">
               Join the waitlist
             </ButtonPrimary>
           </div>
@@ -73,7 +76,7 @@ export default function VibeGuardPage() {
           <SectionHeader>What it does</SectionHeader>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {features.map((f) => (
-              <FeatureCard key={f.title} title={f.title} body={f.body} accent="violet" />
+              <FeatureCard key={f.title} title={f.title} body={f.body} accent="teal" />
             ))}
           </div>
         </Container>
@@ -91,7 +94,7 @@ export default function VibeGuardPage() {
               venues, we&apos;d love to hear from you.
             </p>
             <div className="flex flex-wrap justify-center gap-3">
-              <ButtonPrimary href="mailto:hello@vicelab.co" gradient="bg-vg-violet">
+              <ButtonPrimary href="mailto:hello@thevicelab.com" gradient="bg-vg-teal">
                 Get in touch
               </ButtonPrimary>
               <ButtonGhost href="/vicelab">

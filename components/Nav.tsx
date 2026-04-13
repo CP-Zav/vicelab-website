@@ -8,7 +8,10 @@ const links = [
   { href: "/vicelab", label: "About" },
   { href: "/cooked-pilot", label: "Cooked Pilot" },
   { href: "/vibeguard", label: "VibeGuard" },
+  { href: "/signal", label: "Signal" },
 ];
+
+const SHOP_URL = "https://vicelab-collective.bigcartel.com/";
 
 export default function Nav() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -68,6 +71,16 @@ export default function Nav() {
           })}
         </div>
 
+        {/* Desktop Shop CTA */}
+        <a
+          href={SHOP_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="hidden md:inline-flex items-center gap-1.5 px-4 py-2 rounded-md text-[12px] font-semibold tracking-[0.08em] uppercase text-cp-pink border border-cp-pink/30 hover:bg-cp-pink/10 hover:border-cp-pink/50 transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cp-pink/60"
+        >
+          Shop
+        </a>
+
         {/* Mobile hamburger */}
         <button
           className="md:hidden flex items-center justify-center w-9 h-9 rounded-lg text-white/60 hover:text-white hover:bg-white/[0.06] transition-all"
@@ -87,7 +100,7 @@ export default function Nav() {
 
       {/* Mobile drawer */}
       {menuOpen && (
-        <div className="md:hidden bg-[#080808]/98 backdrop-blur-xl border-t border-white/[0.07] px-6 pb-5 pt-3 flex flex-col gap-1">
+        <div className="md:hidden bg-[#080808]/98 backdrop-blur-xl border-t border-white/[0.07] px-6 pb-6 pt-3 flex flex-col gap-1">
           {links.map((link) => {
             const active = pathname === link.href;
             return (
@@ -104,6 +117,14 @@ export default function Nav() {
               </Link>
             );
           })}
+          <a
+            href={SHOP_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-2 px-3 py-3 text-[12px] font-semibold text-cp-pink border border-cp-pink/25 rounded-lg hover:bg-cp-pink/10 transition-all text-center tracking-wide uppercase"
+          >
+            Shop Now
+          </a>
         </div>
       )}
     </nav>

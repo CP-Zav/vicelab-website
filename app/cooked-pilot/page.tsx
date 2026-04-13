@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import {
   Container,
   Section,
@@ -7,6 +8,12 @@ import {
   ButtonPrimary,
   ButtonGhost,
 } from "@/components/ui";
+
+export const metadata: Metadata = {
+  title: "Cooked Pilot — Real-time Harm Reduction",
+  description:
+    "Live alerts on bad batches, testing resources, and friend check-in for festivals and nightlife. No account, no tracking.",
+};
 
 const features = [
   {
@@ -40,13 +47,12 @@ export default function CookedPilotPage() {
     <div className="min-h-screen">
       {/* ── Hero ─────────────────────────────────────────────────────────── */}
       <section className="relative overflow-hidden pt-36 pb-20 lg:pt-44 lg:pb-24">
-        {/* Cyan radial for Cooked Pilot */}
-        <div className="absolute inset-0 bg-hero-radial-cyan pointer-events-none" />
+        {/* Pink radial for Cooked Pilot */}
+        <div className="absolute inset-0 bg-hero-radial-pink pointer-events-none" />
         <div
           className="absolute inset-0 bg-grid-faint bg-grid opacity-[0.4] pointer-events-none"
           style={{ maskImage: "radial-gradient(ellipse 70% 50% at 50% 0%, black 0%, transparent 80%)" }}
         />
-
         <Container>
           <div className="max-w-2xl">
             <div className="mb-6">
@@ -59,7 +65,7 @@ export default function CookedPilotPage() {
               friends — no judgment, no friction.
             </p>
             <div className="flex flex-wrap gap-3">
-              <ButtonPrimary href="#" gradient="bg-cp-cyan" className="text-black">
+              <ButtonPrimary href="#" gradient="bg-cp-pink" className="text-white">
                 Download on iOS
               </ButtonPrimary>
               <ButtonGhost href="#">Get on Android</ButtonGhost>
@@ -74,7 +80,7 @@ export default function CookedPilotPage() {
           <SectionHeader>Features</SectionHeader>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {features.map((f) => (
-              <FeatureCard key={f.title} title={f.title} body={f.body} accent="cyan" />
+              <FeatureCard key={f.title} title={f.title} body={f.body} accent="pink" />
             ))}
           </div>
         </Container>
