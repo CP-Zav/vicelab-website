@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import {
   Container,
   Section,
@@ -57,6 +58,16 @@ export default function CookedPilotPage() {
           <div className="max-w-2xl">
             <div className="mb-6">
               <Badge variant="live">Live</Badge>
+            </div>
+            <div className="mb-6">
+              <Image
+                src="/logos/cookedpilot.png"
+                alt="Cooked Pilot"
+                height={52}
+                width={208}
+                className="h-13 w-auto"
+                priority
+              />
             </div>
             <h1 className="text-display-lg text-balance mb-6">Cooked Pilot</h1>
             <p className="text-lg text-white/50 leading-relaxed mb-10">
