@@ -1,7 +1,7 @@
+import Image from "next/image";
 import Link from "next/link";
 
 const SHOP_URL = "https://vicelab-collective.bigcartel.com/";
-const EXPLORE_URL = "https://cp-zav.github.io/Vicelab-site/";
 
 const productLinks = [
   { href: "/cooked-pilot", label: "Cooked Pilot" },
@@ -21,10 +21,15 @@ export default function Footer() {
           <div className="space-y-4">
             <Link
               href="/"
-              className="inline-flex items-center gap-0.5 group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-vl-blue/60 rounded-sm"
+              className="inline-flex focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-vl-blue/60 rounded-sm"
             >
-              <span className="text-white font-bold text-base group-hover:text-white/80 transition-colors">Vice</span>
-              <span className="text-vl-blue font-bold text-base">Lab</span>
+              <Image
+                src="/logos/vicelab.png"
+                alt="ViceLab"
+                height={28}
+                width={84}
+                className="h-7 w-auto"
+              />
             </Link>
             <p className="text-[13px] text-white/30 leading-relaxed max-w-[220px]">
               Festival safety intelligence.<br />
@@ -52,14 +57,6 @@ export default function Footer() {
                 {link.label}
               </Link>
             ))}
-            <a
-              href={EXPLORE_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-[13px] text-white/25 hover:text-white/50 transition-colors"
-            >
-              Full Site ↗
-            </a>
           </nav>
 
           {/* Contact */}
