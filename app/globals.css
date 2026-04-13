@@ -3,12 +3,12 @@
 @tailwind utilities;
 
 :root {
-  /* Canonical brand colours */
-  --vl-blue:  #60a5fa;
-  --cp-pink:  #f472b6;
-  --vg-teal:  #2dd4bf;
+  /* Canonical brand colours — v2: electric palette */
+  --vl-blue:  #2F6BFF;   /* ViceLab / Signal — electric blue  */
+  --cp-pink:  #FF00A8;   /* Cooked Pilot — neon magenta       */
+  --vg-teal:  #00D5FF;   /* VibeGuard — cyan (gradient lead)  */
   /* Status / utility */
-  --vl-green: #39d98a;
+  --vl-green: #00FFA3;   /* live indicator + VG gradient end  */
   /* Legacy — remove when all pages corrected */
   --cp-cyan:   #22d3ee;
   --vg-violet: #a78bfa;
@@ -31,7 +31,7 @@
   }
 
   ::selection {
-    background: rgba(96, 165, 250, 0.25);
+    background: rgba(47, 107, 255, 0.30);
     color: #fff;
   }
 }
@@ -51,34 +51,52 @@
     border-radius: inherit;
   }
 
-  /* Glow utilities */
-  .glow-violet {
-    box-shadow: 0 0 40px rgba(167, 139, 250, 0.12), 0 0 80px rgba(167, 139, 250, 0.06);
+  /* ── Canonical glow utilities — v2: tighter radius, higher intensity ── */
+  .glow-blue {
+    box-shadow:
+      0 0 16px rgba(47, 107, 255, 0.50),
+      0 0 40px rgba(47, 107, 255, 0.20);
   }
-  .glow-cyan {
-    box-shadow: 0 0 40px rgba(34, 211, 238, 0.12), 0 0 80px rgba(34, 211, 238, 0.06);
+  .glow-pink {
+    box-shadow:
+      0 0 16px rgba(255, 0, 168, 0.50),
+      0 0 40px rgba(255, 0, 168, 0.20);
+  }
+  .glow-vg {
+    box-shadow:
+      0 0 16px rgba(0, 213, 255, 0.45),
+      0 0 40px rgba(0, 255, 163, 0.18);
   }
 
-  /* Gradient text utilities — canonical brand colours */
+  /* Legacy glow utilities — kept for backward compat */
+  .glow-violet {
+    box-shadow: 0 0 30px rgba(167, 139, 250, 0.18), 0 0 60px rgba(167, 139, 250, 0.08);
+  }
+  .glow-cyan {
+    box-shadow: 0 0 30px rgba(34, 211, 238, 0.18), 0 0 60px rgba(34, 211, 238, 0.08);
+  }
+
+  /* ── Gradient text utilities — canonical v2 ── */
   .text-gradient-blue {
-    background: linear-gradient(135deg, #60a5fa 0%, #38bdf8 100%);
+    background: linear-gradient(135deg, #2F6BFF 0%, #00D5FF 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
   .text-gradient-pink {
-    background: linear-gradient(135deg, #f472b6 0%, #e879f9 100%);
+    background: linear-gradient(135deg, #FF00A8 0%, #FF1FB8 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
   .text-gradient-teal {
-    background: linear-gradient(135deg, #2dd4bf 0%, #34d399 100%);
+    /* VibeGuard: cyan → neon green */
+    background: linear-gradient(135deg, #00D5FF 0%, #00FFA3 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
-  /* Legacy — keep until other pages are corrected */
+  /* Legacy — keep until pages cleaned up */
   .text-gradient-violet {
     background: linear-gradient(135deg, #a78bfa 0%, #e879f9 100%);
     -webkit-background-clip: text;

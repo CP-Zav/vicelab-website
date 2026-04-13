@@ -124,7 +124,7 @@ export default function HomePage() {
                     alt={p.name}
                     height={32}
                     width={128}
-                    className="h-8 w-auto"
+                    className="h-8 w-auto brightness-110 contrast-105"
                   />
                 </div>
                 <p className="text-white/60 text-sm font-medium mb-3 leading-snug">{p.tagline}</p>
@@ -142,10 +142,10 @@ export default function HomePage() {
       <Section border>
         <Container>
           <div className="relative rounded-card border border-white/[0.07] bg-white/[0.03] overflow-hidden p-10 md:p-14 text-center">
-            {/* Background glow */}
+            {/* Background glow — neon magenta (cp-pink v2) */}
             <div
               className="absolute inset-0 pointer-events-none"
-              style={{ background: "radial-gradient(ellipse 60% 60% at 50% 100%, rgba(244,114,182,0.08) 0%, transparent 70%)" }}
+              style={{ background: "radial-gradient(ellipse 60% 60% at 50% 100%, rgba(255,0,168,0.15) 0%, transparent 70%)" }}
             />
             <div className="relative">
               <Eyebrow color="pink">Field-tested gear</Eyebrow>
