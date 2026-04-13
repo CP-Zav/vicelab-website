@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
@@ -39,10 +40,16 @@ export default function Nav() {
         {/* Logo */}
         <Link
           href="/"
-          className="group flex items-center gap-1 text-white font-bold text-[15px] tracking-tight focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-vl-blue/60 rounded-sm"
+          className="focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-vl-blue/60 rounded-sm"
         >
-          <span className="text-white group-hover:text-white/80 transition-colors">Vice</span>
-          <span className="text-vl-blue">Lab</span>
+          <Image
+            src="/logos/vicelab.png"
+            alt="ViceLab"
+            height={36}
+            width={108}
+            className="h-9 w-auto"
+            priority
+          />
         </Link>
 
         {/* Desktop links */}
