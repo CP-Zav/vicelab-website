@@ -1,12 +1,13 @@
+import Image from "next/image";
 import Link from "next/link";
 import { Container, Section, Eyebrow, ArrowRight, Badge } from "@/components/ui";
 
 const SHOP_URL = "https://vicelab-collective.bigcartel.com/";
-const EXPLORE_URL = "https://cp-zav.github.io/Vicelab-site/";
 
 const products = [
   {
     name: "Cooked Pilot",
+    logo: "/logos/cookedpilot.png",
     href: "/cooked-pilot",
     tagline: "Real-time harm reduction for festivals and nightlife.",
     description:
@@ -18,6 +19,7 @@ const products = [
   },
   {
     name: "VibeGuard",
+    logo: "/logos/vibeguard.png",
     href: "/vibeguard",
     tagline: "Crowd safety and compliance tools for event organisers.",
     description:
@@ -29,6 +31,7 @@ const products = [
   },
   {
     name: "ViceLab",
+    logo: "/logos/vicelab.png",
     href: "/vicelab",
     tagline: "Research, education, and harm reduction resources.",
     description:
@@ -81,14 +84,6 @@ export default function HomePage() {
                 Shop Now
                 <ArrowRight />
               </a>
-              <a
-                href={EXPLORE_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-6 py-3 rounded-[10px] text-sm font-semibold text-white/70 border border-white/[0.14] hover:text-white hover:border-white/30 hover:-translate-y-px transition-all duration-200"
-              >
-                Explore the project
-              </a>
             </div>
             {/* Trust strip */}
             <div className="flex flex-wrap gap-x-5 gap-y-2">
@@ -123,7 +118,15 @@ export default function HomePage() {
                 <div className="mb-4">
                   <Badge variant={p.badgeVariant}>{p.badgeLabel}</Badge>
                 </div>
-                <h2 className={`text-[17px] font-bold mb-2 ${p.accent}`}>{p.name}</h2>
+                <div className="mb-3">
+                  <Image
+                    src={p.logo}
+                    alt={p.name}
+                    height={32}
+                    width={128}
+                    className="h-8 w-auto"
+                  />
+                </div>
                 <p className="text-white/60 text-sm font-medium mb-3 leading-snug">{p.tagline}</p>
                 <p className="text-white/35 text-sm leading-[1.7]">{p.description}</p>
                 <div className={`mt-5 flex items-center gap-1.5 text-[12px] font-semibold uppercase tracking-[0.1em] ${p.accent} opacity-0 group-hover:opacity-100 transition-opacity duration-200`}>
