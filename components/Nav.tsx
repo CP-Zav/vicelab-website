@@ -1,8 +1,8 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import Image from "next/image";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 
 const links = [
@@ -40,15 +40,16 @@ export default function Nav() {
         {/* Logo */}
         <Link
           href="/"
-          className="focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-vl-blue/60 rounded-sm"
+          className="flex items-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-vl-blue/60 rounded-sm"
+          aria-label="ViceLab — home"
         >
           <Image
-            src="/logos/vicelab.png"
+            src="/logos/vicelab.svg"
             alt="ViceLab"
+            width={120}
             height={36}
-            width={108}
-            className="h-9 w-auto"
             priority
+            className="h-9 w-auto"
           />
         </Link>
 

@@ -12,53 +12,53 @@ import {
 } from "@/components/ui";
 
 export const metadata: Metadata = {
-  title: "Signal — Festival Safety Intelligence",
+  title: "Signal — Real-time Harm Reduction Intelligence",
   description:
-    "Aggregated harm reduction data, live batch alerts, and field-sourced intelligence — structured for the people who need it most.",
+    "Verified harm reduction data — sourced from the field, structured by ViceLab, and distributed in real time to Cooked Pilot and VibeGuard.",
 };
 
 const features = [
   {
     title: "Live batch alerts",
-    body: "Real-time contamination reports aggregated from field testing services and harm reduction networks nationwide.",
+    body: "Contamination warnings sourced from field testing services and harm reduction orgs — distributed the moment they're verified.",
   },
   {
     title: "Substance matrix",
-    body: "Current risk profiles across substance classes — what's circulating, what's been flagged, what to watch for.",
+    body: "Current risk profiles across substance classes. What's circulating, what's been flagged, what to watch.",
   },
   {
     title: "Field briefs",
-    body: "Pre-event intelligence packets for organisers and crew. What the data says before the gates open.",
+    body: "Pre-event intelligence for organisers and crew. Data-first, no fluff — what matters before gates open.",
   },
   {
     title: "Venue feeds",
-    body: "Location-scoped data streams. Signals relevant to your event, venue, or city — no noise from elsewhere.",
+    body: "Location-scoped signal streams. Relevant to your event or city only. No noise from elsewhere.",
   },
   {
     title: "Escalation patterns",
-    body: "Aggregate data on when and why escalations happen. Patterns that help you prepare, not just respond.",
+    body: "Aggregate data on when and why situations escalate. Helps you prepare rather than just respond.",
   },
   {
     title: "Research archive",
-    body: "Curated harm reduction literature, substance profiles, and incident data going back multiple seasons.",
+    body: "Harm reduction literature, substance profiles, and seasonal incident data in one place.",
   },
 ];
 
 const steps = [
   {
     label: "01",
-    title: "Data sources verified",
-    body: "Field testing services, harm reduction orgs, and incident reports feed the Signal layer.",
+    title: "Verified at source",
+    body: "Data comes from field testing services, harm reduction organisations, and incident reports — not social rumour.",
   },
   {
     label: "02",
-    title: "Intelligence structured",
-    body: "Raw data is processed, categorised, and rated for reliability before it surfaces anywhere.",
+    title: "Structured and rated",
+    body: "Every signal is processed, categorised, and assigned a reliability rating before it goes anywhere.",
   },
   {
     label: "03",
-    title: "Distributed to products",
-    body: "Clean signals reach Cooked Pilot and VibeGuard in real time — no lag, no noise.",
+    title: "Delivered to products",
+    body: "Clean data reaches Cooked Pilot and VibeGuard in real time — so what attendees and crews see is accurate.",
   },
 ];
 
@@ -75,20 +75,23 @@ export default function SignalPage() {
         <Container>
           <div className="max-w-2xl">
             <div className="mb-6">
-              <Badge variant="teal">Intelligence</Badge>
+              <Badge variant="teal">Intelligence layer</Badge>
             </div>
             <h1 className="text-display-lg text-balance mb-6">Signal</h1>
-            <p className="text-lg text-white/50 leading-relaxed mb-10">
-              The intelligence layer of the ViceLab ecosystem. Aggregated harm reduction data,
-              live batch alerts, and field-sourced intelligence — structured for the people
-              who need it most.
+            <p className="text-lg text-white/50 leading-relaxed mb-4">
+              Harm reduction data — verified, structured, and distributed in real time.
+            </p>
+            <p className="text-base text-white/35 leading-relaxed mb-10">
+              Signal is the data backbone of ViceLab. It connects field testing services and harm
+              reduction organisations into a single verified stream, then feeds that stream to
+              Cooked Pilot (for attendees) and VibeGuard (for organisers).
             </p>
             <div className="flex flex-wrap gap-3">
               <ButtonGhost href="/cooked-pilot">
-                See Cooked Pilot
+                Cooked Pilot
               </ButtonGhost>
               <ButtonGhost href="/vibeguard">
-                See VibeGuard
+                VibeGuard
               </ButtonGhost>
             </div>
           </div>
@@ -114,15 +117,16 @@ export default function SignalPage() {
             <div>
               <Eyebrow color="teal">How it works</Eyebrow>
               <h2 className="text-display-md text-balance mb-5">
-                Intelligence that reaches the field.
+                From the field to the feed.
               </h2>
               <p className="text-white/50 leading-relaxed mb-4">
-                Signal connects harm reduction organisations, field testing services, and
-                ViceLab&apos;s own research layer into a single, coherent stream.
+                Most safety data arrives late, diluted, or unverified. Signal is built to
+                fix that — aggregating sources, applying reliability ratings, and distributing
+                clean data before it&apos;s needed.
               </p>
-              <p className="text-white/40 text-sm leading-relaxed">
-                Data surfaces in Cooked Pilot for attendees and in VibeGuard for organisers —
-                all from the same verified source.
+              <p className="text-white/35 text-sm leading-relaxed">
+                When something gets flagged in the field, the right people know — before the
+                next wave of attendees arrives.
               </p>
             </div>
             <div className="grid grid-cols-1 gap-3">
@@ -147,11 +151,11 @@ export default function SignalPage() {
         <Container>
           <div className="max-w-xl mx-auto text-center">
             <h2 className="text-display-md text-balance mb-5">
-              Want Signal for your event?
+              Running events?
             </h2>
             <p className="text-white/50 text-lg leading-relaxed mb-9">
-              If you&apos;re running an event and want access to the Signal feed,
-              get in touch. We work with organisers directly.
+              We integrate Signal directly with event organisers and safety teams. If
+              you want verified harm reduction data at your next event, reach out.
             </p>
             <div className="flex flex-wrap justify-center gap-3">
               <ButtonPrimary href="mailto:hello@thevicelab.com" gradient="bg-vg-teal">
