@@ -26,7 +26,7 @@ export default function Footer() {
               aria-label="ViceLab home"
             >
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/logos/vicelab.png" alt="ViceLab" className="h-7 w-auto block" />
+              <img src="/logos/vicelab.svg" alt="ViceLab logo" className="w-[100px] h-auto block opacity-80" />
             </Link>
             <p className="text-[13px] text-white/30 leading-relaxed max-w-[220px]">
               Festival safety intelligence.<br />
