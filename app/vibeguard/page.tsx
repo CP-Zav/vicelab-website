@@ -32,10 +32,10 @@ export default function VibeGuardPage() {
             <div className="mb-5"><Badge variant="teal">Coming Soon</Badge></div>
             <div className="mb-6">
               <Image
-                src="/logos/vibeguard.png"
-                alt="VibeGuard"
-                height={48}
-                width={192}
+                src="/logos/vibeguard.svg"
+                alt="VibeGuard logo"
+                height={229}
+                width={516}
                 className="h-12 w-auto brightness-110 contrast-105"
                 style={{ width: "auto" }}
                 priority
