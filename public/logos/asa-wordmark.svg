@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- asa-wordmark.svg | ViceLab ecosystem | Convert text to outlines before final deployment -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 80" fill="none">
+  <rect width="320" height="80" fill="#0A0A0F"/>
+  <defs>
+    <filter id="glow" x="-20%" y="-40%" width="140%" height="180%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="1.5" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Top reference bar with corner marks -->
+  <line x1="32" y1="10" x2="288" y2="10" stroke="#C4AAFF" stroke-width="0.5" stroke-opacity="0.18"/>
+  <polyline points="32,18 32,10 42,10" stroke="#C4AAFF" stroke-width="1" stroke-opacity="0.45" fill="none"/>
+  <polyline points="278,10 288,10 288,18" stroke="#C4AAFF" stroke-width="1" stroke-opacity="0.45" fill="none"/>
+
+  <!-- ASA primary wordmark (large, spaced) -->
+  <text
+    x="32" y="54"
+    font-family="'Inter','Helvetica Neue',Arial,sans-serif"
+    font-size="44" font-weight="200"
+    letter-spacing="20"
+    fill="#C4AAFF"
+    textLength="220" lengthAdjust="spacing"
+    filter="url(#glow)">ASA</text>
+
+  <!-- Horizontal rule below primary name -->
+  <line x1="32" y1="62" x2="252" y2="62" stroke="#C4AAFF" stroke-width="0.75" stroke-opacity="0.3"/>
+
+  <!-- Bottom corner marks -->
+  <polyline points="32,62 32,70 42,70" stroke="#C4AAFF" stroke-width="1" stroke-opacity="0.45" fill="none"/>
+  <polyline points="242,70 252,70 252,62" stroke="#C4AAFF" stroke-width="1" stroke-opacity="0.45" fill="none"/>
+
+  <!-- Descriptor: ALTERED STATE ARCHIVES (micro text, tracked) -->
+  <text
+    x="32" y="75"
+    font-family="'Inter','Helvetica Neue',Arial,sans-serif"
+    font-size="7.5" font-weight="400"
+    letter-spacing="3.5"
+    fill="#C4AAFF"
+    fill-opacity="0.45"
+    textLength="220" lengthAdjust="spacing">ALTERED STATE ARCHIVES</text>
+</svg>
