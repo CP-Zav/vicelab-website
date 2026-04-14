@@ -1,11 +1,25 @@
+import { randomUUID } from 'crypto';
 import { NextRequest, NextResponse } from 'next/server';
 import { orchestrate } from '@/lib/orchestration';
+import { logRequest } from '@/lib/logging';
 
 export async function POST(req: NextRequest) {
+  const startTime = Date.now();
+  const requestId = randomUUID();
+
   try {
     const body = await req.json();
 
     if (!body?.substances || !Array.isArray(body.substances)) {
+      logRequest({
+        requestId,
+        timestamp: new Date().toISOString(),
+        substances: [],
+        riskLevel: null,
+        responseTime: Date.now() - startTime,
+        status: 'fail',
+        error: 'Missing or invalid substances array',
+      });
       return NextResponse.json(
         { error: 'Request body must include a "substances" array.' },
         { status: 400 }
@@ -13,6 +27,15 @@ export async function POST(req: NextRequest) {
     }
 
     if (body.substances.length === 0 || body.substances.length > 6) {
+      logRequest({
+        requestId,
+        timestamp: new Date().toISOString(),
+        substances: body.substances,
+        riskLevel: null,
+        responseTime: Date.now() - startTime,
+        status: 'fail',
+        error: 'Substance count out of range',
+      });
       return NextResponse.json(
         { error: 'Provide between 1 and 6 substances.' },
         { status: 400 }
@@ -20,6 +43,16 @@ export async function POST(req: NextRequest) {
     }
 
     const result = await orchestrate(body.substances);
+
+    // Fire-and-forget — response is returned before this resolves
+    logRequest({
+      requestId: result.requestId,
+      timestamp: new Date().toISOString(),
+      substances: body.substances,
+      riskLevel: result.analysis.riskLevel,
+      responseTime: Date.now() - startTime,
+      status: 'success',
+    });
 
     return NextResponse.json(
       {
@@ -31,6 +64,17 @@ export async function POST(req: NextRequest) {
     );
   } catch (err: unknown) {
     const message = err instanceof Error ? err.message : 'Unknown error';
+
+    logRequest({
+      requestId,
+      timestamp: new Date().toISOString(),
+      substances: [],
+      riskLevel: null,
+      responseTime: Date.now() - startTime,
+      status: 'fail',
+      error: message,
+    });
+
     return NextResponse.json({ error: message }, { status: 500 });
   }
 }
