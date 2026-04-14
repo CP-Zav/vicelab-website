@@ -9,6 +9,8 @@ const links = [
   { href: "/cooked-pilot", label: "Cooked Pilot" },
   { href: "/vibeguard",    label: "VibeGuard" },
   { href: "/signal",       label: "Signal" },
+  { href: "/matrix",       label: "Matrix" },
+  { href: "/asa",          label: "ASA" },
 ];
 
 const SHOP_URL = "https://vicelab-collective.bigcartel.com/";

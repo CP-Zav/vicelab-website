@@ -6,6 +6,8 @@ const productLinks = [
   { href: "/cooked-pilot", label: "Cooked Pilot" },
   { href: "/vibeguard",    label: "VibeGuard" },
   { href: "/signal",       label: "Signal" },
+  { href: "/matrix",       label: "Matrix" },
+  { href: "/asa",          label: "ASA" },
   { href: "/vicelab",      label: "About" },
 ];
 
