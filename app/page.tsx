@@ -7,7 +7,7 @@ const SHOP_URL = "https://vicelab-collective.bigcartel.com/";
 const products = [
   {
     name: "Cooked Pilot",
-    logo: "/logos/cookedpilot.png",
+    logo: "/logos/cookedpilot.svg",
     href: "/cooked-pilot",
     tagline: "Real-time harm reduction for festivals and nightlife.",
     description: "Live alerts on bad batches. Anonymous by default. No account, no tracking — just the information that keeps people safer.",
@@ -17,7 +17,7 @@ const products = [
   },
   {
     name: "VibeGuard",
-    logo: "/logos/vibeguard.png",
+    logo: "/logos/vibeguard.svg",
     href: "/vibeguard",
     tagline: "Crowd safety and compliance tools for event organisers.",
     description: "Real-time density monitoring, automated threshold alerts, and audit-ready reporting — built for the people managing the event.",
@@ -27,7 +27,7 @@ const products = [
   },
   {
     name: "ViceLab",
-    logo: "/logos/vicelab.png",
+    logo: "/logos/vicelab.svg",
     href: "/vicelab",
     tagline: "Research, education, and harm reduction resources.",
     description: "Festival safety intelligence, harm reduction education, and operationally honest safety systems built for real-world environments.",
@@ -109,9 +109,10 @@ export default function HomePage() {
                   <Image
                     src={p.logo}
                     alt={p.name}
-                    height={30}
-                    width={120}
-                    className="h-[30px] w-auto"
+                    height={60}
+                    width={240}
+                    className="h-[30px] w-auto transition-all duration-300 group-hover:brightness-125"
+                    loading="lazy"
                     style={{ width: "auto" }}
                   />
                 </div>
