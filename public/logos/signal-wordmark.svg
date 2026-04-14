@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- signal-wordmark.svg | ViceLab ecosystem | Convert text to outlines before final deployment -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 72" fill="none">
+  <rect width="320" height="72" fill="#0A0A0F"/>
+  <defs>
+    <filter id="glow" x="-20%" y="-40%" width="140%" height="180%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="1.5" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Left: transmission dot + dash -->
+  <circle cx="12" cy="36" r="2.5" fill="#00E5FF" filter="url(#glow)"/>
+  <line x1="18" y1="36" x2="26" y2="36" stroke="#00E5FF" stroke-width="1" stroke-opacity="0.4"/>
+
+  <!-- SIGNAL wordmark -->
+  <text
+    x="32" y="48"
+    font-family="'Inter','Helvetica Neue',Arial,sans-serif"
+    font-size="34" font-weight="300"
+    letter-spacing="8"
+    fill="#00E5FF"
+    textLength="220" lengthAdjust="spacing"
+    filter="url(#glow)">SIGNAL</text>
+
+  <!-- Underline: left portion -->
+  <line x1="32" y1="58" x2="118" y2="58" stroke="#00E5FF" stroke-width="0.75" stroke-opacity="0.28"/>
+  <!-- Underline: pulse break (centered at ~142) -->
+  <polyline points="118,58 122,58 125,53 128,63 131,58 135,58"
+    stroke="#00E5FF" stroke-width="0.75" stroke-linecap="square" fill="none"/>
+  <!-- Underline: right portion -->
+  <line x1="135" y1="58" x2="252" y2="58" stroke="#00E5FF" stroke-width="0.75" stroke-opacity="0.28"/>
+
+  <!-- Right: dash + dim dot -->
+  <line x1="258" y1="36" x2="266" y2="36" stroke="#00E5FF" stroke-width="1" stroke-opacity="0.4"/>
+  <circle cx="272" cy="36" r="2.5" fill="#00E5FF" fill-opacity="0.35" filter="url(#glow)"/>
+</svg>
