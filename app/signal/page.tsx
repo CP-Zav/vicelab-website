@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import Image from "next/image";
+import { LOGOS } from "@/lib/logos";
 import {
   Container,
   Section,
@@ -77,6 +79,17 @@ export default function SignalPage() {
           <div className="max-w-2xl">
             <div className="mb-6">
               <Badge variant="blue">Intelligence layer</Badge>
+            </div>
+            <div className="mb-6">
+              <Image
+                src={LOGOS.signal.wordmark}
+                alt="Signal"
+                height={36}
+                width={160}
+                className="h-9 w-auto"
+                style={{ width: "auto" }}
+                priority
+              />
             </div>
             <h1 className="text-display-lg text-balance mb-6">Signal</h1>
             <p className="text-lg text-white/50 leading-relaxed mb-4">
