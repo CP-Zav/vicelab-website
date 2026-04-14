@@ -32,10 +32,10 @@ export default function CookedPilotPage() {
             <div className="mb-5"><Badge variant="live">Live</Badge></div>
             <div className="mb-6">
               <Image
-                src="/logos/cookedpilot.png"
-                alt="Cooked Pilot"
-                height={48}
-                width={192}
+                src="/logos/cookedpilot.svg"
+                alt="Cooked Pilot logo"
+                height={273}
+                width={361}
                 className="h-12 w-auto brightness-110 contrast-105"
                 style={{ width: "auto" }}
                 priority
