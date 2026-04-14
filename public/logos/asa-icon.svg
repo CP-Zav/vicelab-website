@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" fill="none">
+  <rect width="80" height="80" fill="#0A0A0F"/>
+  <defs>
+    <filter id="glow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="2" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Corner reference brackets (archive interface) -->
+  <polyline points="10,22 10,10 22,10" stroke="#C4AAFF" stroke-width="1.25" stroke-opacity="0.6" fill="none"/>
+  <polyline points="58,10 70,10 70,22" stroke="#C4AAFF" stroke-width="1.25" stroke-opacity="0.6" fill="none"/>
+  <polyline points="10,58 10,70 22,70" stroke="#C4AAFF" stroke-width="1.25" stroke-opacity="0.6" fill="none"/>
+  <polyline points="58,70 70,70 70,58" stroke="#C4AAFF" stroke-width="1.25" stroke-opacity="0.6" fill="none"/>
+
+  <!-- Archive strata lines — varying lengths, stacked records -->
+  <line x1="18" y1="26" x2="62" y2="26" stroke="#C4AAFF" stroke-width="1" stroke-opacity="0.22"/>
+  <line x1="22" y1="31" x2="56" y2="31" stroke="#C4AAFF" stroke-width="1" stroke-opacity="0.28"/>
+  <!-- Active/accessed record (bright) -->
+  <line x1="16" y1="36" x2="64" y2="36" stroke="#C4AAFF" stroke-width="1.5" filter="url(#glow)"/>
+  <circle cx="16" cy="36" r="1.5" fill="#C4AAFF" filter="url(#glow)"/>
+  <circle cx="64" cy="36" r="1.5" fill="#C4AAFF" filter="url(#glow)"/>
+  <line x1="22" y1="41" x2="58" y2="41" stroke="#C4AAFF" stroke-width="1" stroke-opacity="0.28"/>
+  <line x1="18" y1="46" x2="62" y2="46" stroke="#C4AAFF" stroke-width="1" stroke-opacity="0.22"/>
+  <line x1="26" y1="51" x2="54" y2="51" stroke="#C4AAFF" stroke-width="1" stroke-opacity="0.15"/>
+  <line x1="30" y1="56" x2="50" y2="56" stroke="#C4AAFF" stroke-width="1" stroke-opacity="0.1"/>
+</svg>
