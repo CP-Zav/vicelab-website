@@ -21,7 +21,7 @@ export default function VibeGuardPage() {
     <div className="min-h-screen">
       {/* ── Hero ─────────────────────────────────────────────────────────── */}
       <section className="relative overflow-hidden pt-32 pb-18 lg:pt-44 lg:pb-24">
-        {/* Cyan→green radial — VG brand color, never orange */}
+        {/* VibeGuard = cyan → neon green — never orange */}
         <div className="absolute inset-0 bg-hero-radial-teal pointer-events-none" />
         <div
           className="absolute inset-0 bg-grid-faint bg-grid opacity-[0.35] pointer-events-none"
@@ -36,7 +36,7 @@ export default function VibeGuardPage() {
                 alt="VibeGuard"
                 height={48}
                 width={192}
-                className="h-12 w-auto"
+                className="h-12 w-auto brightness-110 contrast-105"
                 style={{ width: "auto" }}
                 priority
               />
@@ -47,7 +47,8 @@ export default function VibeGuardPage() {
               monitoring, automated alerts, and actionable data for security
               teams and event organisers.
             </p>
-            <ButtonPrimary href="mailto:hello@thevicelab.com" gradient="bg-vg-teal">
+            {/* VG button: cyan → neon green gradient */}
+            <ButtonPrimary href="mailto:hello@thevicelab.com" gradient="bg-gradient-vg">
               Join the waitlist
             </ButtonPrimary>
           </div>
@@ -74,7 +75,7 @@ export default function VibeGuardPage() {
               venues, we&apos;d love to hear from you.
             </p>
             <div className="flex flex-wrap justify-center gap-3">
-              <ButtonPrimary href="mailto:hello@thevicelab.com" gradient="bg-vg-teal">Get in touch</ButtonPrimary>
+              <ButtonPrimary href="mailto:hello@thevicelab.com" gradient="bg-gradient-vg">Get in touch</ButtonPrimary>
               <ButtonGhost href="/vicelab">About ViceLab</ButtonGhost>
             </div>
           </div>

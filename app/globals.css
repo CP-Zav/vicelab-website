@@ -2,12 +2,25 @@
 @tailwind components;
 @tailwind utilities;
 
+/* ═══════════════════════════════════════════════════════════════════════
+   PRODUCT COLOR SYSTEM — centralized brand token reference
+   ───────────────────────────────────────────────────────────────────────
+   Cooked Pilot  (cp)  — neon magenta      #FF00A8 → #FF1FB8
+   VibeGuard     (vg)  — cyan → neon green #00D5FF → #00FFA3
+   Signal / VL   (sig) — electric blue     #2F6BFF → #00D5FF
+   ═══════════════════════════════════════════════════════════════════════ */
+
 :root {
-  --cp:       #FF00A8;
-  --cp-soft:  #FF4FC6;
-  --vg-cyan:  #00D5FF;
-  --vg-green: #00FFA3;
-  --sig-blue: #2F6BFF;
+  --cp-color:       #FF00A8;
+  --cp-color-dim:   rgba(255, 0, 168, 0.15);
+  --vg-color:       #00D5FF;
+  --vg-color-dim:   rgba(0, 213, 255, 0.15);
+  --sig-color:      #2F6BFF;
+  --sig-color-dim:  rgba(47, 107, 255, 0.15);
+  --vl-green:       #00FFA3;
+  /* Legacy */
+  --cp-cyan:        #22d3ee;
+  --vg-violet:      #a78bfa;
 }
 
 @layer base {
@@ -20,75 +33,27 @@
   }
 
   body {
-    background: #07090D;
-    color: #F5F7FB;
+    background: #080808;
+    color: #f0f0f0;
   }
 
   ::selection {
-    background: rgba(47, 107, 255, 0.28);
+    background: rgba(47, 107, 255, 0.30);
     color: #fff;
   }
 }
 
+/* ── Product utility classes ────────────────────────────────────────────── */
 @layer components {
-  /* ── Panel base ─────────────────────────────────────────────────────── */
-  .panel-base {
-    @apply relative rounded-card border border-white/[0.07] bg-white/[0.03] shadow-panel;
-  }
 
-  /* ── Status badges ──────────────────────────────────────────────────── */
-  .badge-cp {
-    @apply inline-flex items-center gap-1.5 text-[11px] font-semibold tracking-wide
-           px-2.5 py-1 rounded-full border bg-cp-pink/[0.12] text-cp-pink border-cp-pink/[0.22];
-  }
-  .badge-vg {
-    @apply inline-flex items-center gap-1.5 text-[11px] font-semibold tracking-wide
-           px-2.5 py-1 rounded-full border bg-vg-teal/[0.12] text-vg-teal border-vg-teal/[0.22];
-  }
-  .badge-sig {
-    @apply inline-flex items-center gap-1.5 text-[11px] font-semibold tracking-wide
-           px-2.5 py-1 rounded-full border bg-vl-blue/[0.12] text-vl-blue border-vl-blue/[0.22];
-  }
+  /* Text accents — semantic aliases for token classes */
+  .text-accent-cp  { color: var(--cp-color); }
+  .text-accent-vg  { color: var(--vg-color); }
+  .text-accent-sig { color: var(--sig-color); }
 
-  /* ── Brand buttons ──────────────────────────────────────────────────── */
-  .btn-cp {
-    @apply inline-flex items-center gap-2 px-6 py-3 rounded-[10px] text-sm font-semibold
-           text-white bg-gradient-cp hover:opacity-90 hover:-translate-y-px transition-all duration-200;
-  }
-  .btn-vg {
-    @apply inline-flex items-center gap-2 px-6 py-3 rounded-[10px] text-sm font-semibold
-           text-white bg-gradient-vg hover:opacity-90 hover:-translate-y-px transition-all duration-200;
-  }
-  .btn-sig {
-    @apply inline-flex items-center gap-2 px-6 py-3 rounded-[10px] text-sm font-semibold
-           text-white bg-gradient-sig hover:opacity-90 hover:-translate-y-px transition-all duration-200;
-  }
-
-  /* ── Product cards ──────────────────────────────────────────────────── */
-  .card-cp  { @apply panel-base transition-all duration-300 hover:border-cp-pink/25 hover:bg-white/[0.055]; }
-  .card-vg  { @apply panel-base transition-all duration-300 hover:border-vg-teal/25 hover:bg-white/[0.055]; }
-  .card-sig { @apply panel-base transition-all duration-300 hover:border-vl-blue/25 hover:bg-white/[0.055]; }
-
-  /* ── Glows ──────────────────────────────────────────────────────────── */
-  .glow-cp  { box-shadow: 0 0 14px rgba(255, 0, 168, 0.55), 0 0 36px rgba(255, 0, 168, 0.18); }
-  .glow-vg  { box-shadow: 0 0 14px rgba(0, 213, 255, 0.50), 0 0 36px rgba(0, 255, 163, 0.14); }
-  .glow-sig { box-shadow: 0 0 14px rgba(47, 107, 255, 0.55), 0 0 36px rgba(47, 107, 255, 0.18); }
-}
-
-@layer utilities {
-  .text-balance { text-wrap: balance; }
-
-  .glow-blue { box-shadow: 0 0 14px rgba(47, 107, 255, 0.55), 0 0 36px rgba(47, 107, 255, 0.18); }
-  .glow-pink { box-shadow: 0 0 14px rgba(255, 0, 168, 0.55), 0 0 36px rgba(255, 0, 168, 0.18); }
-
-  .text-gradient-blue {
-    background: linear-gradient(135deg, #2F6BFF 0%, #00D5FF 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-  }
+  /* Gradient text — product-named */
   .text-gradient-cp {
-    background: linear-gradient(135deg, #FF00A8 0%, #FF4FC6 100%);
+    background: linear-gradient(135deg, #FF00A8 0%, #FF1FB8 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -99,13 +64,87 @@
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
-  /* Legacy aliases */
-  .text-gradient-pink { @apply text-gradient-cp; }
-  .text-gradient-teal { @apply text-gradient-vg; }
+  .text-gradient-sig {
+    background: linear-gradient(135deg, #2F6BFF 0%, #00D5FF 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Hero radial backgrounds — product-named semantic aliases */
+  .hero-bg-cp  { background-image: radial-gradient(ellipse 80% 60% at 50% -10%, rgba(255,0,168,0.22) 0%, transparent 60%); }
+  .hero-bg-vg  { background-image: radial-gradient(ellipse 80% 60% at 50% -10%, rgba(0,213,255,0.20) 0%, rgba(0,255,163,0.06) 50%, transparent 65%); }
+  .hero-bg-sig { background-image: radial-gradient(ellipse 80% 60% at 50% -10%, rgba(47,107,255,0.22) 0%, transparent 60%); }
+
+  /* Badges — product-named */
+  .badge-cp {
+    background: rgba(255, 0, 168, 0.12);
+    color: #FF00A8;
+    border: 1px solid rgba(255, 0, 168, 0.22);
+  }
+  .badge-vg {
+    background: rgba(0, 213, 255, 0.12);
+    color: #00D5FF;
+    border: 1px solid rgba(0, 213, 255, 0.22);
+  }
+  .badge-sig {
+    background: rgba(47, 107, 255, 0.12);
+    color: #2F6BFF;
+    border: 1px solid rgba(47, 107, 255, 0.22);
+  }
+
+}
+
+/* ── Global utilities ───────────────────────────────────────────────────── */
+@layer utilities {
+  .text-balance { text-wrap: balance; }
+
+  /* Noise overlay */
+  .noise::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events: none;
+    border-radius: inherit;
+  }
+
+  /* ── Glow utilities — tighter, higher intensity ─────────────────────── */
+  /* Canonical product glows */
+  .glow-cp  { box-shadow: 0 0 16px rgba(255, 0, 168, 0.50), 0 0 40px rgba(255, 0, 168, 0.20); }
+  .glow-vg  { box-shadow: 0 0 16px rgba(0, 213, 255, 0.45), 0 0 40px rgba(0, 255, 163, 0.18); }
+  .glow-sig { box-shadow: 0 0 16px rgba(47, 107, 255, 0.50), 0 0 40px rgba(47, 107, 255, 0.20); }
+  /* Legacy aliases (still used in some utilities) */
+  .glow-blue  { box-shadow: 0 0 16px rgba(47, 107, 255, 0.50), 0 0 40px rgba(47, 107, 255, 0.20); }
+  .glow-pink  { box-shadow: 0 0 16px rgba(255, 0, 168, 0.50), 0 0 40px rgba(255, 0, 168, 0.20); }
+  .glow-violet { box-shadow: 0 0 30px rgba(167, 139, 250, 0.18), 0 0 60px rgba(167, 139, 250, 0.08); }
+  .glow-cyan   { box-shadow: 0 0 30px rgba(34, 211, 238, 0.18), 0 0 60px rgba(34, 211, 238, 0.08); }
+
+  /* ── Gradient text — legacy aliases (kept for compat) ───────────────── */
+  .text-gradient-blue {
+    background: linear-gradient(135deg, #2F6BFF 0%, #00D5FF 100%);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+  }
+  .text-gradient-pink {
+    background: linear-gradient(135deg, #FF00A8 0%, #FF1FB8 100%);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+  }
+  .text-gradient-teal {
+    background: linear-gradient(135deg, #00D5FF 0%, #00FFA3 100%);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+  }
+  .text-gradient-violet {
+    background: linear-gradient(135deg, #a78bfa 0%, #e879f9 100%);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+  }
+  .text-gradient-cyan {
+    background: linear-gradient(135deg, #22d3ee 0%, #818cf8 100%);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+  }
 }
 
 /* Scrollbar */
-::-webkit-scrollbar       { width: 6px; }
-::-webkit-scrollbar-track { background: #070A0F; }
-::-webkit-scrollbar-thumb { background: #1E2638; border-radius: 3px; }
-::-webkit-scrollbar-thumb:hover { background: #2A3550; }
+::-webkit-scrollbar          { width: 6px; }
+::-webkit-scrollbar-track    { background: #0d0d0d; }
+::-webkit-scrollbar-thumb    { background: #2a2a2a; border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: #3a3a3a; }

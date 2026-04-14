@@ -38,10 +38,11 @@ export function Eyebrow({
   children: ReactNode;
   color?: "blue" | "pink" | "teal" | "green" | "muted";
 }) {
+  // cp=pink | vg=teal | sig=blue (never orange, never purple)
   const colorMap: Record<string, string> = {
-    blue:  "text-vl-blue",
-    pink:  "text-cp-pink",
-    teal:  "text-vg-teal",
+    blue:  "text-vl-blue",   // Signal / ViceLab — electric blue
+    pink:  "text-cp-pink",   // Cooked Pilot — neon magenta
+    teal:  "text-vg-teal",   // VibeGuard — cyan
     green: "text-vl-green",
     muted: "text-white/40",
   };
@@ -62,6 +63,7 @@ export function SectionHeader({ children }: { children: ReactNode }) {
 }
 
 // ── Card ─────────────────────────────────────────────────────────────────────
+// accent maps directly to product: pink=cp | teal=vg | blue=sig
 export function Card({
   children,
   className = "",
@@ -71,11 +73,12 @@ export function Card({
   className?: string;
   accent?: "blue" | "pink" | "teal" | "green";
 }) {
-  const accentBorder: Record<string, string> = {
-    blue:  "hover:border-vl-blue/25",
-    pink:  "hover:border-cp-pink/25",
-    teal:  "hover:border-vg-teal/25",
-    green: "hover:border-vl-green/25",
+  // Border accent + shadow glow on hover — product-scoped
+  const accentClasses: Record<string, string> = {
+    blue:  "hover:border-vl-blue/[0.30] hover:shadow-glow-sig",
+    pink:  "hover:border-cp-pink/[0.30] hover:shadow-glow-cp",
+    teal:  "hover:border-vg-teal/[0.30] hover:shadow-glow-vg",
+    green: "hover:border-vl-green/[0.25]",
   };
   return (
     <div
@@ -83,7 +86,7 @@ export function Card({
         relative rounded-card border border-white/[0.07] bg-white/[0.03]
         p-5 sm:p-6 transition-all duration-300 shadow-panel
         hover:bg-white/[0.055] hover:border-white/[0.12]
-        ${accent ? accentBorder[accent] : ""}
+        ${accent ? accentClasses[accent] : ""}
         ${className}
       `}
     >
@@ -93,6 +96,10 @@ export function Card({
 }
 
 // ── Primary Button ────────────────────────────────────────────────────────────
+// gradient prop accepts canonical product gradient class:
+//   bg-gradient-cp  → Cooked Pilot neon magenta
+//   bg-gradient-vg  → VibeGuard cyan → neon green
+//   bg-gradient-sig → Signal / ViceLab electric blue → cyan
 export function ButtonPrimary({
   href,
   children,
@@ -131,6 +138,7 @@ export function ButtonGhost({ href, children }: { href: string; children: ReactN
 }
 
 // ── Status Badge ──────────────────────────────────────────────────────────────
+// variant maps to product: pink/live=cp | teal=vg | blue=sig
 export function Badge({
   children,
   variant = "blue",
@@ -139,10 +147,10 @@ export function Badge({
   variant?: "blue" | "pink" | "teal" | "live" | "green";
 }) {
   const styles: Record<string, string> = {
-    blue:  "bg-vl-blue/[0.12]  text-vl-blue  border-vl-blue/[0.22]",
-    pink:  "bg-cp-pink/[0.12]  text-cp-pink  border-cp-pink/[0.22]",
-    teal:  "bg-vg-teal/[0.12]  text-vg-teal  border-vg-teal/[0.22]",
-    live:  "bg-cp-pink/[0.12]  text-cp-pink  border-cp-pink/[0.22]",
+    blue:  "bg-vl-blue/[0.12]  text-vl-blue  border-vl-blue/[0.22]",   // sig
+    pink:  "bg-cp-pink/[0.12]  text-cp-pink  border-cp-pink/[0.22]",   // cp
+    teal:  "bg-vg-teal/[0.12]  text-vg-teal  border-vg-teal/[0.22]",   // vg
+    live:  "bg-cp-pink/[0.12]  text-cp-pink  border-cp-pink/[0.22]",   // cp (live = cp)
     green: "bg-vl-green/[0.12] text-vl-green border-vl-green/[0.22]",
   };
   const dot = variant === "live";
@@ -160,6 +168,7 @@ export function Badge({
 }
 
 // ── Feature Card ─────────────────────────────────────────────────────────────
+// accent maps to product: pink=cp | teal=vg | blue=sig
 export function FeatureCard({
   title,
   body,
@@ -169,15 +178,15 @@ export function FeatureCard({
   body: string;
   accent?: "blue" | "pink" | "teal" | "green";
 }) {
-  const accentColor: Record<string, string> = {
-    blue:  "text-vl-blue",
-    pink:  "text-cp-pink",
-    teal:  "text-vg-teal",
+  const titleColor: Record<string, string> = {
+    blue:  "text-vl-blue",   // sig
+    pink:  "text-cp-pink",   // cp — neon magenta
+    teal:  "text-vg-teal",   // vg — cyan
     green: "text-vl-green",
   };
   return (
     <Card accent={accent}>
-      <h3 className={`text-sm font-semibold mb-2.5 ${accentColor[accent] ?? "text-vl-blue"}`}>{title}</h3>
+      <h3 className={`text-sm font-semibold mb-2.5 ${titleColor[accent] ?? "text-vl-blue"}`}>{title}</h3>
       <p className="text-white/45 text-sm leading-[1.75]">{body}</p>
     </Card>
   );

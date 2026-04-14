@@ -21,6 +21,7 @@ export default function CookedPilotPage() {
     <div className="min-h-screen">
       {/* ── Hero ─────────────────────────────────────────────────────────── */}
       <section className="relative overflow-hidden pt-32 pb-18 lg:pt-44 lg:pb-24">
+        {/* Cooked Pilot = neon magenta — never purple */}
         <div className="absolute inset-0 bg-hero-radial-pink pointer-events-none" />
         <div
           className="absolute inset-0 bg-grid-faint bg-grid opacity-[0.35] pointer-events-none"
@@ -35,7 +36,7 @@ export default function CookedPilotPage() {
                 alt="Cooked Pilot"
                 height={48}
                 width={192}
-                className="h-12 w-auto"
+                className="h-12 w-auto brightness-110 contrast-105"
                 style={{ width: "auto" }}
                 priority
               />
@@ -46,7 +47,8 @@ export default function CookedPilotPage() {
               testing resources, and friend check-in — no judgment, no friction.
             </p>
             <div className="flex flex-wrap gap-3">
-              <ButtonPrimary href="#" gradient="bg-cp-pink" className="text-white">Download on iOS</ButtonPrimary>
+              {/* CP buttons use neon magenta gradient */}
+              <ButtonPrimary href="#" gradient="bg-gradient-cp" className="text-white">Download on iOS</ButtonPrimary>
               <ButtonGhost href="#">Get on Android</ButtonGhost>
             </div>
           </div>

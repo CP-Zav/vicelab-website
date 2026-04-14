@@ -8,8 +8,8 @@ export const metadata: Metadata = {
 };
 
 const values = [
-  { title: "No judgment",         body: "We don't moralize. We give people the information they need to make their own choices." },
-  { title: "Privacy first",       body: "No accounts required. Minimal data. We don't track users or share information." },
+  { title: "No judgment",          body: "We don't moralize. We give people the information they need to make their own choices." },
+  { title: "Privacy first",        body: "No accounts required. Minimal data. We don't track users or share information." },
   { title: "Real-time or nothing", body: "Stale info is useless in a live setting. Everything we build is designed for real-time." },
   { title: "Built for the margins", body: "We build for the people mainstream safety tech ignores: festival-goers, ravers, nightlife communities." },
 ];
@@ -19,6 +19,7 @@ export default function ViceLabPage() {
     <div className="min-h-screen">
       {/* ── Hero ─────────────────────────────────────────────────────────── */}
       <section className="relative overflow-hidden pt-32 pb-18 lg:pt-44 lg:pb-24">
+        {/* ViceLab = electric blue */}
         <div className="absolute inset-0 bg-hero-radial-blue pointer-events-none" />
         <Container>
           <div className="max-w-2xl">
@@ -29,7 +30,7 @@ export default function ViceLabPage() {
                 alt="ViceLab"
                 height={52}
                 width={156}
-                className="h-13 w-auto"
+                className="h-13 w-auto brightness-110 contrast-105"
                 style={{ width: "auto" }}
                 priority
               />
@@ -68,7 +69,8 @@ export default function ViceLabPage() {
               <p className="text-white/38 text-sm">See what we&apos;re building and why.</p>
             </div>
             <div className="flex flex-wrap gap-3 shrink-0">
-              <ButtonPrimary href="/cooked-pilot" gradient="bg-cp-pink">Cooked Pilot</ButtonPrimary>
+              {/* CP button uses CP gradient — neon magenta */}
+              <ButtonPrimary href="/cooked-pilot" gradient="bg-gradient-cp">Cooked Pilot</ButtonPrimary>
               <ButtonGhost href="/vibeguard">VibeGuard</ButtonGhost>
             </div>
           </div>
