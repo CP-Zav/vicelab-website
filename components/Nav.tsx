@@ -46,9 +46,9 @@ export default function Nav() {
         >
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
-            src="/logos/vicelab.png"
-            alt="ViceLab"
-            className="h-8 w-auto block"
+            src="/logos/vicelab.svg"
+            alt="ViceLab logo"
+            className="h-8 sm:h-9 w-auto block"
           />
         </Link>
 
