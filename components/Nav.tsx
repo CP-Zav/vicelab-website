@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
@@ -44,11 +45,14 @@ export default function Nav() {
           className="shrink-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-vl-blue/60 rounded-sm"
           aria-label="ViceLab home"
         >
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
+          <Image
             src="/logos/vicelab.svg"
             alt="ViceLab logo"
+            width={232}
+            height={282}
             className="h-8 sm:h-9 w-auto block"
+            style={{ width: "auto" }}
+            priority
           />
         </Link>
 
