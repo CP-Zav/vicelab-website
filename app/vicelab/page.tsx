@@ -26,7 +26,7 @@ export default function ViceLabPage() {
             <Eyebrow color="blue">About</Eyebrow>
             <div className="mb-6">
               <Image
-                src="/logos/vicelab.png"
+                src="/logos/vicelab.svg"
                 alt="ViceLab"
                 height={52}
                 width={156}
