@@ -1,4 +1,4 @@
-import type { Job, JobStatus, ExecutionLog } from './types';
+import type { Job, ExecutionLog } from './types';
 
 // ─── In-memory store ────────────────────────────────────────────────────────────
 // Hook point: swap for Redis/Supabase/Upstash by replacing TRACKER_ADAPTER.
