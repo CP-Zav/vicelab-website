@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Container, Section, SectionHeader, Badge, FeatureCard, ButtonPrimary } from "@/components/ui";
+import { Container, Section, Eyebrow, Badge, FeatureCard, ButtonPrimary } from "@/components/ui";
 
 export const metadata: Metadata = {
   title: "ASA — Automated Safety Advisor",
@@ -20,7 +20,6 @@ export default function ASAPage() {
     <div className="min-h-screen">
       {/* ── Hero ─────────────────────────────────────────────────────────── */}
       <section className="relative overflow-hidden pt-32 pb-18 lg:pt-44 lg:pb-24">
-        {/* ASA = ViceLab electric blue */}
         <div className="absolute inset-0 bg-hero-radial-blue pointer-events-none" />
         <div
           className="absolute inset-0 bg-grid-faint bg-grid opacity-[0.35] pointer-events-none"
@@ -45,15 +44,15 @@ export default function ASAPage() {
       {/* ── Features ─────────────────────────────────────────────────────── */}
       <Section>
         <Container>
-          <SectionHeader
-            eyebrow="Capabilities"
-            title="Guidance that responds to reality"
-            subtitle="ASA gives people the right information at the right moment — without storing data, without judgment, without friction."
-            eyebrowColor="blue"
-          />
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-12">
+          <Eyebrow color="blue">Capabilities</Eyebrow>
+          <h2 className="text-display-sm mb-4 max-w-xl">Guidance that responds to reality</h2>
+          <p className="text-white/40 text-[15px] leading-relaxed mb-12 max-w-xl">
+            ASA gives people the right information at the right moment — without
+            storing data, without judgment, without friction.
+          </p>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {features.map((f) => (
-              <FeatureCard key={f.title} title={f.title} body={f.body} accentProduct="sig" />
+              <FeatureCard key={f.title} title={f.title} body={f.body} accent="blue" />
             ))}
           </div>
         </Container>
@@ -65,7 +64,7 @@ export default function ASAPage() {
           <div className="max-w-xl">
             <h2 className="text-display-sm mb-5">Interested in ASA?</h2>
             <p className="text-white/40 text-[15px] leading-relaxed mb-8">
-              ASA is in development. If you&apos;re building harm reduction infrastructure 
+              ASA is in development. If you&apos;re building harm reduction infrastructure
               or want to pilot an early version at your event, reach out.
             </p>
             <ButtonPrimary href="mailto:hello@thevicelab.com" gradient="bg-gradient-sig">
