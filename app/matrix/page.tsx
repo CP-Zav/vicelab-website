@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Container, Section, SectionHeader, Badge, FeatureCard, ButtonPrimary } from "@/components/ui";
+import { Container, Section, Eyebrow, Badge, FeatureCard, ButtonPrimary } from "@/components/ui";
 
 export const metadata: Metadata = {
   title: "Matrix — Intelligence Network",
@@ -20,7 +20,6 @@ export default function MatrixPage() {
     <div className="min-h-screen">
       {/* ── Hero ─────────────────────────────────────────────────────────── */}
       <section className="relative overflow-hidden pt-32 pb-18 lg:pt-44 lg:pb-24">
-        {/* Matrix = ViceLab electric blue */}
         <div className="absolute inset-0 bg-hero-radial-blue pointer-events-none" />
         <div
           className="absolute inset-0 bg-grid-faint bg-grid opacity-[0.35] pointer-events-none"
@@ -45,15 +44,15 @@ export default function MatrixPage() {
       {/* ── Features ─────────────────────────────────────────────────────── */}
       <Section>
         <Container>
-          <SectionHeader
-            eyebrow="How it works"
-            title="Intelligence that compounds"
-            subtitle="Every connected event makes the whole network more accurate. Matrix turns distributed data into shared safety intelligence."
-            eyebrowColor="blue"
-          />
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-12">
+          <Eyebrow color="blue">How it works</Eyebrow>
+          <h2 className="text-display-sm mb-4 max-w-xl">Intelligence that compounds</h2>
+          <p className="text-white/40 text-[15px] leading-relaxed mb-12 max-w-xl">
+            Every connected event makes the whole network more accurate. Matrix turns
+            distributed data into shared safety intelligence.
+          </p>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {features.map((f) => (
-              <FeatureCard key={f.title} title={f.title} body={f.body} accentProduct="sig" />
+              <FeatureCard key={f.title} title={f.title} body={f.body} accent="blue" />
             ))}
           </div>
         </Container>
@@ -65,7 +64,7 @@ export default function MatrixPage() {
           <div className="max-w-xl">
             <h2 className="text-display-sm mb-5">Want early access?</h2>
             <p className="text-white/40 text-[15px] leading-relaxed mb-8">
-              Matrix is currently in development. If you run events or operate a harm reduction 
+              Matrix is in development. If you run events or operate a harm reduction
               network, we&apos;d love to hear from you.
             </p>
             <ButtonPrimary href="mailto:hello@thevicelab.com" gradient="bg-gradient-sig">
