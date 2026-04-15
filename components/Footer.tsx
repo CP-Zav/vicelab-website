@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 
 const SHOP_URL = "https://vicelab-collective.bigcartel.com/";
 
@@ -25,8 +26,14 @@ export default function Footer() {
               className="inline-flex focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-vl-blue/60 rounded-sm"
               aria-label="ViceLab home"
             >
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/logos/vicelab.svg" alt="ViceLab logo" className="w-[100px] h-auto block opacity-80" />
+              <Image
+                src="/logos/vicelab.svg"
+                alt="ViceLab logo"
+                width={232}
+                height={282}
+                className="w-[100px] h-auto block opacity-80"
+                style={{ height: "auto" }}
+              />
             </Link>
             <p className="text-[13px] text-white/30 leading-relaxed max-w-[220px]">
               Festival safety intelligence.<br />
