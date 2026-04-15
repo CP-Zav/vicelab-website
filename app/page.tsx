@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Link from "next/link";
 import { Container, Section, Eyebrow, ArrowRight, Badge } from "@/components/ui";
 
@@ -106,14 +105,13 @@ export default function HomePage() {
                   <Badge variant={p.badgeVariant}>{p.badgeLabel}</Badge>
                 </div>
                 <div className="mb-4">
-                  <Image
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
                     src={p.logo}
                     alt={p.name}
-                    height={60}
-                    width={240}
+                    height={30}
                     className="h-[30px] w-auto transition-all duration-300 group-hover:brightness-125"
                     loading="lazy"
-                    style={{ width: "auto" }}
                   />
                 </div>
                 <p className="text-white/55 text-sm font-medium mb-3 leading-snug">{p.tagline}</p>
