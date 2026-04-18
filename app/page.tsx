@@ -140,18 +140,18 @@ export default function HomePage() {
                 <div className="mb-4">
                   <Badge variant={p.badgeVariant}>{p.badgeLabel}</Badge>
                 </div>
-                <div className="mb-4 h-[30px] flex items-center">
+                <div className="mb-4 h-[40px] flex items-center">
                   {p.logo ? (
                     // eslint-disable-next-line @next/next/no-img-element
                     <img
                       src={p.logo}
                       alt={p.name}
-                      height={30}
-                      className="h-[30px] w-auto transition-all duration-300 group-hover:brightness-125"
+                      height={40}
+                      className="h-[40px] w-auto transition-all duration-300 group-hover:brightness-125"
                       loading="lazy"
                     />
                   ) : (
-                    <span className={`text-[15px] font-bold tracking-wide ${p.accentColor} opacity-80 group-hover:opacity-100 transition-opacity`}>
+                    <span className={`text-xl font-bold tracking-tight ${p.accentColor} opacity-90 group-hover:opacity-100 transition-opacity`}>
                       {p.name}
                     </span>
                   )}
