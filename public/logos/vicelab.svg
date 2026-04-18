@@ -1,8 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300">
   <defs>
     <linearGradient id="vicelabGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#00ffff" />
-      <stop offset="100%" stop-color="#ff00ff" />
+      <stop offset="0%" stop-color="#0044CC"/>
+      <stop offset="100%" stop-color="#00AAFF"/>
     </linearGradient>
   </defs>
   <path d="M150 100a50 50 0 100 100 50 50 0 100-100zm18.3 46.5l3.4 3.3-3.4 3.4M128 141.6h17.6v23.2H128z" stroke="url(#vicelabGradient)" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
