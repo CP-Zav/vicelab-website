@@ -124,7 +124,7 @@ export default function HomePage() {
       {/* ── Products ─────────────────────────────────────────────────────── */}
       <Section border>
         <Container>
-          <p className="text-[11px] font-semibold tracking-[0.2em] uppercase text-white/25 mb-8">The Ecosystem</p>
+          <h2 className="text-[11px] font-semibold tracking-[0.2em] uppercase text-white/25 mb-8">The Ecosystem</h2>
           <div className="grid md:grid-cols-3 gap-4">
             {products.map((p) => (
               <Link
