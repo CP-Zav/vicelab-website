@@ -1,8 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300">
   <defs>
     <linearGradient id="vibeguardGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#00ff00" />
-      <stop offset="100%" stop-color="#00ffff" />
+      <stop offset="0%" stop-color="#00C6A3"/>
+      <stop offset="100%" stop-color="#0066FF"/>
     </linearGradient>
   </defs>
   <g stroke="url(#vibeguardGradient)" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
