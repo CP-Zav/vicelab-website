@@ -1,7 +1,20 @@
-import Link from "next/link";
+"use client";
+
+import { useEffect } from "react";
 import { Container } from "@/components/ui";
 
-export default function NotFound() {
+export default function Error({
+  error,
+  reset,
+}: {
+  error: Error & { digest?: string };
+  reset: () => void;
+}) {
+  useEffect(() => {
+    // Surface to error reporting when integrated
+    console.error(error);
+  }, [error]);
+
   return (
     <div className="min-h-screen flex items-center">
       <section className="relative w-full overflow-hidden py-32 lg:py-44">
@@ -13,20 +26,20 @@ export default function NotFound() {
         <Container>
           <div className="max-w-lg">
             <p className="text-[13px] font-mono text-vl-blue/70 tracking-widest uppercase mb-6">
-              404
+              Error
             </p>
             <h1 className="text-display-md text-balance mb-5">
-              Nothing here.
+              Something went wrong.
             </h1>
             <p className="text-[17px] text-white/45 leading-relaxed mb-9">
-              That page doesn&apos;t exist — or it moved. Either way, you&apos;re in the clear.
+              An unexpected error occurred. Refreshing usually fixes it.
             </p>
-            <Link
-              href="/"
+            <button
+              onClick={reset}
               className="inline-flex items-center gap-2 text-[15px] font-semibold text-vl-blue hover:text-white transition-colors"
             >
-              ← Back to ViceLab
-            </Link>
+              ↺ Try again
+            </button>
           </div>
         </Container>
       </section>
