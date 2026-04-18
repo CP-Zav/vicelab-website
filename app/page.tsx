@@ -13,6 +13,7 @@ const products = [
     badgeVariant: "live" as const,
     badgeLabel: "Live",
     hoverBorder: "hover:border-cp-pink/25",
+    accentColor: "text-cp-pink",
   },
   {
     name: "VibeGuard",
@@ -23,6 +24,7 @@ const products = [
     badgeVariant: "teal" as const,
     badgeLabel: "Coming Soon",
     hoverBorder: "hover:border-vg-teal/25",
+    accentColor: "text-vg-teal",
   },
   {
     name: "ViceLab",
@@ -33,6 +35,40 @@ const products = [
     badgeVariant: "blue" as const,
     badgeLabel: "Research",
     hoverBorder: "hover:border-vl-blue/25",
+    accentColor: "text-vl-blue",
+  },
+  {
+    name: "Matrix",
+    logo: null,
+    href: "/matrix",
+    tagline: "Substance interaction engine for harm reduction practitioners.",
+    description: "Pharmacological interaction data, risk-stratified by combination type. Built for people who need accurate information fast.",
+    badgeVariant: "blue" as const,
+    badgeLabel: "In Development",
+    hoverBorder: "hover:border-vl-blue/25",
+    accentColor: "text-vl-blue",
+  },
+  {
+    name: "ASA",
+    logo: null,
+    href: "/asa",
+    tagline: "Altered State Archives — lived experience meets harm reduction science.",
+    description: "A curated knowledge layer of substance experience data, cross-referenced with pharmacological research and harm reduction practice.",
+    badgeVariant: "blue" as const,
+    badgeLabel: "In Development",
+    hoverBorder: "hover:border-vl-blue/25",
+    accentColor: "text-vl-blue",
+  },
+  {
+    name: "SIV",
+    logo: null,
+    href: "/siv",
+    tagline: "Safety intelligence infrastructure for high-risk environments.",
+    description: "Unified safety data layer connecting field intelligence, pharmacological risk, and operational response protocols.",
+    badgeVariant: "teal" as const,
+    badgeLabel: "Coming Soon",
+    hoverBorder: "hover:border-vg-teal/25",
+    accentColor: "text-vg-teal",
   },
 ];
 
@@ -104,15 +140,21 @@ export default function HomePage() {
                 <div className="mb-4">
                   <Badge variant={p.badgeVariant}>{p.badgeLabel}</Badge>
                 </div>
-                <div className="mb-4">
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img
-                    src={p.logo}
-                    alt={p.name}
-                    height={30}
-                    className="h-[30px] w-auto transition-all duration-300 group-hover:brightness-125"
-                    loading="lazy"
-                  />
+                <div className="mb-4 h-[30px] flex items-center">
+                  {p.logo ? (
+                    // eslint-disable-next-line @next/next/no-img-element
+                    <img
+                      src={p.logo}
+                      alt={p.name}
+                      height={30}
+                      className="h-[30px] w-auto transition-all duration-300 group-hover:brightness-125"
+                      loading="lazy"
+                    />
+                  ) : (
+                    <span className={`text-[15px] font-bold tracking-wide ${p.accentColor} opacity-80 group-hover:opacity-100 transition-opacity`}>
+                      {p.name}
+                    </span>
+                  )}
                 </div>
                 <p className="text-white/55 text-sm font-medium mb-3 leading-snug">{p.tagline}</p>
                 <p className="text-white/30 text-sm leading-[1.72]">{p.description}</p>
