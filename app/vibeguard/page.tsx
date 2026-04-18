@@ -36,7 +36,7 @@ export default function VibeGuardPage() {
                 alt="VibeGuard logo"
                 height={229}
                 width={516}
-                className="h-12 w-auto brightness-110 contrast-105"
+                className="h-16 w-auto brightness-110 contrast-105"
                 style={{ width: "auto" }}
                 priority
               />
