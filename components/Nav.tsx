@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import Image from "next/image";
+import Image from "image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
@@ -9,7 +9,7 @@ const links = [
   { href: "/vicelab",      label: "About" },
   { href: "/cooked-pilot", label: "Cooked Pilot" },
   { href: "/vibeguard",    label: "VibeGuard" },
-  { href: "/signal",       label: "Signal" },
+  { href: "/siv",          label: "SIV" },
   { href: "/matrix",       label: "Matrix" },
   { href: "/asa",          label: "ASA" },
 ];
