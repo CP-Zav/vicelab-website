@@ -36,7 +36,7 @@ export default function CookedPilotPage() {
                 alt="Cooked Pilot logo"
                 height={273}
                 width={361}
-                className="h-12 w-auto brightness-110 contrast-105"
+                className="h-16 w-auto brightness-110 contrast-105"
                 style={{ width: "auto" }}
                 priority
               />
