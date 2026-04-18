@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import Image from "image";
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
@@ -50,7 +50,7 @@ export default function Nav() {
             alt="ViceLab logo"
             width={232}
             height={282}
-            className="h-10 sm:h-11 w-auto block"
+            className="h-8 sm:h-9 w-auto block"
             style={{ width: "auto" }}
             priority
           />
