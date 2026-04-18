@@ -6,7 +6,7 @@ const SHOP_URL = "https://vicelab-collective.bigcartel.com/";
 const productLinks = [
   { href: "/cooked-pilot", label: "Cooked Pilot" },
   { href: "/vibeguard",    label: "VibeGuard" },
-  { href: "/signal",       label: "Signal" },
+  { href: "/siv",          label: "SIV" },
   { href: "/matrix",       label: "Matrix" },
   { href: "/asa",          label: "ASA" },
   { href: "/vicelab",      label: "About" },
@@ -31,7 +31,7 @@ export default function Footer() {
                 alt="ViceLab logo"
                 width={232}
                 height={282}
-                className="w-[100px] h-auto block opacity-80"
+                className="w-[120px] h-auto block opacity-80"
                 style={{ height: "auto" }}
               />
             </Link>
