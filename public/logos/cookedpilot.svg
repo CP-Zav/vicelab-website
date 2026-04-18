@@ -1,8 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300">
   <defs>
     <linearGradient id="cookedPilotGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#00ffff" />
-      <stop offset="100%" stop-color="#ff00ff" />
+      <stop offset="0%" stop-color="#FF0099"/>
+      <stop offset="100%" stop-color="#CC00FF"/>
     </linearGradient>
   </defs>
   <path d="M110.8 152.2c0-1.2 11.2-13.8 28.1-13.8 17.6 0 31.9 14.6 31.9 31.6s-14.3 31.6-31.9 31.6c-11.3 0-21.2-6.2-26.6-15.6m-12.8-59.4C102 121.2 100 128.9 100 137c0 22.1 17.9 40 40 40 22.1 0 40-17.9 40-40s-17.9-40-40-40c-20 0-36.5 14.6-39.6 33.7M200 118a14 14 0 110-28 14 14 0 010 28zm11 26l24 16m-41.1-34.9L220 144m15.1 10.1l-24.3-16.2m-10.8-7.2l-23 23c-1.2 1.2-1.2 3.1 0 4.2l23 23c1.2 1.2 3.1 1.2 4.2 0l23-23c1.2-1.2 1.2-3.1 0-4.2l-23-23c-1.2-1.2-3.1-1.2-4.2 0z" stroke="url(#cookedPilotGradient)" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
