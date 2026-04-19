@@ -1,14 +1,14 @@
 export const LOGOS = {
-  signal: {
-    icon: "/logos/signal-icon.svg",
-    wordmark: "/logos/signal-wordmark.svg",
+  siv: {
+    icon:     "/logos/siv-icon.svg",
+    wordmark: "/logos/siv-wordmark.svg",
   },
   matrix: {
-    icon: "/logos/matrix-icon.svg",
+    icon:     "/logos/matrix-icon.svg",
     wordmark: "/logos/matrix-wordmark.svg",
   },
   asa: {
-    icon: "/logos/asa-icon.svg",
+    icon:     "/logos/asa-icon.svg",
     wordmark: "/logos/asa-wordmark.svg",
   },
 } as const;
