@@ -1,45 +1,70 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- matrix-wordmark.svg | ViceLab ecosystem | Convert text to outlines before final deployment -->
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 72" fill="none">
-  <rect width="320" height="72" fill="#0A0A0F"/>
-  <defs>
-    <filter id="glow" x="-20%" y="-40%" width="140%" height="180%">
-      <feGaussianBlur in="SourceGraphic" stdDeviation="1.5" result="blur"/>
-      <feMerge>
-        <feMergeNode in="blur"/>
-        <feMergeNode in="SourceGraphic"/>
-      </feMerge>
-    </filter>
-  </defs>
-
-  <!-- MATRIX wordmark -->
-  <text
-    x="32" y="48"
-    font-family="'Inter','Helvetica Neue',Arial,sans-serif"
-    font-size="34" font-weight="300"
-    letter-spacing="8"
-    fill="#00FF94"
-    textLength="220" lengthAdjust="spacing"
-    filter="url(#glow)">MATRIX</text>
-
-  <!-- Grid dot row beneath text (logic/structure accent) -->
-  <circle cx="32"  cy="60" r="1.5" fill="#00FF94" fill-opacity="0.55"/>
-  <circle cx="54"  cy="60" r="1.5" fill="#00FF94" fill-opacity="0.4"/>
-  <circle cx="76"  cy="60" r="1.5" fill="#00FF94" fill-opacity="0.55"/>
-  <circle cx="98"  cy="60" r="1.5" fill="#00FF94" fill-opacity="0.4"/>
-  <circle cx="120" cy="60" r="1.5" fill="#00FF94" fill-opacity="0.55"/>
-  <circle cx="142" cy="60" r="2"   fill="#00FF94" filter="url(#glow)"/>
-  <circle cx="164" cy="60" r="1.5" fill="#00FF94" fill-opacity="0.55"/>
-  <circle cx="186" cy="60" r="1.5" fill="#00FF94" fill-opacity="0.4"/>
-  <circle cx="208" cy="60" r="1.5" fill="#00FF94" fill-opacity="0.55"/>
-  <circle cx="230" cy="60" r="1.5" fill="#00FF94" fill-opacity="0.4"/>
-  <circle cx="252" cy="60" r="1.5" fill="#00FF94" fill-opacity="0.55"/>
-
-  <!-- Connecting line through dots (grid row) -->
-  <line x1="32" y1="60" x2="252" y2="60" stroke="#00FF94" stroke-width="0.5" stroke-opacity="0.15"/>
-
-  <!-- Left structural tick mark -->
-  <line x1="32" y1="12" x2="32" y2="20" stroke="#00FF94" stroke-width="1" stroke-opacity="0.35"/>
-  <!-- Right structural tick mark -->
-  <line x1="252" y1="12" x2="252" y2="20" stroke="#00FF94" stroke-width="1" stroke-opacity="0.35"/>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="320" height="72" viewBox="0 0 320 72">
+<defs>
+<g>
+<g id="glyph-0-0">
+<path d="M 3.34375 -24.78125 L 8.328125 -24.78125 L 14.65625 -7.921875 L 21.015625 -24.78125 L 26.015625 -24.78125 L 26.015625 0 L 22.75 0 L 22.75 -21.765625 L 16.359375 -4.765625 L 12.984375 -4.765625 L 6.59375 -21.765625 L 6.59375 0 L 3.34375 0 Z M 3.34375 -24.78125 "/>
+</g>
+<g id="glyph-0-1">
+<path d="M 11.625 -21.484375 L 7.078125 -9.140625 L 16.1875 -9.140625 Z M 9.734375 -24.78125 L 13.53125 -24.78125 L 22.984375 0 L 19.484375 0 L 17.234375 -6.359375 L 6.0625 -6.359375 L 3.796875 0 L 0.265625 0 Z M 9.734375 -24.78125 "/>
+</g>
+<g id="glyph-0-2">
+<path d="M -0.09375 -24.78125 L 20.875 -24.78125 L 20.875 -21.96875 L 12.0625 -21.96875 L 12.0625 0 L 8.703125 0 L 8.703125 -21.96875 L -0.09375 -21.96875 Z M -0.09375 -24.78125 "/>
+</g>
+<g id="glyph-0-3">
+<path d="M 15.09375 -11.625 C 15.8125 -11.375 16.507812 -10.847656 17.1875 -10.046875 C 17.875 -9.253906 18.554688 -8.164062 19.234375 -6.78125 L 22.640625 0 L 19.046875 0 L 15.875 -6.359375 C 15.050781 -8.015625 14.253906 -9.113281 13.484375 -9.65625 C 12.710938 -10.195312 11.664062 -10.46875 10.34375 -10.46875 L 6.6875 -10.46875 L 6.6875 0 L 3.34375 0 L 3.34375 -24.78125 L 10.90625 -24.78125 C 13.738281 -24.78125 15.851562 -24.1875 17.25 -23 C 18.644531 -21.820312 19.34375 -20.035156 19.34375 -17.640625 C 19.34375 -16.085938 18.976562 -14.796875 18.25 -13.765625 C 17.53125 -12.734375 16.476562 -12.019531 15.09375 -11.625 Z M 6.6875 -22.03125 L 6.6875 -13.234375 L 10.90625 -13.234375 C 12.519531 -13.234375 13.738281 -13.601562 14.5625 -14.34375 C 15.394531 -15.09375 15.8125 -16.191406 15.8125 -17.640625 C 15.8125 -19.097656 15.394531 -20.191406 14.5625 -20.921875 C 13.738281 -21.660156 12.519531 -22.03125 10.90625 -22.03125 Z M 6.6875 -22.03125 "/>
+</g>
+<g id="glyph-0-4">
+<path d="M 3.34375 -24.78125 L 6.6875 -24.78125 L 6.6875 0 L 3.34375 0 Z M 3.34375 -24.78125 "/>
+</g>
+<g id="glyph-0-5">
+<path d="M 2.140625 -24.78125 L 5.75 -24.78125 L 11.90625 -15.578125 L 18.09375 -24.78125 L 21.703125 -24.78125 L 13.734375 -12.890625 L 22.234375 0 L 18.625 0 L 11.65625 -10.546875 L 4.625 0 L 1.015625 0 L 9.859375 -13.234375 Z M 2.140625 -24.78125 "/>
+</g>
+</g>
+<clipPath id="clip-0">
+<rect x="0" y="0" width="320" height="72"/>
+</clipPath>
+<g id="source-37" clip-path="url(#clip-0)">
+<g fill="rgb(0%, 100%, 58.039216%)" fill-opacity="1">
+<use xlink:href="#glyph-0-0" x="32" y="48"/>
+</g>
+<g fill="rgb(0%, 100%, 58.039216%)" fill-opacity="1">
+<use xlink:href="#glyph-0-1" x="69.335938" y="48"/>
+</g>
+<g fill="rgb(0%, 100%, 58.039216%)" fill-opacity="1">
+<use xlink:href="#glyph-0-2" x="100.59375" y="48"/>
+</g>
+<g fill="rgb(0%, 100%, 58.039216%)" fill-opacity="1">
+<use xlink:href="#glyph-0-3" x="129.363281" y="48"/>
+</g>
+<g fill="rgb(0%, 100%, 58.039216%)" fill-opacity="1">
+<use xlink:href="#glyph-0-4" x="160.984375" y="48"/>
+</g>
+<g fill="rgb(0%, 100%, 58.039216%)" fill-opacity="1">
+<use xlink:href="#glyph-0-5" x="179.015625" y="48"/>
+</g>
+</g>
+<clipPath id="clip-1">
+<rect x="0" y="0" width="320" height="72"/>
+</clipPath>
+<g id="source-40" clip-path="url(#clip-1)">
+<path fill-rule="nonzero" fill="rgb(0%, 100%, 58.039216%)" fill-opacity="1" d="M 144 60 C 144 62.667969 140 62.667969 140 60 C 140 57.332031 144 57.332031 144 60 Z M 144 60 "/>
+</g>
+</defs>
+<rect x="-32" y="-7.2" width="384" height="86.4" fill="rgb(3.921569%, 3.921569%, 5.882353%)" fill-opacity="1"/>
+<use xlink:href="#source-37"/>
+<path fill-rule="nonzero" fill="rgb(0%, 100%, 58.039216%)" fill-opacity="0.55" d="M 33.5 60 C 33.5 62 30.5 62 30.5 60 C 30.5 58 33.5 58 33.5 60 Z M 33.5 60 "/>
+<path fill-rule="nonzero" fill="rgb(0%, 100%, 58.039216%)" fill-opacity="0.4" d="M 55.5 60 C 55.5 62 52.5 62 52.5 60 C 52.5 58 55.5 58 55.5 60 Z M 55.5 60 "/>
+<path fill-rule="nonzero" fill="rgb(0%, 100%, 58.039216%)" fill-opacity="0.55" d="M 77.5 60 C 77.5 62 74.5 62 74.5 60 C 74.5 58 77.5 58 77.5 60 Z M 77.5 60 "/>
+<path fill-rule="nonzero" fill="rgb(0%, 100%, 58.039216%)" fill-opacity="0.4" d="M 99.5 60 C 99.5 62 96.5 62 96.5 60 C 96.5 58 99.5 58 99.5 60 Z M 99.5 60 "/>
+<path fill-rule="nonzero" fill="rgb(0%, 100%, 58.039216%)" fill-opacity="0.55" d="M 121.5 60 C 121.5 62 118.5 62 118.5 60 C 118.5 58 121.5 58 121.5 60 Z M 121.5 60 "/>
+<use xlink:href="#source-40"/>
+<path fill-rule="nonzero" fill="rgb(0%, 100%, 58.039216%)" fill-opacity="0.55" d="M 165.5 60 C 165.5 62 162.5 62 162.5 60 C 162.5 58 165.5 58 165.5 60 Z M 165.5 60 "/>
+<path fill-rule="nonzero" fill="rgb(0%, 100%, 58.039216%)" fill-opacity="0.4" d="M 187.5 60 C 187.5 62 184.5 62 184.5 60 C 184.5 58 187.5 58 187.5 60 Z M 187.5 60 "/>
+<path fill-rule="nonzero" fill="rgb(0%, 100%, 58.039216%)" fill-opacity="0.55" d="M 209.5 60 C 209.5 62 206.5 62 206.5 60 C 206.5 58 209.5 58 209.5 60 Z M 209.5 60 "/>
+<path fill-rule="nonzero" fill="rgb(0%, 100%, 58.039216%)" fill-opacity="0.4" d="M 231.5 60 C 231.5 62 228.5 62 228.5 60 C 228.5 58 231.5 58 231.5 60 Z M 231.5 60 "/>
+<path fill-rule="nonzero" fill="rgb(0%, 100%, 58.039216%)" fill-opacity="0.55" d="M 253.5 60 C 253.5 62 250.5 62 250.5 60 C 250.5 58 253.5 58 253.5 60 Z M 253.5 60 "/>
+<path fill="none" stroke-width="0.5" stroke-linecap="butt" stroke-linejoin="miter" stroke="rgb(0%, 100%, 58.039216%)" stroke-opacity="0.15" stroke-miterlimit="4" d="M 32 60 L 252 60 "/>
+<path fill="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke="rgb(0%, 100%, 58.039216%)" stroke-opacity="0.35" stroke-miterlimit="4" d="M 32 12 L 32 20 "/>
+<path fill="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke="rgb(0%, 100%, 58.039216%)" stroke-opacity="0.35" stroke-miterlimit="4" d="M 252 12 L 252 20 "/>
 </svg>
