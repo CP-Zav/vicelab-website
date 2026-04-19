@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="320" height="72" viewBox="0 0 320 72">
+<defs>
+<g>
+<g id="glyph-0-0">
+<path d="M 18.203125 -23.96875 L 18.203125 -20.703125 C 16.921875 -21.304688 15.71875 -21.757812 14.59375 -22.0625 C 13.46875 -22.363281 12.378906 -22.515625 11.328125 -22.515625 C 9.492188 -22.515625 8.082031 -22.160156 7.09375 -21.453125 C 6.101562 -20.742188 5.609375 -19.734375 5.609375 -18.421875 C 5.609375 -17.328125 5.9375 -16.5 6.59375 -15.9375 C 7.257812 -15.382812 8.507812 -14.9375 10.34375 -14.59375 L 12.375 -14.171875 C 14.875 -13.703125 16.71875 -12.863281 17.90625 -11.65625 C 19.09375 -10.457031 19.6875 -8.851562 19.6875 -6.84375 C 19.6875 -4.4375 18.878906 -2.613281 17.265625 -1.375 C 15.660156 -0.132812 13.300781 0.484375 10.1875 0.484375 C 9.019531 0.484375 7.773438 0.347656 6.453125 0.078125 C 5.128906 -0.179688 3.757812 -0.570312 2.34375 -1.09375 L 2.34375 -4.546875 C 3.707031 -3.785156 5.039062 -3.207031 6.34375 -2.8125 C 7.644531 -2.425781 8.925781 -2.234375 10.1875 -2.234375 C 12.101562 -2.234375 13.582031 -2.609375 14.625 -3.359375 C 15.664062 -4.117188 16.1875 -5.195312 16.1875 -6.59375 C 16.1875 -7.8125 15.8125 -8.757812 15.0625 -9.4375 C 14.320312 -10.125 13.097656 -10.640625 11.390625 -10.984375 L 9.34375 -11.390625 C 6.84375 -11.890625 5.03125 -12.671875 3.90625 -13.734375 C 2.789062 -14.796875 2.234375 -16.269531 2.234375 -18.15625 C 2.234375 -20.351562 3.003906 -22.082031 4.546875 -23.34375 C 6.097656 -24.601562 8.226562 -25.234375 10.9375 -25.234375 C 12.101562 -25.234375 13.285156 -25.128906 14.484375 -24.921875 C 15.691406 -24.710938 16.929688 -24.394531 18.203125 -23.96875 Z M 18.203125 -23.96875 "/>
+</g>
+<g id="glyph-0-1">
+<path d="M 3.34375 -24.78125 L 6.6875 -24.78125 L 6.6875 0 L 3.34375 0 Z M 3.34375 -24.78125 "/>
+</g>
+<g id="glyph-0-2">
+<path d="M 9.734375 0 L 0.265625 -24.78125 L 3.765625 -24.78125 L 11.625 -3.921875 L 19.484375 -24.78125 L 22.984375 -24.78125 L 13.53125 0 Z M 9.734375 0 "/>
+</g>
+</g>
+<clipPath id="clip-0">
+<rect x="0" y="0" width="320" height="72"/>
+</clipPath>
+<g id="source-5" clip-path="url(#clip-0)">
+<path fill-rule="nonzero" fill="rgb(0%, 89.803922%, 100%)" fill-opacity="1" d="M 14.5 36 C 14.5 39.332031 9.5 39.332031 9.5 36 C 9.5 32.667969 14.5 32.667969 14.5 36 Z M 14.5 36 "/>
+</g>
+<clipPath id="clip-1">
+<rect x="0" y="0" width="320" height="72"/>
+</clipPath>
+<g id="source-8" clip-path="url(#clip-1)">
+<g fill="rgb(0%, 89.803922%, 100%)" fill-opacity="1">
+<use xlink:href="#glyph-0-0" x="32" y="48"/>
+</g>
+<g fill="rgb(0%, 89.803922%, 100%)" fill-opacity="1">
+<use xlink:href="#glyph-0-1" x="71.582031" y="48"/>
+</g>
+<g fill="rgb(0%, 89.803922%, 100%)" fill-opacity="1">
+<use xlink:href="#glyph-0-2" x="99.609375" y="48"/>
+</g>
+</g>
+<clipPath id="clip-2">
+<rect x="0" y="0" width="320" height="72"/>
+</clipPath>
+<g id="source-11" clip-path="url(#clip-2)">
+<path fill-rule="nonzero" fill="rgb(0%, 89.803922%, 100%)" fill-opacity="0.35" d="M 194.5 36 C 194.5 39.332031 189.5 39.332031 189.5 36 C 189.5 32.667969 194.5 32.667969 194.5 36 Z M 194.5 36 "/>
+</g>
+</defs>
+<rect x="-32" y="-7.2" width="384" height="86.4" fill="rgb(3.921569%, 3.921569%, 5.882353%)" fill-opacity="1"/>
+<use xlink:href="#source-5"/>
+<path fill="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke="rgb(0%, 89.803922%, 100%)" stroke-opacity="0.4" stroke-miterlimit="4" d="M 18 36 L 26 36 "/>
+<use xlink:href="#source-8"/>
+<path fill="none" stroke-width="0.75" stroke-linecap="butt" stroke-linejoin="miter" stroke="rgb(0%, 89.803922%, 100%)" stroke-opacity="0.28" stroke-miterlimit="4" d="M 32 58 L 90 58 "/>
+<path fill="none" stroke-width="0.75" stroke-linecap="square" stroke-linejoin="miter" stroke="rgb(0%, 89.803922%, 100%)" stroke-opacity="1" stroke-miterlimit="4" d="M 90 58 L 94 58 L 97 53 L 100 63 L 103 58 L 107 58 "/>
+<path fill="none" stroke-width="0.75" stroke-linecap="butt" stroke-linejoin="miter" stroke="rgb(0%, 89.803922%, 100%)" stroke-opacity="0.28" stroke-miterlimit="4" d="M 107 58 L 172 58 "/>
+<path fill="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke="rgb(0%, 89.803922%, 100%)" stroke-opacity="0.4" stroke-miterlimit="4" d="M 178 36 L 186 36 "/>
+<use xlink:href="#source-11"/>
+</svg>
