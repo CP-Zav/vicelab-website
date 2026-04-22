@@ -1,0 +1,21 @@
+{
+  "product": "Cooked Pilot",
+  "full_name": "Cooked Pilot",
+  "version": "v1",
+  "locked": true,
+  "identity": "Magenta / Neon Pink",
+  "palette": {
+    "primary": {"hex": "#FF0099", "label": "magenta-primary"},
+    "accent":  {"hex": "#FF33AA", "label": "magenta-light"},
+    "gradient": {
+      "start": {"hex": "#FF0099"},
+      "end":   {"hex": "#CC00FF", "label": "violet-neon"},
+      "css": "linear-gradient(90deg, #FF0099 0%, #CC00FF 100%)",
+      "svg_id": "cookedPilotGradient",
+      "svg_xml": "<linearGradient id=\"cookedPilotGradient\" x1=\"0%\" y1=\"0%\" x2=\"100%\" y2=\"0%\"><stop offset=\"0%\" stop-color=\"#FF0099\"/><stop offset=\"100%\" stop-color=\"#CC00FF\"/></linearGradient>"
+    },
+    "backgrounds": {"page": {"hex": "#0A0A0A"}, "surface": {"hex": "#1A0A1A"}},
+    "text": {"on_primary": {"hex": "#FFFFFF"}, "on_dark": {"hex": "#F9FAFB"}, "muted": {"hex": "#6B7280"}},
+    "status": {"ok": {"hex": "#22C55E"}, "warn": {"hex": "#F59E0B"}, "crit": {"hex": "#EF4444"}}
+  }
+}
