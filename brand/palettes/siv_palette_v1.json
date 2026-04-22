@@ -1,0 +1,21 @@
+{
+  "product": "SIV",
+  "full_name": "Signal Intelligence Viewer",
+  "version": "v1",
+  "locked": true,
+  "identity": "Amber / Signal Gold",
+  "palette": {
+    "primary": {"hex": "#F59E0B", "label": "amber-500"},
+    "accent":  {"hex": "#FBBF24", "label": "amber-400"},
+    "gradient": {
+      "start": {"hex": "#F59E0B"},
+      "end":   {"hex": "#F97316", "label": "orange-500"},
+      "css": "linear-gradient(90deg, #F59E0B 0%, #F97316 100%)",
+      "svg_id": "sivGradient",
+      "svg_xml": "<linearGradient id=\"sivGradient\" x1=\"0%\" y1=\"0%\" x2=\"100%\" y2=\"0%\"><stop offset=\"0%\" stop-color=\"#F59E0B\"/><stop offset=\"100%\" stop-color=\"#F97316\"/></linearGradient>"
+    },
+    "backgrounds": {"page": {"hex": "#0A0A0A"}, "surface": {"hex": "#1A1200"}},
+    "text": {"on_primary": {"hex": "#0A0A0A"}, "on_dark": {"hex": "#F9FAFB"}, "muted": {"hex": "#6B7280"}},
+    "status": {"ok": {"hex": "#22C55E"}, "warn": {"hex": "#F59E0B"}, "crit": {"hex": "#EF4444"}}
+  }
+}
