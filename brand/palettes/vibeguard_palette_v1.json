@@ -1,0 +1,21 @@
+{
+  "product": "VibeGuard",
+  "full_name": "VibeGuard",
+  "version": "v1",
+  "locked": true,
+  "identity": "Blue-Green / Compliance Teal",
+  "palette": {
+    "primary": {"hex": "#00C6A3", "label": "teal-primary"},
+    "accent":  {"hex": "#34D9BC", "label": "teal-light"},
+    "gradient": {
+      "start": {"hex": "#00C6A3"},
+      "end":   {"hex": "#0066FF", "label": "blue-600"},
+      "css": "linear-gradient(90deg, #00C6A3 0%, #0066FF 100%)",
+      "svg_id": "vibeguardGradient",
+      "svg_xml": "<linearGradient id=\"vibeguardGradient\" x1=\"0%\" y1=\"0%\" x2=\"100%\" y2=\"0%\"><stop offset=\"0%\" stop-color=\"#00C6A3\"/><stop offset=\"100%\" stop-color=\"#0066FF\"/></linearGradient>"
+    },
+    "backgrounds": {"page": {"hex": "#0A0A0A"}, "surface": {"hex": "#0D1F1A"}},
+    "text": {"on_primary": {"hex": "#0A0A0A"}, "on_dark": {"hex": "#F9FAFB"}, "muted": {"hex": "#6B7280"}},
+    "status": {"ok": {"hex": "#22C55E"}, "warn": {"hex": "#F59E0B"}, "crit": {"hex": "#EF4444"}}
+  }
+}
