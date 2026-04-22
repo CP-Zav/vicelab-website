@@ -1,0 +1,21 @@
+{
+  "product": "Matrix",
+  "full_name": "Matrix Interaction Engine",
+  "version": "v1",
+  "locked": true,
+  "identity": "Crimson / Risk Red",
+  "palette": {
+    "primary": {"hex": "#EF4444", "label": "red-500"},
+    "accent":  {"hex": "#F87171", "label": "red-400"},
+    "gradient": {
+      "start": {"hex": "#DC2626"},
+      "end":   {"hex": "#EF4444", "label": "red-500"},
+      "css": "linear-gradient(90deg, #DC2626 0%, #EF4444 100%)",
+      "svg_id": "matrixGradient",
+      "svg_xml": "<linearGradient id=\"matrixGradient\" x1=\"0%\" y1=\"0%\" x2=\"100%\" y2=\"0%\"><stop offset=\"0%\" stop-color=\"#DC2626\"/><stop offset=\"100%\" stop-color=\"#EF4444\"/></linearGradient>"
+    },
+    "backgrounds": {"page": {"hex": "#0A0A0A"}, "surface": {"hex": "#1A0808"}},
+    "text": {"on_primary": {"hex": "#FFFFFF"}, "on_dark": {"hex": "#F9FAFB"}, "muted": {"hex": "#6B7280"}},
+    "status": {"ok": {"hex": "#22C55E"}, "warn": {"hex": "#F59E0B"}, "crit": {"hex": "#EF4444"}}
+  }
+}
