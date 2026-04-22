@@ -1,0 +1,54 @@
+/* ViceLab Ecosystem — Brand CSS Variables v1 */
+/* Generated: 2026-04-23 | Status: LOCKED */
+
+:root {
+  /* ── Shared ── */
+  --color-bg:         #0A0A0A;
+  --color-text:       #F9FAFB;
+  --color-muted:      #6B7280;
+  --color-border:     #1F2937;
+  --color-status-ok:  #22C55E;
+  --color-status-warn:#F59E0B;
+  --color-status-crit:#EF4444;
+
+  /* ── SIV ── */
+  --siv-primary:        #F59E0B;
+  --siv-accent:         #FBBF24;
+  --siv-gradient-start: #F59E0B;
+  --siv-gradient-end:   #F97316;
+  --siv-surface:        #1A1200;
+  --siv-gradient:       linear-gradient(90deg, #F59E0B 0%, #F97316 100%);
+
+  /* ── ASA ── */
+  --asa-primary:        #8B5CF6;
+  --asa-accent:         #A78BFA;
+  --asa-gradient-start: #7C3AED;
+  --asa-gradient-end:   #8B5CF6;
+  --asa-surface:        #0F0A1A;
+  --asa-gradient:       linear-gradient(90deg, #7C3AED 0%, #8B5CF6 100%);
+
+  /* ── Matrix ── */
+  --matrix-primary:        #EF4444;
+  --matrix-accent:         #F87171;
+  --matrix-gradient-start: #DC2626;
+  --matrix-gradient-end:   #EF4444;
+  --matrix-surface:        #1A0808;
+  --matrix-gradient:       linear-gradient(90deg, #DC2626 0%, #EF4444 100%);
+
+  /* ── VibeGuard ── */
+  --vibeguard-primary:        #00C6A3;
+  --vibeguard-accent:         #34D9BC;
+  --vibeguard-gradient-start: #00C6A3;
+  --vibeguard-gradient-end:   #0066FF;
+  --vibeguard-surface:        #0D1F1A;
+  --vibeguard-gradient:       linear-gradient(90deg, #00C6A3 0%, #0066FF 100%);
+
+  /* ── Cooked Pilot ── */
+  --cookedpilot-primary:        #FF0099;
+  --cookedpilot-accent:         #FF33AA;
+  --cookedpilot-gradient-start: #FF0099;
+  --cookedpilot-gradient-end:   #CC00FF;
+  --cookedpilot-surface:        #1A0A1A;
+  --cookedpilot-gradient:       linear-gradient(90deg, #FF0099 0%, #CC00FF 100%);
+
+}
