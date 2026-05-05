@@ -1,0 +1,159 @@
+/**
+ * ViceLab Design Tokens — v1.0
+ * Brand Identity Agent | 2026-05-05
+ * Source of truth for all UI implementations.
+ * Import this file or reference via Tailwind config / CSS custom properties.
+ */
+
+:root {
+  /* ─────────────────────────────────────────
+   * PRODUCT COLOURS
+   * ───────────────────────────────────────── */
+  --vicelab-primary:       #0044CC;
+  --vicelab-secondary:     #00AAFF;
+  --vicelab-rgb:           0, 68, 204;
+
+  --cookedpilot-primary:   #FF0099;
+  --cookedpilot-secondary: #CC00FF;
+  --cookedpilot-rgb:       255, 0, 153;
+
+  --vibeguard-primary:     #00C6A3;
+  --vibeguard-secondary:   #0066FF;
+  --vibeguard-rgb:         0, 198, 163;
+
+  --siv-primary:           #F59E0B;
+  --siv-secondary:         #F97316;
+  --siv-rgb:               245, 158, 11;
+
+  --asa-primary:           #7C3AED;
+  --asa-secondary:         #8B5CF6;
+  --asa-rgb:               124, 58, 237;
+
+  --matrix-primary:        #DC2626;
+  --matrix-secondary:      #EF4444;
+  --matrix-rgb:            220, 38, 38;
+
+  /* ─────────────────────────────────────────
+   * NEUTRAL SYSTEM
+   * ───────────────────────────────────────── */
+  --color-bg-base:         #0A0A0A;
+  --color-bg-surface:      #111111;
+  --color-bg-elevated:     #1A1A1A;
+  --color-border:          #222222;
+  --color-border-subtle:   #1A1A1A;
+  --color-text-primary:    #FFFFFF;
+  --color-text-secondary:  #A0A0A0;
+  --color-text-muted:      #505050;
+
+  /* ─────────────────────────────────────────
+   * SEMANTIC
+   * ───────────────────────────────────────── */
+  --color-success:         #22C55E;
+  --color-warning:         #F59E0B;
+  --color-error:           #EF4444;
+  --color-info:            #3B82F6;
+
+  /* ─────────────────────────────────────────
+   * TYPOGRAPHY
+   * ───────────────────────────────────────── */
+  --font-display:   'Space Grotesk', 'Inter', system-ui, sans-serif;
+  --font-body:      'Inter', system-ui, sans-serif;
+  --font-mono:      'JetBrains Mono', 'Fira Code', monospace;
+
+  --text-xs:    0.75rem;
+  --text-sm:    0.875rem;
+  --text-base:  1rem;
+  --text-lg:    1.125rem;
+  --text-xl:    1.25rem;
+  --text-2xl:   1.5rem;
+  --text-3xl:   1.875rem;
+  --text-4xl:   2.25rem;
+  --text-5xl:   3rem;
+  --text-6xl:   3.75rem;
+
+  /* ─────────────────────────────────────────
+   * SPACING
+   * ───────────────────────────────────────── */
+  --space-1:    0.25rem;
+  --space-2:    0.5rem;
+  --space-3:    0.75rem;
+  --space-4:    1rem;
+  --space-5:    1.25rem;
+  --space-6:    1.5rem;
+  --space-8:    2rem;
+  --space-10:   2.5rem;
+  --space-12:   3rem;
+  --space-16:   4rem;
+  --space-20:   5rem;
+  --space-24:   6rem;
+
+  /* ─────────────────────────────────────────
+   * BORDER RADIUS
+   * ───────────────────────────────────────── */
+  --radius-sm:   0.25rem;
+  --radius-md:   0.5rem;
+  --radius-lg:   0.75rem;
+  --radius-xl:   1rem;
+  --radius-2xl:  1.5rem;
+  --radius-full: 9999px;
+
+  /* ─────────────────────────────────────────
+   * SHADOWS
+   * ───────────────────────────────────────── */
+  --shadow-sm:
+    0 1px 2px rgba(0,0,0,0.4);
+
+  --shadow-md:
+    0 4px 6px rgba(0,0,0,0.3),
+    0 1px 3px rgba(0,0,0,0.4);
+
+  --shadow-lg:
+    0 10px 15px rgba(0,0,0,0.3),
+    0 4px 6px rgba(0,0,0,0.2);
+
+  --shadow-xl:
+    0 20px 25px rgba(0,0,0,0.4),
+    0 8px 10px rgba(0,0,0,0.3);
+
+  --shadow-glow-blue:
+    0 0 20px rgba(0,170,255,0.3),
+    0 0 40px rgba(0,68,204,0.15);
+
+  /* ─────────────────────────────────────────
+   * BUTTONS
+   * ───────────────────────────────────────── */
+  --btn-h-sm:     2rem;
+  --btn-h-md:     2.5rem;
+  --btn-h-lg:     3rem;
+  --btn-h-xl:     3.5rem;
+
+  --btn-px-sm:    var(--space-3);
+  --btn-px-md:    var(--space-4);
+  --btn-px-lg:    var(--space-6);
+  --btn-px-xl:    var(--space-8);
+
+  --btn-radius:         var(--radius-md);
+  --btn-transition:     all 150ms ease;
+  --btn-disabled-opacity: 0.4;
+
+  /* ─────────────────────────────────────────
+   * PRODUCT CONTEXT (override per product page)
+   * Usage: set --product-primary, --product-secondary,
+   *        --product-rgb on a parent element
+   * ───────────────────────────────────────── */
+  --product-primary:   var(--vicelab-primary);
+  --product-secondary: var(--vicelab-secondary);
+  --product-rgb:       var(--vicelab-rgb);
+}
+
+/* ─────────────────────────────────────────
+ * PRODUCT CONTEXT CLASSES
+ * Apply to section/page wrapper to activate
+ * product-scoped accent colour
+ * ───────────────────────────────────────── */
+.product-vicelab     { --product-primary: var(--vicelab-primary);     --product-secondary: var(--vicelab-secondary);     --product-rgb: var(--vicelab-rgb); }
+.product-cookedpilot { --product-primary: var(--cookedpilot-primary); --product-secondary: var(--cookedpilot-secondary); --product-rgb: var(--cookedpilot-rgb); }
+.product-vibeguard   { --product-primary: var(--vibeguard-primary);   --product-secondary: var(--vibeguard-secondary);   --product-rgb: var(--vibeguard-rgb); }
+.product-siv         { --product-primary: var(--siv-primary);         --product-secondary: var(--siv-secondary);         --product-rgb: var(--siv-rgb); }
+.product-asa         { --product-primary: var(--asa-primary);         --product-secondary: var(--asa-secondary);         --product-rgb: var(--asa-rgb); }
+.product-matrix      { --product-primary: var(--matrix-primary);      --product-secondary: var(--matrix-secondary);      --product-rgb: var(--matrix-rgb); }
