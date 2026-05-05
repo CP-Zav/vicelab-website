@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300">
+  <defs>
+    <linearGradient id="sivGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F59E0B"/>
+      <stop offset="100%" stop-color="#F97316"/>
+    </linearGradient>
+  </defs>
+  <g stroke="url(#sivGradient)" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <!-- Centre dot (source node) -->
+    <circle cx="150" cy="150" r="6" fill="url(#sivGradient)" stroke="none"/>
+    <!-- Inner arc pair -->
+    <path d="M126 126a34 34 0 000 48" stroke-width="3"/>
+    <path d="M174 126a34 34 0 010 48" stroke-width="3"/>
+    <!-- Mid arc pair -->
+    <path d="M108 108a60 60 0 000 84" stroke-width="2.5"/>
+    <path d="M192 108a60 60 0 010 84" stroke-width="2.5"/>
+    <!-- Outer arc pair -->
+    <path d="M90 90a85 85 0 000 120" stroke-width="2"/>
+    <path d="M210 90a85 85 0 010 120" stroke-width="2"/>
+  </g>
+</svg>
