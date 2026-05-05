@@ -15,13 +15,17 @@ const defaultBoard = {
   done: [{ id: "t3", title: "Validate route checksums" }]
 };
 
-export default function ControlCentreUI({
-  modules = defaultModules,
-  board = defaultBoard,
-  dailyBrief = "All systems nominal. No operational anomalies detected.",
-  headsUp = "Window for low-latency sync closes in 37 minutes.",
-  activity = ["Ops booted", "Control links verified", "Task board synchronized"]
-}) {
+const defaultDailyBrief = "All systems nominal. No operational anomalies detected.";
+const defaultHeadsUp = "Window for low-latency sync closes in 37 minutes.";
+const defaultActivity = ["Ops booted", "Control links verified", "Task board synchronized"];
+
+export default function ControlCentreUI() {
+  const modules = defaultModules;
+  const board = defaultBoard;
+  const dailyBrief = defaultDailyBrief;
+  const headsUp = defaultHeadsUp;
+  const activity = defaultActivity;
+
   const [selectedTask, setSelectedTask] = useState(board.active?.[0] ?? null);
   const columns = useMemo(
     () => [
