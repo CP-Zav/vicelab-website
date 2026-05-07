@@ -93,6 +93,32 @@
     border: 1px solid rgba(47, 107, 255, 0.22);
   }
 
+  /* ── OPERATIONAL SYSTEM — Canonical visual direction ─────────────────── */
+
+  /* System label typography — mono, tracked, all-caps, dim */
+  .sys-label {
+    font-family: ui-monospace, SFMono-Regular, "Fira Code", monospace;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.35);
+    font-weight: 400;
+  }
+
+  /* Telemetry panel — operational dark border + slight bg */
+  .tel-panel {
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    background: rgba(255, 255, 255, 0.018);
+  }
+
+  /* HUD grid background */
+  .hud-grid {
+    background-image:
+      linear-gradient(rgba(47, 107, 255, 0.025) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(47, 107, 255, 0.025) 1px, transparent 1px);
+    background-size: 50px 50px;
+  }
+
 }
 
 /* ── Global utilities ───────────────────────────────────────────────────── */
@@ -109,12 +135,27 @@
     border-radius: inherit;
   }
 
-  /* ── Glow utilities — tighter, higher intensity ─────────────────────── */
-  /* Canonical product glows */
+  /* Scanline atmospheric overlay — barely perceptible horizontal lines */
+  .scanline::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 3px,
+      rgba(255, 255, 255, 0.007) 3px,
+      rgba(255, 255, 255, 0.007) 4px
+    );
+    pointer-events: none;
+    z-index: 0;
+    border-radius: inherit;
+  }
+
+  /* ── Glow utilities ─────────────────────────────────────────────────── */
   .glow-cp  { box-shadow: 0 0 16px rgba(255, 0, 168, 0.50), 0 0 40px rgba(255, 0, 168, 0.20); }
   .glow-vg  { box-shadow: 0 0 16px rgba(0, 213, 255, 0.45), 0 0 40px rgba(0, 255, 163, 0.18); }
   .glow-sig { box-shadow: 0 0 16px rgba(47, 107, 255, 0.50), 0 0 40px rgba(47, 107, 255, 0.20); }
-  /* Legacy aliases (still used in some utilities) */
   .glow-blue  { box-shadow: 0 0 16px rgba(47, 107, 255, 0.50), 0 0 40px rgba(47, 107, 255, 0.20); }
   .glow-pink  { box-shadow: 0 0 16px rgba(255, 0, 168, 0.50), 0 0 40px rgba(255, 0, 168, 0.20); }
   .glow-violet { box-shadow: 0 0 30px rgba(167, 139, 250, 0.18), 0 0 60px rgba(167, 139, 250, 0.08); }
@@ -142,6 +183,54 @@
     -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
   }
 }
+
+/* ── Operational system animations ────────────────────────────────────── */
+
+/* Status pulse — for live system dots */
+@keyframes status-pulse {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.2; }
+}
+.status-pulse { animation: status-pulse 2.8s ease-in-out infinite; }
+
+/* Atmospheric drift — ambient decorative elements */
+@keyframes atm-drift {
+  0%, 100% { transform: translateY(0px);   opacity: 0.45; }
+  50%       { transform: translateY(-10px); opacity: 0.75; }
+}
+.atm-drift { animation: atm-drift 12s ease-in-out infinite; }
+
+/* Slow radar rotation — for sigil ring elements */
+@keyframes radar-scan {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+.radar-scan { animation: radar-scan 18s linear infinite; }
+
+@keyframes radar-counter {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(-360deg); }
+}
+.radar-counter { animation: radar-counter 24s linear infinite; }
+
+/* Glow breathe — focal elements */
+@keyframes glow-breathe {
+  0%, 100% { opacity: 0.35; }
+  50%       { opacity: 0.85; }
+}
+.glow-breathe { animation: glow-breathe 5s ease-in-out infinite; }
+
+/* Cooked Pilot legacy keyframes */
+@keyframes cp-float {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-8px); }
+}
+@keyframes cp-glow-pulse {
+  0%, 100% { opacity: 0.6; }
+  50%       { opacity: 1; }
+}
+.cp-float      { animation: cp-float 6s ease-in-out infinite; }
+.cp-glow-pulse { animation: cp-glow-pulse 3s ease-in-out infinite; }
 
 /* Scrollbar */
 ::-webkit-scrollbar          { width: 6px; }

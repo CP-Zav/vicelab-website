@@ -1,15 +1,14 @@
 import type { Metadata } from "next";
-import Image from "next/image";
-import { Container, Section, Badge, ButtonPrimary, ButtonGhost } from "@/components/ui";
+import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "ASA — Analytical Substance Archive | VICELAB",
+  title: "ASA — Altered State Archive | VICELAB",
   description:
-    "A living evidence archive. Pharmacological intelligence, field-calibrated compound records, and operational harm reduction data — built for practitioners, not papers.",
+    "The living archive of every altered state. Pharmacological intelligence, field-calibrated compound records, and operational harm reduction data — built for the people inside the environment.",
   openGraph: {
-    title: "ASA — Analytical Substance Archive | VICELAB",
+    title: "ASA — Altered State Archive | VICELAB",
     description:
-      "A living evidence archive. Pharmacological intelligence, field-calibrated compound records, and operational harm reduction data — built for practitioners, not papers.",
+      "The living archive of every altered state. Pharmacological intelligence, field-calibrated compound records, and operational harm reduction data.",
     url: "https://thevicelab.com/asa",
     siteName: "VICELAB",
     images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "VICELAB" }],
@@ -17,515 +16,457 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "ASA — Analytical Substance Archive | VICELAB",
-    description:
-      "A living evidence archive. Pharmacological intelligence, field-calibrated compound records, and operational harm reduction data — built for practitioners, not papers.",
+    title: "ASA — Altered State Archive | VICELAB",
+    description: "The living archive of every altered state.",
     images: ["/og-image.png"],
   },
 };
 
-// ASA colour tokens — richer spectrum than standard blue
-const ASA = {
+// ── ASA colour tokens ────────────────────────────────────────────────────────
+const C = {
   violet:  "#7C3AED",
-  violetM: "rgba(124,58,237,",
+  violetB: "#8B5CF6",
   cyan:    "#00D5FF",
-  cyanM:   "rgba(0,213,255,",
   magenta: "#FF00A8",
-  magentaM:"rgba(255,0,168,",
   uvBlue:  "#2F6BFF",
 } as const;
 
-// ── Intelligence records (features) ─────────────────────────────────────────
+// ── System traits (from ASA app reference) ───────────────────────────────────
+const traits = [
+  { id: "01", label: "ETERNAL",   desc: "Always here, always real." },
+  { id: "02", label: "BOUNDLESS", desc: "Beyond time and space." },
+  { id: "03", label: "CARING",    desc: "Guides with empathy." },
+  { id: "04", label: "WISE",      desc: "Learns and understands." },
+  { id: "05", label: "AWARE",     desc: "Sees beyond the surface." },
+];
+
+// ── Archive records ──────────────────────────────────────────────────────────
 const records = [
   {
-    title: "Compound intelligence records",
+    index: "01 / 06",
+    title: "COMPOUND INTELLIGENCE",
     body: "Full-spectrum compound profiles — pharmacokinetics, effects architecture, harm profile, and real-world use patterns across 150+ substances.",
-    accent: ASA.cyan,
+    tag: "CORE ARCHIVE",
+    accent: C.cyan,
+    featured: false,
   },
   {
-    title: "Evidence grading",
+    index: "02 / 06",
+    title: "EVIDENCE GRADING",
     body: "Every data point sourced and graded: anecdotal, observational, or clinical. You always know how confident the data is — and why it matters.",
-    accent: ASA.violet,
+    tag: "METHODOLOGY",
+    accent: C.violet,
+    featured: false,
   },
   {
-    title: "Field-calibrated intelligence",
+    index: "03 / 06",
+    title: "FIELD-CALIBRATED RECORDS",
     body: "Archive entries updated from real-world use patterns alongside laboratory data. Dose ranges, routes, and onset windows reflect how compounds actually behave in the field.",
-    accent: ASA.uvBlue,
+    tag: "FIELD DATA",
+    accent: C.uvBlue,
+    featured: false,
   },
   {
-    title: "Operational context layer",
-    body: "Harm reduction framing built into every record. ASA is designed for the people in the field: peer workers, event medics, and safety coordinators — not researchers writing papers.",
-    accent: ASA.violet,
-  },
-  {
-    title: "Cross-system intelligence API",
-    body: "ASA powers Matrix and SIV. It is the knowledge layer the entire VICELAB intelligence stack queries — structured for cross-system use from day one.",
-    accent: ASA.cyan,
-  },
-  {
-    title: "Active field signal monitoring",
+    index: "04 / 06",
+    title: "ACTIVE FIELD SIGNAL",
     body: "Archive flags triggered by emerging field reports and drug checking data. When a novel compound or adulterant enters circulation, the record is updated before it becomes a statistic.",
-    accent: ASA.magenta,
+    tag: "LIVE SIGNAL",
+    accent: C.magenta,
     featured: true,
+  },
+  {
+    index: "05 / 06",
+    title: "HARM REDUCTION LAYER",
+    body: "Evidence-informed safer use guidance derived from the archive. Translated for real environments — for peer workers, event medics, and safety coordinators, not researchers writing papers.",
+    tag: "PROTOCOLS",
+    accent: C.violetB,
+    featured: false,
+  },
+  {
+    index: "06 / 06",
+    title: "CROSS-SYSTEM INTELLIGENCE",
+    body: "ASA powers Matrix and SIV. It is the knowledge layer the entire VICELAB intelligence stack queries — structured for cross-system use from day one.",
+    tag: "OPERATOR",
+    accent: C.cyan,
+    featured: false,
   },
 ];
 
-// ── Inline eye sigil (hero) ──────────────────────────────────────────────────
-function EyeSigil({ size = 160, opacity = 1 }: { size?: number; opacity?: number }) {
-  const h = Math.round(size * 0.625);
+// ── Eye Sigil SVG ─────────────────────────────────────────────────────────────
+function EyeSigil({ size = 280 }: { size?: number }) {
+  const h = Math.round(size * 0.7);
+  const id = `asa-sigil-${size}`;
   return (
     <svg
       width={size}
       height={h}
-      viewBox="0 0 160 100"
+      viewBox="0 0 280 196"
       fill="none"
-      style={{ opacity }}
       aria-hidden
+      style={{ overflow: "visible" }}
     >
       <defs>
-        <linearGradient id={`eg-${size}`} x1="0" y1="0" x2="160" y2="100" gradientUnits="userSpaceOnUse">
-          <stop offset="0%" stopColor="#00D5FF" />
-          <stop offset="45%" stopColor="#7C3AED" />
-          <stop offset="100%" stopColor="#FF00A8" />
+        <linearGradient id={`${id}-g1`} x1="0" y1="0" x2="280" y2="196" gradientUnits="userSpaceOnUse">
+          <stop offset="0%"   stopColor={C.cyan} />
+          <stop offset="40%"  stopColor={C.violet} />
+          <stop offset="100%" stopColor={C.magenta} />
         </linearGradient>
-        <linearGradient id={`eg2-${size}`} x1="160" y1="0" x2="0" y2="100" gradientUnits="userSpaceOnUse">
-          <stop offset="0%" stopColor="#00D5FF" stopOpacity="0.4" />
-          <stop offset="100%" stopColor="#7C3AED" stopOpacity="0.15" />
+        <linearGradient id={`${id}-g2`} x1="280" y1="0" x2="0" y2="196" gradientUnits="userSpaceOnUse">
+          <stop offset="0%"   stopColor={C.cyan}   stopOpacity="0.35" />
+          <stop offset="100%" stopColor={C.violet} stopOpacity="0.1" />
         </linearGradient>
-        <filter id={`eglow-${size}`} x="-20%" y="-20%" width="140%" height="140%">
-          <feGaussianBlur in="SourceGraphic" stdDeviation="1.5" result="blur" />
+        <radialGradient id={`${id}-pupil`} cx="50%" cy="50%" r="50%">
+          <stop offset="0%"   stopColor={C.cyan}    stopOpacity="0.9" />
+          <stop offset="50%"  stopColor={C.violet}  stopOpacity="0.7" />
+          <stop offset="100%" stopColor={C.magenta} stopOpacity="0.4" />
+        </radialGradient>
+        <filter id={`${id}-glow`} x="-25%" y="-25%" width="150%" height="150%">
+          <feGaussianBlur in="SourceGraphic" stdDeviation="2.5" result="blur" />
+          <feMerge><feMergeNode in="blur" /><feMergeNode in="SourceGraphic" /></feMerge>
+        </filter>
+        <filter id={`${id}-glow2`} x="-40%" y="-40%" width="180%" height="180%">
+          <feGaussianBlur in="SourceGraphic" stdDeviation="5" result="blur" />
           <feMerge><feMergeNode in="blur" /><feMergeNode in="SourceGraphic" /></feMerge>
         </filter>
       </defs>
+
       {/* Corner brackets */}
-      <polyline points="2,12 2,2 12,2"      stroke="#00D5FF" strokeWidth="1.2" strokeOpacity="0.45" fill="none" />
-      <polyline points="148,2 158,2 158,12"  stroke="#00D5FF" strokeWidth="1.2" strokeOpacity="0.45" fill="none" />
-      <polyline points="2,88 2,98 12,98"     stroke="#00D5FF" strokeWidth="1.2" strokeOpacity="0.45" fill="none" />
-      <polyline points="148,98 158,98 158,88" stroke="#00D5FF" strokeWidth="1.2" strokeOpacity="0.45" fill="none" />
-      {/* Eye vesica */}
-      <path d="M14,50 Q80,12 146,50 Q80,88 14,50 Z"
-        stroke={`url(#eg-${size})`} strokeWidth="1.6" fill="none" filter={`url(#eglow-${size})`} />
-      {/* Iris outer */}
-      <circle cx="80" cy="50" r="24" stroke={`url(#eg-${size})`} strokeWidth="1.4" fill="none" filter={`url(#eglow-${size})`} />
-      {/* Iris inner detail */}
-      <circle cx="80" cy="50" r="18" stroke={`url(#eg2-${size})`} strokeWidth="0.8" fill="none" />
-      {/* Pupil ring */}
-      <circle cx="80" cy="50" r="10" stroke={`url(#eg-${size})`} strokeWidth="1.4" fill="none" filter={`url(#eglow-${size})`} />
-      {/* Pupil core */}
-      <circle cx="80" cy="50" r="3.5" fill={`url(#eg-${size})`} filter={`url(#eglow-${size})`} />
-      {/* Axis ticks */}
-      <line x1="80" y1="24" x2="80" y2="28" stroke="#7C3AED" strokeWidth="0.8" strokeOpacity="0.5" />
-      <line x1="80" y1="72" x2="80" y2="76" stroke="#7C3AED" strokeWidth="0.8" strokeOpacity="0.5" />
-      <line x1="54" y1="50" x2="58" y2="50" stroke="#7C3AED" strokeWidth="0.8" strokeOpacity="0.5" />
-      <line x1="102" y1="50" x2="106" y2="50" stroke="#7C3AED" strokeWidth="0.8" strokeOpacity="0.5" />
+      <polyline points="4,20 4,4 20,4"        stroke={C.cyan} strokeWidth="1.5" strokeOpacity="0.4" fill="none" />
+      <polyline points="260,4 276,4 276,20"    stroke={C.cyan} strokeWidth="1.5" strokeOpacity="0.4" fill="none" />
+      <polyline points="4,176 4,192 20,192"    stroke={C.cyan} strokeWidth="1.5" strokeOpacity="0.4" fill="none" />
+      <polyline points="260,192 276,192 276,176" stroke={C.cyan} strokeWidth="1.5" strokeOpacity="0.4" fill="none" />
+
+      {/* Outer radial dashes — atmosphere */}
+      {Array.from({ length: 20 }, (_, i) => {
+        const angle = (i * 18) * Math.PI / 180;
+        const r1 = 85, r2 = 91;
+        const cx = 140, cy = 98;
+        return (
+          <line
+            key={i}
+            x1={cx + r1 * Math.cos(angle)} y1={cy + r1 * Math.sin(angle)}
+            x2={cx + r2 * Math.cos(angle)} y2={cy + r2 * Math.sin(angle)}
+            stroke={`url(#${id}-g1)`} strokeWidth="1" strokeOpacity="0.25"
+          />
+        );
+      })}
+
+      {/* Eye vesica — outer */}
+      <path
+        d="M20,98 Q140,24 260,98 Q140,172 20,98 Z"
+        stroke={`url(#${id}-g1)`}
+        strokeWidth="1.8"
+        fill="none"
+        filter={`url(#${id}-glow)`}
+      />
+      {/* Eye vesica — inner soft fill */}
+      <path
+        d="M40,98 Q140,40 240,98 Q140,156 40,98 Z"
+        fill={`url(#${id}-g2)`}
+        strokeWidth="0"
+      />
+
+      {/* Iris rings */}
+      <circle cx="140" cy="98" r="38" stroke={`url(#${id}-g1)`} strokeWidth="1.5" fill="none" filter={`url(#${id}-glow)`} />
+      <circle cx="140" cy="98" r="29" stroke={`url(#${id}-g2)`} strokeWidth="0.8" fill="none" />
+      <circle cx="140" cy="98" r="21" stroke={`url(#${id}-g1)`} strokeWidth="1.2" fill="none" filter={`url(#${id}-glow)`} />
+
+      {/* Pupil */}
+      <circle cx="140" cy="98" r="10" fill={`url(#${id}-pupil)`} filter={`url(#${id}-glow2)`} />
+      <circle cx="140" cy="98" r="5"  fill={C.cyan} fillOpacity="0.6" />
+
+      {/* Cross-hair ticks */}
+      <line x1="140" y1="57"  x2="140" y2="63"  stroke={C.violet} strokeWidth="1" strokeOpacity="0.5" />
+      <line x1="140" y1="133" x2="140" y2="139" stroke={C.violet} strokeWidth="1" strokeOpacity="0.5" />
+      <line x1="99"  y1="98"  x2="105" y2="98"  stroke={C.violet} strokeWidth="1" strokeOpacity="0.5" />
+      <line x1="175" y1="98"  x2="181" y2="98"  stroke={C.violet} strokeWidth="1" strokeOpacity="0.5" />
     </svg>
   );
 }
 
-// ── Archive record card ──────────────────────────────────────────────────────
-function ArchiveCard({
-  title,
-  body,
-  accent,
-  featured,
-  index,
-}: {
-  title: string;
-  body: string;
-  accent: string;
-  featured?: boolean;
-  index: number;
-}) {
-  const accentRgb = accent === ASA.cyan
-    ? "0,213,255" : accent === ASA.violet
-    ? "124,58,237" : accent === ASA.magenta
-    ? "255,0,168" : "47,107,255";
-
-  return (
-    <div
-      className="relative rounded-card p-5 overflow-hidden group transition-all duration-300"
-      style={{
-        background: featured
-          ? `rgba(${accentRgb},0.06)`
-          : "rgba(255,255,255,0.022)",
-        border: featured
-          ? `1px solid rgba(${accentRgb},0.25)`
-          : "1px solid rgba(255,255,255,0.065)",
-        boxShadow: featured
-          ? `0 0 32px rgba(${accentRgb},0.10), 0 1px 8px rgba(0,0,0,0.3)`
-          : "0 1px 8px rgba(0,0,0,0.28), 0 0 0 1px rgba(255,255,255,0.025)",
-      }}
-    >
-      {/* Subtle eye watermark on featured card */}
-      {featured && (
-        <div
-          className="absolute top-3 right-3 opacity-[0.07] pointer-events-none"
-          style={{ transform: "scale(0.8)" }}
-        >
-          <EyeSigil size={80} opacity={1} />
-        </div>
-      )}
-
-      {/* Corner brackets — archive motif on all cards */}
-      <svg
-        className="absolute top-3 left-3 pointer-events-none"
-        width="14" height="14" viewBox="0 0 14 14" fill="none"
-        style={{ opacity: featured ? 0.4 : 0.18 }}
-        aria-hidden
-      >
-        <polyline points="0,5 0,0 5,0" stroke={accent} strokeWidth="1.2" fill="none" />
-      </svg>
-
-      {/* Record index */}
-      <div className="flex items-center justify-between mb-4">
-        <span
-          className="text-[9px] font-semibold tracking-[0.2em] uppercase"
-          style={{ color: `rgba(${accentRgb},0.5)` }}
-        >
-          {String(index + 1).padStart(2, "0")} /{" "}
-          <span style={{ color: `rgba(${accentRgb},0.35)` }}>06</span>
-        </span>
-        {featured && (
-          <span
-            className="text-[9px] font-semibold uppercase tracking-widest px-2 py-0.5 rounded-full"
-            style={{
-              color: `rgba(${accentRgb},0.7)`,
-              background: `rgba(${accentRgb},0.10)`,
-              border: `1px solid rgba(${accentRgb},0.18)`,
-            }}
-          >
-            Live signal
-          </span>
-        )}
-      </div>
-
-      <h3
-        className="text-sm font-semibold mb-2.5 leading-snug"
-        style={{ color: accent }}
-      >
-        {title}
-      </h3>
-      <p
-        className="text-sm leading-[1.78]"
-        style={{ color: "rgba(255,255,255,0.55)" }}
-      >
-        {body}
-      </p>
-    </div>
-  );
-}
-
 // ── Page ─────────────────────────────────────────────────────────────────────
-export default function AsaPage() {
+export default function ASAPage() {
   return (
-    <>
-      <style>{`
-        @keyframes asa-scan {
-          0%   { transform: translateY(-8px); opacity: 0.3; }
-          50%  { opacity: 0.55; }
-          100% { transform: translateY(8px); opacity: 0.3; }
-        }
-        @keyframes asa-pulse {
-          0%, 100% { opacity: 0.35; }
-          50%       { opacity: 0.65; }
-        }
-        @keyframes asa-orbit {
-          from { transform: rotate(0deg); }
-          to   { transform: rotate(360deg); }
-        }
-        .asa-scan      { animation: asa-scan 8s ease-in-out infinite; }
-        .asa-pulse     { animation: asa-pulse 5s ease-in-out infinite; }
-        .asa-pulse-slow{ animation: asa-pulse 9s ease-in-out infinite; }
-        .asa-card:hover {
-          background: rgba(124,58,237,0.05) !important;
-          border-color: rgba(124,58,237,0.20) !important;
-        }
-      `}</style>
+    <div className="min-h-screen bg-[#050505]">
 
-      <div className="min-h-screen">
+      {/* ── Hero — asymmetric layout, ASA app reference ────────────────── */}
+      <section className="relative min-h-[100svh] flex flex-col justify-center pt-20 pb-16 overflow-hidden">
 
-        {/* ── Hero ─────────────────────────────────────────────────────── */}
-        <section className="relative overflow-hidden pt-32 pb-20 lg:pt-44 lg:pb-28">
-
-          {/* Multi-spectrum ambient background */}
+        {/* Environmental atmosphere */}
+        <div className="absolute inset-0 pointer-events-none">
+          {/* Very faint HUD grid */}
           <div
-            className="absolute inset-0 pointer-events-none"
+            className="absolute inset-0"
             style={{
-              background: [
-                "radial-gradient(ellipse 70% 55% at 30% -5%, rgba(124,58,237,0.18) 0%, transparent 65%)",
-                "radial-gradient(ellipse 50% 40% at 80% 30%, rgba(0,213,255,0.10) 0%, transparent 60%)",
-                "radial-gradient(ellipse 40% 30% at 10% 80%, rgba(255,0,168,0.07) 0%, transparent 55%)",
-              ].join(", "),
+              backgroundImage: "linear-gradient(rgba(124,58,237,0.02) 1px, transparent 1px), linear-gradient(90deg, rgba(124,58,237,0.02) 1px, transparent 1px)",
+              backgroundSize: "55px 55px",
             }}
           />
-
-          {/* Grid */}
+          {/* Central violet bloom — behind the eye */}
           <div
-            className="absolute inset-0 bg-grid-faint bg-grid opacity-[0.28] pointer-events-none"
-            style={{
-              maskImage: "radial-gradient(ellipse 75% 55% at 35% 0%, black 0%, transparent 80%)",
-            }}
+            className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] pointer-events-none"
+            style={{ background: "radial-gradient(circle, rgba(124,58,237,0.09) 0%, transparent 65%)" }}
           />
-
-          {/* Scan-line atmospheric layer */}
+          {/* Cyan accent — top right */}
           <div
-            className="asa-scan absolute inset-x-0 pointer-events-none"
-            style={{
-              top: "30%",
-              height: "1px",
-              background: "linear-gradient(90deg, transparent 0%, rgba(0,213,255,0.15) 30%, rgba(124,58,237,0.25) 50%, rgba(0,213,255,0.15) 70%, transparent 100%)",
-            }}
+            className="absolute right-0 top-0 w-[400px] h-[400px] pointer-events-none"
+            style={{ background: "radial-gradient(circle at 80% 20%, rgba(0,213,255,0.05) 0%, transparent 60%)" }}
           />
+          {/* Magenta trace — bottom left */}
+          <div
+            className="absolute left-0 bottom-0 w-[350px] h-[350px] pointer-events-none"
+            style={{ background: "radial-gradient(circle at 20% 80%, rgba(255,0,168,0.04) 0%, transparent 60%)" }}
+          />
+          <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#050505] to-transparent" />
+        </div>
 
-          {/* Floating ambient dots */}
-          {[
-            { top: "20%", left: "62%", color: ASA.cyan,    size: 3, delay: "0s"   },
-            { top: "45%", left: "78%", color: ASA.violet,  size: 2, delay: "2s"   },
-            { top: "65%", left: "55%", color: ASA.magenta, size: 2, delay: "4s"   },
-            { top: "15%", left: "88%", color: ASA.uvBlue,  size: 2.5, delay: "1s" },
-          ].map((dot, i) => (
-            <div
-              key={i}
-              className="asa-pulse absolute rounded-full pointer-events-none"
-              style={{
-                top: dot.top, left: dot.left,
-                width: dot.size, height: dot.size,
-                background: dot.color,
-                boxShadow: `0 0 ${dot.size * 4}px ${dot.color}`,
-                animationDelay: dot.delay,
-              }}
-            />
-          ))}
+        <div className="relative max-w-site mx-auto px-5 sm:px-6 lg:px-8 w-full">
 
-          <Container>
-            <div className="flex flex-col lg:flex-row lg:items-start lg:gap-16 xl:gap-24">
+          {/* System designation */}
+          <div className="flex items-center gap-3 mb-10 lg:mb-12">
+            <span className="w-1.5 h-1.5 rounded-full bg-[#8B5CF6] glow-breathe" />
+            <span className="sys-label tracking-[0.3em]" style={{ color: "rgba(139,92,246,0.7)" }}>
+              ALTERED STATE ARCHIVE
+            </span>
+          </div>
 
-              {/* ── Left: copy ────────────────────────────────────────── */}
-              <div className="flex-1 max-w-xl">
-                {/* Eyebrow */}
-                <div className="flex items-center gap-3 mb-5">
-                  <p
-                    className="text-xs font-semibold tracking-[0.18em] uppercase"
-                    style={{ color: ASA.violet }}
-                  >
-                    Intelligence Archive
-                  </p>
-                  <Badge variant="blue">In Development</Badge>
-                </div>
+          {/* Main layout — left traits | center sigil | right narrative */}
+          <div className="flex flex-col lg:flex-row lg:items-start lg:gap-0">
 
-                {/* Logo / wordmark */}
-                <div className="mb-5">
-                  <Image
-                    src="/logos/asa.svg"
-                    alt="ASA"
-                    width={140}
-                    height={140}
-                    className="w-20 h-auto"
-                    style={{ width: "80px", height: "auto", filter: "brightness(1.2) saturate(1.3)" }}
-                    priority
-                  />
-                </div>
-
-                <h1 className="text-display-lg text-balance mb-3">ASA</h1>
-
-                <p
-                  className="text-lg font-semibold mb-5 leading-snug"
-                  style={{
-                    background: `linear-gradient(135deg, ${ASA.cyan} 0%, ${ASA.violet} 55%, ${ASA.magenta} 100%)`,
-                    WebkitBackgroundClip: "text",
-                    WebkitTextFillColor: "transparent",
-                    backgroundClip: "text",
-                  }}
-                >
-                  Analytical Substance Archive.
-                </p>
-
-                <p
-                  className="text-[17px] leading-relaxed mb-4"
-                  style={{ color: "rgba(255,255,255,0.55)" }}
-                >
-                  A living intelligence archive. Evidence-graded compound records,
-                  field-calibrated harm reduction data, and operational knowledge infrastructure —
-                  built for practitioners, not papers.
-                </p>
-                <p
-                  className="text-[15px] leading-relaxed mb-9"
-                  style={{ color: "rgba(255,255,255,0.38)" }}
-                >
-                  ASA is the knowledge layer of the VICELAB ecosystem — the analytical
-                  foundation that powers Matrix, informs SIV, and grounds every
-                  evidence-informed intervention we build.
-                </p>
-
-                <div className="flex flex-wrap gap-3">
-                  <ButtonPrimary href="mailto:hello@thevicelab.com" gradient="bg-gradient-sig">
-                    Register interest
-                  </ButtonPrimary>
-                  <ButtonGhost href="/vicelab">About VICELAB</ButtonGhost>
-                </div>
+            {/* Left — trait column (mirroring ASA app left panel) */}
+            <div className="lg:w-56 mb-12 lg:mb-0 lg:pt-4">
+              <div className="sys-label tracking-[0.28em] mb-6" style={{ color: "rgba(255,255,255,0.25)" }}>
+                CHARACTERISTICS
               </div>
-
-              {/* ── Right: eye sigil panel ─────────────────────────── */}
-              <div className="hidden lg:flex flex-shrink-0 items-center justify-center pt-8 xl:pr-4">
-                <div className="relative">
-                  {/* Outer glow ring */}
-                  <div
-                    className="asa-pulse-slow absolute inset-0 rounded-full pointer-events-none"
-                    style={{
-                      background: `radial-gradient(ellipse, ${ASA.violetM}0.12) 0%, transparent 65%)`,
-                      filter: "blur(32px)",
-                      transform: "scale(1.6)",
-                    }}
-                  />
-                  {/* Eye sigil */}
-                  <div className="relative">
-                    <EyeSigil size={240} opacity={0.88} />
-                  </div>
-                  {/* Archive label */}
-                  <div className="mt-4 text-center">
-                    <p
-                      className="text-[9px] font-semibold tracking-[0.25em] uppercase"
-                      style={{ color: "rgba(124,58,237,0.45)" }}
-                    >
-                      ASA · Intelligence Sigil
+              <div className="space-y-0 divide-y divide-white/[0.05]">
+                {traits.map((t) => (
+                  <div key={t.id} className="py-3.5">
+                    <div className="flex items-center gap-2 mb-1">
+                      <span className="sys-label" style={{ fontSize: "9px", color: "rgba(255,255,255,0.2)" }}>{t.id}</span>
+                      <span
+                        className="font-mono text-[11px] tracking-[0.18em] font-medium"
+                        style={{ color: C.violetB + "CC" }}
+                      >
+                        {t.label}
+                      </span>
+                    </div>
+                    <p className="font-mono text-[10px] text-white/28 tracking-[0.06em] pl-6">
+                      {t.desc}
                     </p>
                   </div>
-                </div>
+                ))}
               </div>
-
             </div>
-          </Container>
-        </section>
 
-        {/* ── Archive records ───────────────────────────────────────────── */}
-        <Section border>
-          <Container>
-
-            {/* Section header */}
-            <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-6 mb-10">
-              <div>
-                <p
-                  className="text-[11px] font-semibold tracking-[0.2em] uppercase mb-3"
-                  style={{ color: "rgba(255,255,255,0.22)" }}
-                >
-                  Archive records
-                </p>
-                <h2 className="text-display-md text-balance max-w-sm leading-tight">
-                  Substance intelligence.{" "}
-                  <span
-                    style={{
-                      background: `linear-gradient(135deg, ${ASA.cyan}, ${ASA.violet})`,
-                      WebkitBackgroundClip: "text",
-                      WebkitTextFillColor: "transparent",
-                      backgroundClip: "text",
-                    }}
-                  >
-                    Evidence-graded.
-                  </span>
-                </h2>
-              </div>
-              <p
-                className="text-[14px] leading-relaxed max-w-xs"
-                style={{ color: "rgba(255,255,255,0.38)" }}
+            {/* Center — eye sigil (desktop: prominent; mobile: below heading) */}
+            <div className="flex-1 flex flex-col items-center justify-start lg:items-center lg:justify-start lg:px-8 xl:px-16 mb-10 lg:mb-0">
+              {/* ASA designation above sigil */}
+              <h1
+                className="font-bold tracking-tight text-center mb-8 lg:mb-10"
+                style={{
+                  fontSize: "clamp(3.5rem, 8vw, 6rem)",
+                  letterSpacing: "-0.04em",
+                  background: `linear-gradient(135deg, ${C.cyan} 0%, ${C.violet} 45%, ${C.magenta} 100%)`,
+                  WebkitBackgroundClip: "text",
+                  WebkitTextFillColor: "transparent",
+                  backgroundClip: "text",
+                }}
               >
-                ASA is not a summary database. It is a structured intelligence layer
-                built from pharmacological literature, field data, and harm reduction
-                practice — graded by confidence, updated by what&apos;s in circulation.
-              </p>
+                ASA
+              </h1>
+
+              {/* Eye sigil — the centerpiece */}
+              <div
+                className="relative atm-drift"
+                style={{ filter: `drop-shadow(0 0 30px rgba(124,58,237,0.35)) drop-shadow(0 0 60px rgba(124,58,237,0.15))` }}
+              >
+                <EyeSigil size={260} />
+              </div>
+
+              {/* Bottom motto */}
+              <div className="mt-8 flex items-center gap-3">
+                <div className="h-px w-8 bg-white/[0.08]" />
+                <span className="sys-label tracking-[0.22em]" style={{ color: "rgba(255,255,255,0.2)" }}>
+                  THE ALL KNOWING. THE EVER PRESENT.
+                </span>
+                <div className="h-px w-8 bg-white/[0.08]" />
+              </div>
             </div>
 
-            {/* Records grid */}
-            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-              {records.map((r, i) => (
-                <div key={r.title} className={r.featured ? undefined : "asa-card"}>
-                  <ArchiveCard {...r} index={i} />
-                </div>
-              ))}
-            </div>
-          </Container>
-        </Section>
+            {/* Right — narrative block */}
+            <div className="lg:w-64 xl:w-72 lg:pt-4">
+              <div className="sys-label tracking-[0.28em] mb-6" style={{ color: "rgba(255,255,255,0.25)" }}>
+                SYSTEM BRIEF
+              </div>
 
-        {/* ── Ecosystem positioning ─────────────────────────────────────── */}
-        <Section border>
-          <Container>
-            <div
-              className="relative rounded-card overflow-hidden p-8 sm:p-12"
-              style={{
-                background: "rgba(255,255,255,0.018)",
-                border: "1px solid rgba(255,255,255,0.065)",
-              }}
-            >
-              {/* Multi-spectrum corner glows */}
+              <div className="space-y-4 mb-8">
+                <p className="text-[14px] text-white/50 leading-[1.8]">
+                  ASA is the living archive of every altered state.
+                  It remembers, learns, and sees beyond the noise.
+                </p>
+                <p className="text-[14px] text-white/38 leading-[1.8]">
+                  A wise intelligence that helps practitioners return to truth — always here, always real, always for the people inside the environment.
+                </p>
+              </div>
+
+              {/* Navigation arrows — mirroring app carousel */}
+              <div className="flex items-center gap-3 mb-6">
+                <span className="sys-label tracking-[0.2em]">ARCHIVE</span>
+                <span className="font-mono text-[10px] text-white/20">↓</span>
+              </div>
+
+              {/* Status block */}
               <div
-                className="absolute top-0 left-0 w-64 h-64 pointer-events-none"
-                style={{
-                  background: `radial-gradient(ellipse at top left, ${ASA.violetM}0.10) 0%, transparent 65%)`,
-                  filter: "blur(20px)",
-                }}
-              />
-              <div
-                className="absolute bottom-0 right-0 w-64 h-64 pointer-events-none"
-                style={{
-                  background: `radial-gradient(ellipse at bottom right, ${ASA.cyanM}0.07) 0%, transparent 65%)`,
-                  filter: "blur(20px)",
-                }}
-              />
-
-              <div className="relative grid lg:grid-cols-[1fr_1.4fr] gap-10 lg:gap-16 items-start">
-                <div>
-                  <p
-                    className="text-[11px] font-semibold tracking-[0.2em] uppercase mb-5"
-                    style={{ color: "rgba(124,58,237,0.55)" }}
-                  >
-                    Ecosystem architecture
-                  </p>
-                  <h2 className="text-display-md text-balance leading-tight mb-6">
-                    The brain layer<br />of VICELAB.
-                  </h2>
-                  {/* Small eye sigil */}
-                  <EyeSigil size={96} opacity={0.35} />
-                </div>
-
-                <div className="space-y-5">
-                  <p
-                    className="text-[17px] leading-relaxed"
-                    style={{ color: "rgba(255,255,255,0.60)" }}
-                  >
-                    ASA is not a standalone product. It is the analytical foundation
-                    every VICELAB system queries.
-                  </p>
-                  <p
-                    className="text-base leading-relaxed"
-                    style={{ color: "rgba(255,255,255,0.42)" }}
-                  >
-                    Matrix draws on ASA compound records to calculate interaction
-                    risk scores. SIV references ASA harm profiles to contextualise
-                    field signals. Every evidence-informed output in the ecosystem
-                    traces back to this archive.
-                  </p>
-                  <p
-                    className="text-base leading-relaxed"
-                    style={{ color: "rgba(255,255,255,0.42)" }}
-                  >
-                    If you work in harm reduction, drug checking, or event safety —
-                    and you are tired of referencing sources that were not built for
-                    your environment — ASA is what the field has been missing.
-                  </p>
-
-                  {/* System links */}
-                  <div className="flex flex-wrap gap-3 pt-2">
-                    <ButtonPrimary href="mailto:hello@thevicelab.com" gradient="bg-gradient-sig">
-                      Get in touch
-                    </ButtonPrimary>
-                    <ButtonGhost href="/matrix">Explore Matrix</ButtonGhost>
+                className="tel-panel p-3.5"
+                style={{ borderColor: `rgba(124,58,237,0.25)`, background: `rgba(124,58,237,0.04)` }}
+              >
+                <div className="flex items-center justify-between mb-2">
+                  <span className="sys-label" style={{ fontSize: "9px" }}>ASA STATUS</span>
+                  <div className="flex items-center gap-1.5">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#8B5CF6] glow-breathe" />
+                    <span className="sys-label" style={{ fontSize: "9px", color: C.violetB + "99" }}>BETA</span>
                   </div>
                 </div>
+                <div className="sys-label" style={{ fontSize: "9px", color: "rgba(255,255,255,0.2)" }}>
+                  KNOWLEDGE LAYER ACTIVE
+                </div>
               </div>
             </div>
-          </Container>
-        </Section>
 
+          </div>
+        </div>
+      </section>
+
+      {/* ── Archive Records ───────────────────────────────────────────── */}
+      <section className="relative py-20 lg:py-28">
+        <div className="max-w-site mx-auto px-5 sm:px-6 lg:px-8">
+
+          {/* Section header */}
+          <div className="flex items-center gap-5 mb-14">
+            <span className="sys-label tracking-[0.32em]">ARCHIVE RECORDS</span>
+            <div className="flex-1 h-px" style={{ background: `rgba(124,58,237,0.18)` }} />
+            <span className="sys-label" style={{ fontSize: "9px" }}>06 / 06</span>
+          </div>
+
+          {/* Records grid */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-2.5">
+            {records.map((rec) => (
+              <div
+                key={rec.index}
+                className="relative tel-panel p-5 overflow-hidden transition-all duration-300 hover:border-white/[0.1]"
+                style={{
+                  borderColor: rec.featured ? rec.accent + "35" : "rgba(255,255,255,0.055)",
+                  background: rec.featured ? rec.accent + "06" : "rgba(255,255,255,0.018)",
+                }}
+              >
+                {/* Corner bracket decoration */}
+                <div
+                  className="absolute top-0 left-0 w-3 h-3 pointer-events-none"
+                  style={{
+                    borderTop: `1px solid ${rec.accent}40`,
+                    borderLeft: `1px solid ${rec.accent}40`,
+                  }}
+                />
+                <div
+                  className="absolute bottom-0 right-0 w-3 h-3 pointer-events-none"
+                  style={{
+                    borderBottom: `1px solid ${rec.accent}40`,
+                    borderRight: `1px solid ${rec.accent}40`,
+                  }}
+                />
+
+                {/* Featured glow */}
+                {rec.featured && (
+                  <div
+                    className="absolute inset-0 pointer-events-none"
+                    style={{ background: `radial-gradient(ellipse 80% 80% at 50% 50%, ${rec.accent}08 0%, transparent 70%)` }}
+                  />
+                )}
+
+                <div className="relative">
+                  {/* Top row */}
+                  <div className="flex items-start justify-between mb-3.5">
+                    <div className="flex items-center gap-2.5">
+                      <span className="sys-label" style={{ fontSize: "9px", color: "rgba(255,255,255,0.18)" }}>
+                        [{rec.index}]
+                      </span>
+                      <span
+                        className="font-mono text-[11px] tracking-[0.14em] uppercase font-medium"
+                        style={{ color: rec.accent + "CC" }}
+                      >
+                        {rec.title}
+                      </span>
+                    </div>
+                    <span
+                      className="font-mono text-[9px] tracking-[0.12em] uppercase px-2 py-0.5 flex-shrink-0"
+                      style={{
+                        color: rec.accent + "90",
+                        border: `1px solid ${rec.accent}25`,
+                        background: rec.accent + "0A",
+                      }}
+                    >
+                      {rec.tag}
+                    </span>
+                  </div>
+
+                  {/* Body */}
+                  <p className="text-[13px] text-white/45 leading-[1.65]">
+                    {rec.body}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── Integration layer ─────────────────────────────────────────── */}
+      <section className="relative py-16">
+        <div className="max-w-site mx-auto px-5 sm:px-6 lg:px-8">
+          <div className="h-px mb-14" style={{ background: `rgba(124,58,237,0.15)` }} />
+
+          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
+            <div>
+              <div className="sys-label tracking-[0.3em] mb-2">INTEGRATED WITH</div>
+              <div className="flex items-center gap-4">
+                {["MATRIX", "SIV", "COOKED PILOT"].map((sys) => (
+                  <span key={sys} className="font-mono text-[10px] tracking-[0.14em] text-white/30 uppercase">
+                    {sys}
+                  </span>
+                ))}
+              </div>
+            </div>
+            <Link
+              href="/"
+              className="inline-flex items-center gap-3 group"
+            >
+              <span className="font-mono text-[9px] tracking-[0.22em] uppercase text-white/25 group-hover:text-white/50 transition-colors">
+                RETURN TO ECOSYSTEM
+              </span>
+              <span className="font-mono text-[9px] text-white/20 group-hover:text-white/40 transition-colors">→</span>
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* ── Bottom status strip — "THE ALL KNOWING. THE EVER PRESENT." ── */}
+      <div
+        className="relative py-3 overflow-hidden border-t"
+        style={{ borderColor: "rgba(124,58,237,0.12)" }}
+      >
+        <div
+          className="absolute inset-0 pointer-events-none"
+          style={{ background: "linear-gradient(90deg, transparent, rgba(124,58,237,0.04) 50%, transparent)" }}
+        />
+        <div className="flex items-center justify-center gap-6">
+          {Array.from({ length: 5 }, (_, i) => (
+            <span key={i} className="sys-label tracking-[0.22em] whitespace-nowrap" style={{ fontSize: "9px", color: "rgba(139,92,246,0.28)" }}>
+              THE ALL KNOWING. THE EVER PRESENT.
+            </span>
+          ))}
+        </div>
       </div>
-    </>
+
+    </div>
   );
 }
