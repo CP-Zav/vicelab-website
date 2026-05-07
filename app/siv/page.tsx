@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import { Container, Section, Eyebrow, Badge, FeatureCard, ButtonPrimary } from "@/components/ui";
 
 export const metadata: Metadata = {
-  title: "SIV — Safety Intelligence Vessel",
-  description: "Unified safety data layer connecting field intelligence, pharmacological risk, and operational response protocols. Coming soon from ViceLab.",
+  title: "SIV — Substance Intelligence Vault | ViceLab",
+  description: "Field intelligence infrastructure for festival safety. SIV connects Cooked Pilot, Matrix, and VibeGuard into a single operational picture.",
 };
 
 const features = [
@@ -30,9 +30,7 @@ export default function SIVPage() {
             <div className="mb-5"><Badge variant="blue">Coming Soon</Badge></div>
             <h1 className="text-display-lg text-balance mb-5">SIV</h1>
             <p className="text-[17px] text-white/45 leading-relaxed mb-9">
-              Safety Intelligence Vessel. A unified operational layer connecting
-              field harm reduction data, substance risk intelligence, and crowd
-              safety signals — so event coordinators have the full picture, always.
+              Substance Intelligence Vault. Field intelligence infrastructure — connecting harm reduction data, pharmacological risk, and response protocols into one operational picture.
             </p>
             <ButtonPrimary href="mailto:hello@thevicelab.com" gradient="bg-gradient-sig">
               Register interest
@@ -64,8 +62,7 @@ export default function SIVPage() {
           <div className="max-w-xl">
             <h2 className="text-display-sm mb-5">Interested in SIV?</h2>
             <p className="text-white/40 text-[15px] leading-relaxed mb-8">
-              SIV is in development. If you operate large-scale events or safety
-              networks, get in touch early.
+              SIV is in development. If you operate large-scale events or safety networks and you're done running on fragmented data — get in touch.
             </p>
             <ButtonPrimary href="mailto:hello@thevicelab.com" gradient="bg-gradient-sig">
               Get in touch

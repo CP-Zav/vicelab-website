@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import { Container, Section, Eyebrow, Badge, FeatureCard, ButtonPrimary, ButtonGhost } from "@/components/ui";
 
 export const metadata: Metadata = {
-  title: "Matrix — Substance Interaction Engine",
+  title: "Matrix — Substance Interaction Intelligence | ViceLab",
   description:
-    "Pharmacological risk mapping for substance combinations. Matrix models interaction risk across compounds, routes, and dose patterns — built for harm reduction services and safety operators.",
+    "Pharmacological risk mapping built for real environments. Matrix models interaction risk across compounds, routes, and doses — evidence-graded, field-tested.",
 };
 
 const features = [
@@ -94,8 +94,7 @@ export default function MatrixPage() {
               Built for people who operate in the real world.
             </h2>
             <p className="text-white/40 text-[15px] leading-relaxed mb-8">
-              If you run harm reduction services, festival medical teams, or safety infrastructure —
-              Matrix is designed for your environment. Get in touch to discuss integration or early access.
+              If you run harm reduction services, festival medical teams, or safety infrastructure — Matrix is built for environments where getting it wrong has consequences. Get in touch.
             </p>
             <div className="flex flex-wrap gap-3">
               <ButtonPrimary href="mailto:hello@thevicelab.com" gradient="bg-gradient-sig">

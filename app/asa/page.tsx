@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import { Container, Section, Eyebrow, Badge, FeatureCard, ButtonPrimary, ButtonGhost } from "@/components/ui";
 
 export const metadata: Metadata = {
-  title: "ASA — Analytical Substance Assessment",
+  title: "ASA — Substance Intelligence Archive | ViceLab",
   description:
-    "A structured substance knowledge archive. Pharmacology, effects profiles, harm reduction context, and field data — evidence-graded and queryable.",
+    "Evidence-graded substance intelligence built from pharmacological literature, field data, and harm reduction context. Not Wikipedia. Operational knowledge.",
 };
 
 const features = [
@@ -55,9 +55,7 @@ export default function AsaPage() {
               Analytical Substance Assessment.
             </p>
             <p className="text-[17px] text-white/45 leading-relaxed mb-9">
-              A structured substance knowledge archive — pharmacology, effects profiles, harm
-              reduction context, and field data unified into a single queryable layer. Built for harm
-              reduction practitioners and safety systems that need more than a search result.
+              Evidence-graded substance intelligence — pharmacology, effects profiles, harm reduction context, and field data built for operational use. For practitioners who need more than a search result.
             </p>
             <div className="flex flex-wrap gap-3">
               <ButtonPrimary href="mailto:hello@thevicelab.com" gradient="bg-gradient-sig">

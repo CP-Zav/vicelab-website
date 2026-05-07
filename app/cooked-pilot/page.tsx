@@ -3,8 +3,8 @@ import Image from "next/image";
 import { Container, Section, SectionHeader, Badge, FeatureCard, ButtonPrimary, ButtonGhost } from "@/components/ui";
 
 export const metadata: Metadata = {
-  title: "Cooked Pilot — Real-time Harm Reduction",
-  description: "Live alerts on bad batches, testing resources, and friend check-in for festivals and nightlife. No account, no tracking.",
+  title: "Cooked Pilot — Your Crew. Covered.",
+  description: "Peer-based situational awareness for festivals, raves, and nights that stretch to next light. Crew care, early recognition, culture-fluent safety support.",
 };
 
 const features = [
@@ -43,8 +43,7 @@ export default function CookedPilotPage() {
             </div>
             <h1 className="text-display-lg text-balance mb-5">Cooked Pilot</h1>
             <p className="text-[17px] text-white/45 leading-relaxed mb-9">
-              Real-time harm reduction for festivals and nightlife. Live alerts on bad batches,
-              testing resources, and friend check-in — no judgment, no friction.
+              Peer-based situational awareness for nights that push the edge. Crew care, early recognition, and safety that doesn't kill the vibe.
             </p>
             <div className="flex flex-wrap gap-3">
               {/* CP buttons use neon magenta gradient */}
@@ -69,11 +68,9 @@ export default function CookedPilotPage() {
       <Section border>
         <Container>
           <div className="max-w-2xl mx-auto text-center">
-            <h2 className="text-display-md text-balance mb-5">Information saves lives.</h2>
+            <h2 className="text-display-md text-balance mb-5">Your crew. Covered.</h2>
             <p className="text-white/45 text-lg leading-relaxed">
-              Cooked Pilot exists because people are going to party. Our job
-              isn&apos;t to stop that — it&apos;s to make sure they have the
-              information they need to come home safe.
+              Cooked Pilot exists because people are going to party. Our job isn&apos;t to stop that — it&apos;s to make sure someone&apos;s watching the room, someone recognises the signs early, and nobody&apos;s crew gets left behind.
             </p>
           </div>
         </Container>

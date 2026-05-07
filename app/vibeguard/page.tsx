@@ -3,13 +3,13 @@ import Image from "next/image";
 import { Container, Section, Eyebrow, Badge, FeatureCard, ButtonPrimary, ButtonGhost } from "@/components/ui";
 
 export const metadata: Metadata = {
-  title: "VibeGuard — Real-Time Harm Reduction | ViceLab",
+  title: "VibeGuard — Organiser Safety Intelligence | ViceLab",
   description:
-    "Physiological monitoring for festivals, raves, and nightlife. Track heart rate, temperature, and hydration signals in real time — data without judgment.",
+    "Operational safety intelligence for festival organisers and compliance teams. Close the gap between duty of care and on-ground reality.",
   openGraph: {
-    title: "VibeGuard — Real-Time Harm Reduction | ViceLab",
+    title: "VibeGuard — Organiser Safety Intelligence | ViceLab",
     description:
-      "Physiological monitoring for festivals, raves, and nightlife. Track heart rate, temperature, and hydration signals in real time — data without judgment.",
+      "Operational safety intelligence for festival organisers and compliance teams. Close the gap between duty of care and on-ground reality.",
     url: "https://thevicelab.com/vibeguard",
     siteName: "ViceLab",
     images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "ViceLab" }],
@@ -17,37 +17,37 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "VibeGuard — Real-Time Harm Reduction | ViceLab",
+    title: "VibeGuard — Organiser Safety Intelligence | ViceLab",
     description:
-      "Physiological monitoring for festivals, raves, and nightlife. Track heart rate, temperature, and hydration signals in real time — data without judgment.",
+      "Operational safety intelligence for festival organisers and compliance teams. Close the gap between duty of care and on-ground reality.",
     images: ["/og-image.png"],
   },
 };
 
 const features = [
   {
-    title: "Heart rate monitoring",
-    body: "Continuous heart rate tracking across the night. See patterns, not just snapshots — so you know when something is building, not just when it peaks.",
+    title: "Crowd health monitoring",
+    body: "Aggregate physiological signals from connected attendee devices across the event footprint — so you see crowd-level risk, not just individual data points.",
   },
   {
-    title: "Temperature awareness",
-    body: "Body heat signals tracked in context. Festival conditions run hot — VibeGuard accounts for environment so the data actually means something.",
+    title: "Real-time safety alerts",
+    body: "Threshold-based alerts to safety coordinators when signals indicate emerging risk. Configured for your event, not a generic baseline.",
   },
   {
-    title: "Hydration intelligence",
-    body: "Flags dehydration risk before it becomes critical. Tracks patterns over time, not just point readings — the window to act stays open longer.",
+    title: "Compliance reporting",
+    body: "Automated incident logs and duty-of-care documentation generated from live event data. The paper trail your legal team needs, without building it manually.",
   },
   {
-    title: "Smart threshold alerts",
-    body: "Configurable risk thresholds fire when physiological signals move into danger territory. No noise. No false alarms. Just the moments that matter.",
+    title: "Zone-level visibility",
+    body: "Safety intelligence mapped across multiple event zones simultaneously. Know which areas are running hot before incidents escalate.",
   },
   {
     title: "Cooked Pilot integration",
-    body: "Pairs directly with Cooked Pilot. Physiological data meets harm reduction intelligence — full-stack safety for the people in the crowd.",
+    body: "Connects organiser-side monitoring with peer safety intelligence from the crowd layer. The full stack — from the ground to the command view.",
   },
   {
-    title: "Privacy-first by design",
-    body: "No account required for core monitoring. Anonymous by default. Your body data belongs to you — not a platform, not an operator.",
+    title: "Incident response tools",
+    body: "Structured response workflows that fire when risk signals escalate. From threshold breach to coordinated response, without the chaos.",
   },
 ];
 
@@ -81,9 +81,7 @@ export default function VibeGuardPage() {
             </div>
             <h1 className="text-display-lg text-balance mb-5">VibeGuard</h1>
             <p className="text-[17px] text-white/45 leading-relaxed mb-9 max-w-lg">
-              Real-time physiological monitoring for festivals, raves, and nightlife.
-              Heart rate, temperature, hydration — tracked continuously and flagged before
-              they become emergencies. Built for recreational environments, not clinical ones.
+              Organiser-side safety intelligence. Compliance done with clarity, not paperwork. Data, reporting tools, and monitoring infrastructure — built to close the gap between duty of care and on-ground reality.
             </p>
             {/* VG button: cyan → neon green gradient */}
             <div className="flex flex-wrap gap-3">
@@ -100,7 +98,7 @@ export default function VibeGuardPage() {
       <Section border>
         <Container>
           <h2 className="text-[11px] font-semibold tracking-[0.2em] uppercase text-white/25 mb-8">
-            What it does
+            What organisers actually need
           </h2>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {features.map((f) => (
@@ -124,11 +122,10 @@ export default function VibeGuardPage() {
             <div className="relative">
               <Eyebrow color="teal">In Development</Eyebrow>
               <h2 className="text-display-md text-balance mb-4">
-                Data without judgment.
+                Built for the people on duty.
               </h2>
               <p className="text-white/38 text-base leading-relaxed max-w-md mx-auto mb-8">
-                VibeGuard is in active development. If you work in harm reduction, events,
-                or festival safety — we want to hear from you.
+                If you run events, you already carry the risk. VibeGuard gives you the data layer, reporting tools, and monitoring infrastructure to actually meet your obligations — not just demonstrate them. Early access open now.
               </p>
               <div className="flex flex-wrap justify-center gap-3">
                 <ButtonPrimary href="mailto:hello@thevicelab.com" gradient="bg-gradient-vg">

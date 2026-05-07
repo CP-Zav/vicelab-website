@@ -3,8 +3,8 @@ import Image from "next/image";
 import { Container, Section, Eyebrow, SectionHeader, Card, ButtonPrimary, ButtonGhost } from "@/components/ui";
 
 export const metadata: Metadata = {
-  title: "About ViceLab — Festival Safety Intelligence",
-  description: "Festival safety intelligence, harm reduction education, and operationally honest safety systems built for real-world environments.",
+  title: "ViceLab — Field Intelligence for Festival Safety",
+  description: "The intelligence layer for festival safety — where harm reduction meets operational reality. Built from real incidents, real debriefs, real outcomes.",
 };
 
 const values = [
@@ -37,8 +37,7 @@ export default function ViceLabPage() {
             </div>
             <h1 className="text-display-lg text-balance mb-5">ViceLab</h1>
             <p className="text-[17px] text-white/45 leading-relaxed">
-              Festival safety intelligence, harm reduction education, and operationally
-              honest safety systems built for real-world environments. Non-preachy.
+              The intelligence layer for festival safety. Where harm reduction meets operational reality — built from real incidents, real debriefs, real outcomes. Non-preachy.
               Evidence-informed. Built for the people who actually show up.
             </p>
           </div>
