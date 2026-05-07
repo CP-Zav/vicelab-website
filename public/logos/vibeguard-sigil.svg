@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" fill="none">
+  <defs>
+    <filter id="vg-glow-arc" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="2.5" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="vg-glow-inner" x="-60%" y="-60%" width="220%" height="220%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="4" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+  <path d="M8,22 L8,8 L22,8" stroke="#06B6D4" stroke-width="1.5" stroke-linecap="square" opacity="0.65"/>
+  <path d="M98,8 L112,8 L112,22" stroke="#06B6D4" stroke-width="1.5" stroke-linecap="square" opacity="0.65"/>
+  <path d="M8,98 L8,112 L22,112" stroke="#06B6D4" stroke-width="1.5" stroke-linecap="square" opacity="0.65"/>
+  <path d="M98,112 L112,112 L112,98" stroke="#06B6D4" stroke-width="1.5" stroke-linecap="square" opacity="0.65"/>
+  <path d="M28,99 A42,42 0 1,1 92,99" stroke="#00D5FF" stroke-width="2" stroke-linecap="round" opacity="0.85" filter="url(#vg-glow-arc)"/>
+  <path d="M39,90 A28,28 0 1,1 81,90" stroke="#06B6D4" stroke-width="1.5" stroke-linecap="round" opacity="0.65" filter="url(#vg-glow-arc)"/>
+  <path d="M49,84 A16,16 0 1,1 71,84" stroke="#00FFA3" stroke-width="1" stroke-linecap="round" opacity="0.45"/>
+  <line x1="28" y1="99" x2="39" y2="90" stroke="#06B6D4" stroke-width="1" opacity="0.55"/>
+  <line x1="92" y1="99" x2="81" y2="90" stroke="#06B6D4" stroke-width="1" opacity="0.55"/>
+  <g fill="#06B6D4" opacity="0.30">
+    <circle cx="60" cy="52" r="1.5"/>
+    <circle cx="50" cy="62" r="1.5"/>
+    <circle cx="70" cy="62" r="1.5"/>
+    <circle cx="44" cy="74" r="1.5"/>
+    <circle cx="60" cy="72" r="1.5"/>
+    <circle cx="76" cy="74" r="1.5"/>
+  </g>
+  <circle cx="60" cy="72" r="4" fill="#00D5FF" filter="url(#vg-glow-inner)" opacity="0.90"/>
+  <circle cx="60" cy="72" r="2" fill="#00FFA3"/>
+</svg>
