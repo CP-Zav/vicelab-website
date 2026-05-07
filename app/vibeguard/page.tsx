@@ -26,28 +26,28 @@ export const metadata: Metadata = {
 
 const features = [
   {
-    title: "Crowd health monitoring",
-    body: "Aggregate physiological signals from connected attendee devices across the event footprint — so you see crowd-level risk, not just individual data points.",
+    title: "Crowd wellbeing insights",
+    body: "Anonymous, opt-in event telemetry that helps organisers identify emerging welfare pressure before incidents escalate.",
   },
   {
     title: "Real-time safety alerts",
-    body: "Threshold-based alerts to safety coordinators when signals indicate emerging risk. Configured for your event, not a generic baseline.",
+    body: "Alerts triggered by crowd density, environmental stress, incident reports, or welfare escalation thresholds configured for your event.",
   },
   {
     title: "Compliance reporting",
-    body: "Automated incident logs and duty-of-care documentation generated from live event data. The paper trail your legal team needs, without building it manually.",
+    body: "Automatically generated incident timelines, response logs, and duty-of-care documentation built from operational safety events.",
   },
   {
     title: "Zone-level visibility",
-    body: "Safety intelligence mapped across multiple event zones simultaneously. Know which areas are running hot before incidents escalate.",
+    body: "See which areas of your event are experiencing elevated operational pressure, congestion, or welfare demand in real time.",
   },
   {
-    title: "Cooked Pilot integration",
-    body: "Connects organiser-side monitoring with peer safety intelligence from the crowd layer. The full stack — from the ground to the command view.",
+    title: "Integrated command coordination",
+    body: "Brings together crowd conditions, response workflows, and operational communications into one unified operational view.",
   },
   {
-    title: "Incident response tools",
-    body: "Structured response workflows that fire when risk signals escalate. From threshold breach to coordinated response, without the chaos.",
+    title: "Incident response workflows",
+    body: "Structured escalation and coordination tools designed to help teams respond quickly when risk thresholds are breached.",
   },
 ];
 
@@ -105,6 +105,13 @@ export default function VibeGuardPage() {
               <FeatureCard key={f.title} title={f.title} body={f.body} accent="teal" />
             ))}
           </div>
+
+          {/* ── Privacy statement ───────────────────────────────────────── */}
+          <p className="mt-10 text-[13px] text-white/25 leading-relaxed max-w-2xl">
+            VibeGuard does not identify, profile, or track individuals. Safety insights are
+            anonymised, aggregate, and designed to support crowd welfare and operational
+            response — not surveillance.
+          </p>
         </Container>
       </Section>
 
