@@ -81,7 +81,7 @@ export default function Footer() {
 
         {/* Bottom bar */}
         <div className="mt-10 pt-6 border-t border-white/[0.05] flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
-          <p className="text-[12px] text-white/[0.18]">© {year} ViceLab. All rights reserved.</p>
+          <p className="text-[12px] text-white/[0.18]">© {year} VICELAB. All rights reserved.</p>
           <p className="text-[12px] text-white/[0.18]">This is not merch. This is field intelligence.</p>
         </div>
       </div>

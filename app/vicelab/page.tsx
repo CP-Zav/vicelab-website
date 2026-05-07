@@ -3,7 +3,7 @@ import Image from "next/image";
 import { Container, Section, Eyebrow, SectionHeader, Card, ButtonPrimary, ButtonGhost } from "@/components/ui";
 
 export const metadata: Metadata = {
-  title: "ViceLab — Field Intelligence for Festival Safety",
+  title: "VICELAB — Field Intelligence for Festival Safety",
   description: "The intelligence layer for festival safety — where harm reduction meets operational reality. Built from real incidents, real debriefs, real outcomes.",
 };
 
@@ -35,7 +35,7 @@ export default function ViceLabPage() {
                 priority
               />
             </div>
-            <h1 className="text-display-lg text-balance mb-5">ViceLab</h1>
+            <h1 className="text-display-lg text-balance mb-5">VICELAB</h1>
             <p className="text-[17px] text-white/45 leading-relaxed">
               The intelligence layer for festival safety. Where harm reduction meets operational reality — built from real incidents, real debriefs, real outcomes. Non-preachy.
               Evidence-informed. Built for the people who actually show up.

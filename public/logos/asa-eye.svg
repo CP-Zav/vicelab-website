@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 100" fill="none">
+  <defs>
+    <linearGradient id="eyeGrad" x1="0" y1="0" x2="160" y2="100" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#00D5FF"/>
+      <stop offset="45%" stop-color="#7C3AED"/>
+      <stop offset="100%" stop-color="#FF00A8"/>
+    </linearGradient>
+    <linearGradient id="eyeGrad2" x1="160" y1="0" x2="0" y2="100" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#00D5FF" stop-opacity="0.5"/>
+      <stop offset="100%" stop-color="#7C3AED" stop-opacity="0.2"/>
+    </linearGradient>
+    <filter id="eyeGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="1.5" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <!-- Corner scan brackets -->
+  <polyline points="2,12 2,2 12,2"   stroke="#00D5FF" stroke-width="1.2" stroke-opacity="0.45" fill="none"/>
+  <polyline points="148,2 158,2 158,12"  stroke="#00D5FF" stroke-width="1.2" stroke-opacity="0.45" fill="none"/>
+  <polyline points="2,88 2,98 12,98"   stroke="#00D5FF" stroke-width="1.2" stroke-opacity="0.45" fill="none"/>
+  <polyline points="148,98 158,98 158,88" stroke="#00D5FF" stroke-width="1.2" stroke-opacity="0.45" fill="none"/>
+
+  <!-- Outer eye — vesica path -->
+  <path d="M14,50 Q80,12 146,50 Q80,88 14,50 Z"
+    stroke="url(#eyeGrad)" stroke-width="1.6" fill="none" filter="url(#eyeGlow)"/>
+
+  <!-- Iris ring outer -->
+  <circle cx="80" cy="50" r="24" stroke="url(#eyeGrad)" stroke-width="1.4" fill="none" filter="url(#eyeGlow)"/>
+
+  <!-- Iris detail arcs — subtle -->
+  <circle cx="80" cy="50" r="18" stroke="url(#eyeGrad2)" stroke-width="0.8" fill="none"/>
+
+  <!-- Pupil ring -->
+  <circle cx="80" cy="50" r="10" stroke="url(#eyeGrad)" stroke-width="1.4" fill="none" filter="url(#eyeGlow)"/>
+
+  <!-- Pupil core -->
+  <circle cx="80" cy="50" r="3.5" fill="url(#eyeGrad)" filter="url(#eyeGlow)"/>
+
+  <!-- Subtle radial tick marks at iris -->
+  <line x1="80" y1="24" x2="80" y2="28" stroke="#7C3AED" stroke-width="0.8" stroke-opacity="0.5"/>
+  <line x1="80" y1="72" x2="80" y2="76" stroke="#7C3AED" stroke-width="0.8" stroke-opacity="0.5"/>
+  <line x1="54" y1="50" x2="58" y2="50" stroke="#7C3AED" stroke-width="0.8" stroke-opacity="0.5"/>
+  <line x1="102" y1="50" x2="106" y2="50" stroke="#7C3AED" stroke-width="0.8" stroke-opacity="0.5"/>
+</svg>

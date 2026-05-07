@@ -6,8 +6,8 @@ import { Analytics } from "@vercel/analytics/next";
 
 export const metadata: Metadata = {
   title: {
-    default: "ViceLab — Safety Tech for the Night",
-    template: "%s | ViceLab",
+    default: "VICELAB — Safety Tech for the Night",
+    template: "%s | VICELAB",
   },
   description:
     "ViceLab builds safety technology for nightlife and festival culture. Non-judgmental, privacy-conscious, evidence-informed.",
@@ -17,7 +17,7 @@ export const metadata: Metadata = {
     locale: "en_AU",
     url: "https://thevicelab.com",
     siteName: "ViceLab",
-    title: "ViceLab — Safety Tech for the Night",
+    title: "VICELAB — Safety Tech for the Night",
     description:
       "Festival safety intelligence. Harm reduction tools for the people who show up. Non-preachy. Privacy-conscious. Built for real environments.",
     images: [
@@ -25,13 +25,13 @@ export const metadata: Metadata = {
         url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: "ViceLab — Safety Tech for the Night",
+        alt: "VICELAB — Safety Tech for the Night",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "ViceLab — Safety Tech for the Night",
+    title: "VICELAB — Safety Tech for the Night",
     description:
       "Festival safety intelligence. Harm reduction tools for the people who show up.",
   },

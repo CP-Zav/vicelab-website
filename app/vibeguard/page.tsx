@@ -3,11 +3,11 @@ import Image from "next/image";
 import { Container, Section, Eyebrow, Badge, FeatureCard, ButtonPrimary, ButtonGhost } from "@/components/ui";
 
 export const metadata: Metadata = {
-  title: "VibeGuard — Organiser Safety Intelligence | ViceLab",
+  title: "VibeGuard — Organiser Safety Intelligence | VICELAB",
   description:
     "Operational safety intelligence for festival organisers and compliance teams. Close the gap between duty of care and on-ground reality.",
   openGraph: {
-    title: "VibeGuard — Organiser Safety Intelligence | ViceLab",
+    title: "VibeGuard — Organiser Safety Intelligence | VICELAB",
     description:
       "Operational safety intelligence for festival organisers and compliance teams. Close the gap between duty of care and on-ground reality.",
     url: "https://thevicelab.com/vibeguard",
@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "VibeGuard — Organiser Safety Intelligence | ViceLab",
+    title: "VibeGuard — Organiser Safety Intelligence | VICELAB",
     description:
       "Operational safety intelligence for festival organisers and compliance teams. Close the gap between duty of care and on-ground reality.",
     images: ["/og-image.png"],
@@ -138,7 +138,7 @@ export default function VibeGuardPage() {
                 <ButtonPrimary href="mailto:hello@thevicelab.com" gradient="bg-gradient-vg">
                   Get in touch
                 </ButtonPrimary>
-                <ButtonGhost href="/vicelab">About ViceLab</ButtonGhost>
+                <ButtonGhost href="/vicelab">About VICELAB</ButtonGhost>
               </div>
             </div>
           </div>

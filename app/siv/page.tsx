@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Container, Section, Eyebrow, Badge, FeatureCard, ButtonPrimary } from "@/components/ui";
 
 export const metadata: Metadata = {
-  title: "SIV — Substance Intelligence Vault | ViceLab",
+  title: "SIV — Substance Intelligence Vault | VICELAB",
   description: "Field intelligence infrastructure for festival safety. SIV connects Cooked Pilot, Matrix, and VibeGuard into a single operational picture.",
 };
 

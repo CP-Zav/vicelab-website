@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Container, Section, Eyebrow, Badge, FeatureCard, ButtonPrimary, ButtonGhost } from "@/components/ui";
 
 export const metadata: Metadata = {
-  title: "Matrix — Substance Interaction Intelligence | ViceLab",
+  title: "Matrix — Substance Interaction Intelligence | VICELAB",
   description:
     "Pharmacological risk mapping built for real environments. Matrix models interaction risk across compounds, routes, and doses — evidence-graded, field-tested.",
 };
@@ -63,7 +63,7 @@ export default function MatrixPage() {
               <ButtonPrimary href="mailto:hello@thevicelab.com" gradient="bg-gradient-sig">
                 Register interest
               </ButtonPrimary>
-              <ButtonGhost href="/vicelab">About ViceLab</ButtonGhost>
+              <ButtonGhost href="/vicelab">About VICELAB</ButtonGhost>
             </div>
           </div>
         </Container>
