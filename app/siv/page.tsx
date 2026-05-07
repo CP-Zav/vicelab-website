@@ -62,7 +62,7 @@ export default function SIVPage() {
           <div className="max-w-xl">
             <h2 className="text-display-sm mb-5">Interested in SIV?</h2>
             <p className="text-white/40 text-[15px] leading-relaxed mb-8">
-              SIV is in development. If you operate large-scale events or safety networks and you're done running on fragmented data — get in touch.
+              SIV is in development. If you operate large-scale events or safety networks and you&apos;re done running on fragmented data — get in touch.
             </p>
             <ButtonPrimary href="mailto:hello@thevicelab.com" gradient="bg-gradient-sig">
               Get in touch

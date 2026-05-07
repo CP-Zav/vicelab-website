@@ -43,7 +43,7 @@ export default function CookedPilotPage() {
             </div>
             <h1 className="text-display-lg text-balance mb-5">Cooked Pilot</h1>
             <p className="text-[17px] text-white/45 leading-relaxed mb-9">
-              Peer-based situational awareness for nights that push the edge. Crew care, early recognition, and safety that doesn't kill the vibe.
+              Peer-based situational awareness for nights that push the edge. Crew care, early recognition, and safety that doesn&apos;t kill the vibe.
             </p>
             <div className="flex flex-wrap gap-3">
               {/* CP buttons use neon magenta gradient */}
