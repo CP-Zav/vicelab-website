@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" fill="none">
+  <defs>
+    <filter id="cp-glow-node" x="-100%" y="-100%" width="300%" height="300%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="3.5" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="cp-glow-pulse" x="-80%" y="-80%" width="260%" height="260%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="5" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+  <path d="M8,22 L8,8 L22,8" stroke="#FF00A8" stroke-width="1.5" stroke-linecap="square" opacity="0.65"/>
+  <path d="M98,8 L112,8 L112,22" stroke="#FF00A8" stroke-width="1.5" stroke-linecap="square" opacity="0.65"/>
+  <path d="M8,98 L8,112 L22,112" stroke="#FF00A8" stroke-width="1.5" stroke-linecap="square" opacity="0.65"/>
+  <path d="M98,112 L112,112 L112,98" stroke="#FF00A8" stroke-width="1.5" stroke-linecap="square" opacity="0.65"/>
+  <path d="M60,28 Q90,48 86,75" stroke="#FF00A8" stroke-width="1.5" stroke-linecap="round" opacity="0.70"/>
+  <path d="M86,75 Q60,92 34,75" stroke="#FF00A8" stroke-width="1.5" stroke-linecap="round" opacity="0.70"/>
+  <path d="M34,75 Q30,48 60,28" stroke="#FF00A8" stroke-width="1.5" stroke-linecap="round" opacity="0.70"/>
+  <circle cx="60" cy="56" r="36" stroke="#FF00A8" stroke-width="0.75" opacity="0.20"/>
+  <circle cx="60" cy="28" r="6" fill="#FF00A8" filter="url(#cp-glow-node)"/>
+  <circle cx="60" cy="28" r="3" fill="#F9A8D4"/>
+  <circle cx="34" cy="75" r="6" fill="#FF00A8" filter="url(#cp-glow-node)"/>
+  <circle cx="34" cy="75" r="3" fill="#F9A8D4"/>
+  <circle cx="86" cy="75" r="6" fill="#FF00A8" filter="url(#cp-glow-node)"/>
+  <circle cx="86" cy="75" r="3" fill="#F9A8D4"/>
+  <circle cx="60" cy="58" r="7" stroke="#FF00A8" stroke-width="1" opacity="0.40" filter="url(#cp-glow-pulse)"/>
+  <circle cx="60" cy="58" r="3" fill="#FF00A8" opacity="0.60" filter="url(#cp-glow-pulse)"/>
+  <circle cx="60" cy="58" r="1.5" fill="#F9A8D4"/>
+</svg>
