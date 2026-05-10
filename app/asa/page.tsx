@@ -231,35 +231,58 @@ export default function ASAPage() {
           </div>
 
           {/* Main layout — left traits | center sigil | right narrative */}
+          {/*
+            Mobile layout:  sigil (order-1) → brief (order-2) → traits (order-3, condensed)
+            Desktop layout: traits (left) | sigil (center) | brief (right) — original 3-col
+          */}
           <div className="flex flex-col lg:flex-row lg:items-start lg:gap-0">
 
-            {/* Left — trait column (mirroring ASA app left panel) */}
-            <div className="lg:w-56 mb-12 lg:mb-0 lg:pt-4">
-              <div className="sys-label tracking-[0.28em] mb-6" style={{ color: "rgba(255,255,255,0.25)" }}>
-                CHARACTERISTICS
-              </div>
-              <div className="space-y-0 divide-y divide-white/[0.05]">
+            {/* Left — trait column: hidden on xs/sm, condensed badge row on md, full column on lg+ */}
+            <div className="lg:w-56 order-3 lg:order-none mb-0 lg:mb-0 lg:pt-4">
+              {/* Mobile/tablet: compact trait badges strip */}
+              <div className="flex flex-wrap items-center gap-2 mb-8 lg:hidden">
                 {traits.map((t) => (
-                  <div key={t.id} className="py-3.5">
-                    <div className="flex items-center gap-2 mb-1">
-                      <span className="sys-label" style={{ fontSize: "9px", color: "rgba(255,255,255,0.2)" }}>{t.id}</span>
-                      <span
-                        className="font-mono text-[11px] tracking-[0.18em] font-medium"
-                        style={{ color: C.violetB + "CC" }}
-                      >
-                        {t.label}
-                      </span>
-                    </div>
-                    <p className="font-mono text-[10px] text-white/28 tracking-[0.06em] pl-6">
-                      {t.desc}
-                    </p>
-                  </div>
+                  <span
+                    key={t.id}
+                    className="font-mono text-[9px] tracking-[0.16em] uppercase px-2.5 py-1"
+                    style={{
+                      color: C.violetB + "99",
+                      border: `1px solid ${C.violetB}22`,
+                      background: C.violet + "08",
+                    }}
+                  >
+                    {t.label}
+                  </span>
                 ))}
+              </div>
+              {/* Desktop: full trait column */}
+              <div className="hidden lg:block">
+                <div className="sys-label tracking-[0.28em] mb-6" style={{ color: "rgba(255,255,255,0.25)" }}>
+                  CHARACTERISTICS
+                </div>
+                <div className="space-y-0 divide-y divide-white/[0.05]">
+                  {traits.map((t) => (
+                    <div key={t.id} className="py-3.5">
+                      <div className="flex items-center gap-2 mb-1">
+                        <span className="sys-label" style={{ fontSize: "9px", color: "rgba(255,255,255,0.2)" }}>{t.id}</span>
+                        <span
+                          className="font-mono text-[11px] tracking-[0.18em] font-medium"
+                          style={{ color: C.violetB + "CC" }}
+                        >
+                          {t.label}
+                        </span>
+                      </div>
+                      <p className="font-mono text-[10px] text-white/28 tracking-[0.06em] pl-6">
+                        {t.desc}
+                      </p>
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
 
-            {/* Center — eye sigil (desktop: prominent; mobile: below heading) */}
-            <div className="flex-1 flex flex-col items-center justify-start lg:items-center lg:justify-start lg:px-8 xl:px-16 mb-10 lg:mb-0">
+            {/* Center — eye sigil: leads on mobile (order-1), center column on desktop */}
+            <div className="flex-1 flex flex-col items-center justify-start order-1 lg:order-none lg:px-8 xl:px-16 mb-10 lg:mb-0">
               {/* ASA designation above sigil */}
               <h1
                 className="font-bold tracking-tight text-center mb-8 lg:mb-10"
@@ -278,9 +301,11 @@ export default function ASAPage() {
               {/* Eye sigil — the centerpiece */}
               <div
                 className="relative atm-drift"
-                style={{ filter: `drop-shadow(0 0 30px rgba(124,58,237,0.35)) drop-shadow(0 0 60px rgba(124,58,237,0.15))` }}
+                style={{ filter: `drop-shadow(0 0 20px rgba(124,58,237,0.28)) drop-shadow(0 0 50px rgba(124,58,237,0.12))` }}
               >
-                <EyeSigil size={260} />
+                {/* Responsive sigil: 180px on mobile, 260px on desktop */}
+                <span className="block sm:hidden"><EyeSigil size={180} /></span>
+                <span className="hidden sm:block"><EyeSigil size={260} /></span>
               </div>
 
               {/* Bottom motto */}
@@ -293,8 +318,8 @@ export default function ASAPage() {
               </div>
             </div>
 
-            {/* Right — narrative block */}
-            <div className="lg:w-64 xl:w-72 lg:pt-4">
+            {/* Right — narrative block: order-2 on mobile, right column on desktop */}
+            <div className="lg:w-64 xl:w-72 order-2 lg:order-none lg:pt-4">
               <div className="sys-label tracking-[0.28em] mb-6" style={{ color: "rgba(255,255,255,0.25)" }}>
                 SYSTEM BRIEF
               </div>

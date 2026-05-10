@@ -69,8 +69,8 @@ const systems = [
     detail: "Pharmacological risk data for harm reduction practitioners.",
     status: "dev" as const,
     statusLabel: "IN DEV",
-    accent: "#DC2626",
-    accentDim: "rgba(220,38,38,0.07)",
+    accent: "#4F46E5",
+    accentDim: "rgba(79,70,229,0.07)",
   },
   {
     index: "05",
@@ -81,8 +81,8 @@ const systems = [
     detail: "Unified field intelligence, risk, and operational response protocols.",
     status: "dev" as const,
     statusLabel: "IN DEV",
-    accent: "#F59E0B",
-    accentDim: "rgba(245,158,11,0.07)",
+    accent: "#06B6D4",
+    accentDim: "rgba(6,182,212,0.07)",
   },
   {
     index: "06",
@@ -203,6 +203,39 @@ export default function HomePage() {
                 <span className="w-10 h-px bg-white/15 group-hover:bg-white/50 transition-all duration-300 group-hover:w-14" />
                 <span className="font-mono text-[10px] text-white/30 group-hover:text-white/60 transition-colors duration-200">→</span>
               </Link>
+            </div>
+
+            {/* Mobile: compact system status list — below hero copy */}
+            <div className="lg:hidden mt-10">
+              <div className="tel-panel overflow-hidden" style={{ borderColor: "rgba(255,255,255,0.06)" }}>
+                <div className="flex items-center justify-between px-4 py-2.5 border-b border-white/[0.04]">
+                  <span className="sys-label tracking-[0.22em]" style={{ fontSize: "9px" }}>SYSTEMS</span>
+                  <div className="flex items-center gap-1.5">
+                    <span className="w-1 h-1 rounded-full bg-[#00FF9D] status-pulse" />
+                    <span className="sys-label" style={{ fontSize: "8px" }}>LIVE</span>
+                  </div>
+                </div>
+                <div className="grid grid-cols-2 divide-x divide-white/[0.04]">
+                  {systems.map((sys) => {
+                    const dot = statusDot[sys.status];
+                    return (
+                      <Link
+                        key={sys.id}
+                        href={sys.href}
+                        className="flex items-center justify-between px-3 py-3 border-b border-white/[0.04] last:border-b-0 hover:bg-white/[0.015] transition-colors"
+                      >
+                        <span className="font-mono text-[10px] tracking-[0.08em]" style={{ color: sys.accent + "CC" }}>
+                          {sys.name}
+                        </span>
+                        <span
+                          className={`w-1.5 h-1.5 rounded-full flex-shrink-0 ml-2${dot.pulse ? " status-pulse" : ""}`}
+                          style={{ backgroundColor: dot.color }}
+                        />
+                      </Link>
+                    );
+                  })}
+                </div>
+              </div>
             </div>
 
             {/* Right — system status telemetry panel (desktop only) */}

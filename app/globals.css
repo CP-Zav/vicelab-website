@@ -2,39 +2,95 @@
 @tailwind components;
 @tailwind utilities;
 
-/* ═══════════════════════════════════════════════════════════════════════
-   PRODUCT COLOR SYSTEM — centralized brand token reference
-   ───────────────────────────────────────────────────────────────────────
-   Cooked Pilot  (cp)  — neon magenta      #FF00A8 → #FF1FB8
-   VibeGuard     (vg)  — cyan → neon green #00D5FF → #00FFA3
-   Signal / VL   (sig) — electric blue     #2F6BFF → #00D5FF
-   ═══════════════════════════════════════════════════════════════════════ */
+/* ═══════════════════════════════════════════════════════════════════════════
+   VICELAB ECOSYSTEM — MASTER DESIGN SYSTEM
+   Phase 1: Responsive + Mobile Systemization
+   ─────────────────────────────────────────────────────────────────────────
+   Color tokens (design bible locked — v1.0):
 
+   VICELAB (parent)   #2F6BFF · #00D5FF · #8B5CF6 · #FF00A8  (full spectrum)
+   ASA                #7C3AED · #8B5CF6 · #FF00A8 · #00D5FF   (UV → magenta)
+   COOKED PILOT       #FF00A8 · #FF1FB8                        (magenta-forward)
+   VIBEGUARD          #00D5FF · #00FFA3                        (cyan-forward)
+   MATRIX             #4F46E5 · #7C3AED · #818CF8              (indigo-forward)
+   SIV                #00D5FF · #06B6D4 · #00FFA3              (signal teal)
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/* ── 1. CSS Custom Properties ──────────────────────────────────────────────── */
 :root {
+  /* VICELAB parent */
+  --vl-blue:    #2F6BFF;
+  --vl-cyan:    #00D5FF;
+  --vl-violet:  #8B5CF6;
+  --vl-magenta: #FF00A8;
+
+  /* ASA */
+  --asa-uv:     #7C3AED;
+  --asa-violet: #8B5CF6;
+  --asa-mag:    #FF00A8;
+  --asa-cyan:   #00D5FF;
+
+  /* Cooked Pilot */
   --cp-color:       #FF00A8;
+  --cp-hot:         #FF1FB8;
   --cp-color-dim:   rgba(255, 0, 168, 0.15);
+
+  /* VibeGuard */
   --vg-color:       #00D5FF;
+  --vg-green:       #00FFA3;
   --vg-color-dim:   rgba(0, 213, 255, 0.15);
-  --sig-color:      #2F6BFF;
-  --sig-color-dim:  rgba(47, 107, 255, 0.15);
-  --vl-green:       #00FFA3;
-  /* Legacy */
-  --cp-cyan:        #22d3ee;
-  --vg-violet:      #a78bfa;
+
+  /* Matrix — electric indigo (replaces all crimson/red) */
+  --mx-indigo:  #4F46E5;
+  --mx-violet:  #7C3AED;
+  --mx-peri:    #818CF8;
+  --mx-dim:     rgba(79, 70, 229, 0.15);
+
+  /* SIV — acid cyan / signal teal (replaces all amber/gold) */
+  --siv-cyan:   #00D5FF;
+  --siv-teal:   #06B6D4;
+  --siv-signal: #00FFA3;
+  --siv-dim:    rgba(0, 213, 255, 0.15);
+
+  /* Foundation */
+  --canvas:     #080808;
+  --surface:    #0F0F0F;
+
+  /* Legacy aliases (kept for compat — do not add new usages) */
+  --sig-color:     #2F6BFF;
+  --sig-color-dim: rgba(47, 107, 255, 0.15);
+  --vl-green:      #00FFA3;
+  --cp-cyan:       #22d3ee;
+  --vg-violet:     #a78bfa;
 }
 
+/* ── 2. Base Layer ─────────────────────────────────────────────────────────── */
 @layer base {
-  *, *::before, *::after { box-sizing: border-box; }
+  *, *::before, *::after {
+    box-sizing: border-box;
+  }
 
   html {
     scroll-behavior: smooth;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    /* Prevent font inflation on mobile */
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
   }
 
   body {
-    background: #080808;
-    color: #f0f0f0;
+    background: var(--canvas);
+    color: rgba(240, 240, 240, 0.85);
+    /* iOS safe area support */
+    padding-left: env(safe-area-inset-left);
+    padding-right: env(safe-area-inset-right);
+  }
+
+  /* Better touch defaults */
+  a, button {
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
   }
 
   ::selection {
@@ -43,15 +99,91 @@
   }
 }
 
-/* ── Product utility classes ────────────────────────────────────────────── */
+/* ── 3. Operational Component Classes ─────────────────────────────────────── */
 @layer components {
 
-  /* Text accents — semantic aliases for token classes */
-  .text-accent-cp  { color: var(--cp-color); }
-  .text-accent-vg  { color: var(--vg-color); }
-  .text-accent-sig { color: var(--sig-color); }
+  /* ─ Typography: operational mono label ──────────────────────────────────── */
+  .sys-label {
+    font-family: ui-monospace, SFMono-Regular, "Fira Code", monospace;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.35);
+    font-weight: 400;
+    line-height: 1.4;
+  }
 
-  /* Gradient text — product-named */
+  /* ─ Panel systems ────────────────────────────────────────────────────────── */
+
+  /* Base telemetry panel — hard edges, operational */
+  .tel-panel {
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    background: rgba(255, 255, 255, 0.018);
+  }
+
+  /* Elevated panel (hover, featured) */
+  .tel-panel-elevated {
+    border: 1px solid rgba(255, 255, 255, 0.10);
+    background: rgba(255, 255, 255, 0.025);
+  }
+
+  /* Status-tinted panel — product color bleeding */
+  .tel-panel-status {
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    background: rgba(255, 255, 255, 0.012);
+  }
+
+  /* ─ HUD grids — per-ecosystem and per-system ─────────────────────────────── */
+
+  /* Master VICELAB — electric blue tint */
+  .hud-grid {
+    background-image:
+      linear-gradient(rgba(47, 107, 255, 0.025) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(47, 107, 255, 0.025) 1px, transparent 1px);
+    background-size: 50px 50px;
+  }
+
+  /* ASA — violet tint */
+  .hud-grid-asa {
+    background-image:
+      linear-gradient(rgba(124, 58, 237, 0.022) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(124, 58, 237, 0.022) 1px, transparent 1px);
+    background-size: 55px 55px;
+  }
+
+  /* Matrix — indigo tint, denser grid (computational) */
+  .hud-grid-mx {
+    background-image:
+      linear-gradient(rgba(79, 70, 229, 0.025) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(79, 70, 229, 0.025) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+
+  /* SIV — teal/cyan tint */
+  .hud-grid-siv {
+    background-image:
+      linear-gradient(rgba(6, 182, 212, 0.025) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(6, 182, 212, 0.025) 1px, transparent 1px);
+    background-size: 45px 45px;
+  }
+
+  /* VibeGuard — cyan tint */
+  .hud-grid-vg {
+    background-image:
+      linear-gradient(rgba(0, 213, 255, 0.022) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0, 213, 255, 0.022) 1px, transparent 1px);
+    background-size: 50px 50px;
+  }
+
+  /* Cooked Pilot — magenta tint */
+  .hud-grid-cp {
+    background-image:
+      linear-gradient(rgba(255, 0, 168, 0.020) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 0, 168, 0.020) 1px, transparent 1px);
+    background-size: 50px 50px;
+  }
+
+  /* ─ Text gradients — product colors ─────────────────────────────────────── */
   .text-gradient-cp {
     background: linear-gradient(135deg, #FF00A8 0%, #FF1FB8 100%);
     -webkit-background-clip: text;
@@ -70,62 +202,142 @@
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
+  .text-gradient-asa {
+    background: linear-gradient(135deg, #00D5FF 0%, #7C3AED 50%, #FF00A8 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .text-gradient-mx {
+    background: linear-gradient(135deg, #4F46E5 0%, #7C3AED 50%, #818CF8 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .text-gradient-siv {
+    background: linear-gradient(135deg, #00D5FF 0%, #06B6D4 50%, #00FFA3 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .text-gradient-vl {
+    background: linear-gradient(135deg, #2F6BFF 0%, #00D5FF 30%, #8B5CF6 65%, #FF00A8 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
 
-  /* Hero radial backgrounds — product-named semantic aliases */
+  /* Legacy aliases */
+  .text-accent-cp  { color: var(--cp-color); }
+  .text-accent-vg  { color: var(--vg-color); }
+  .text-accent-sig { color: var(--sig-color); }
+
+  /* ─ Hero backgrounds ─────────────────────────────────────────────────────── */
   .hero-bg-cp  { background-image: radial-gradient(ellipse 80% 60% at 50% -10%, rgba(255,0,168,0.22) 0%, transparent 60%); }
   .hero-bg-vg  { background-image: radial-gradient(ellipse 80% 60% at 50% -10%, rgba(0,213,255,0.20) 0%, rgba(0,255,163,0.06) 50%, transparent 65%); }
   .hero-bg-sig { background-image: radial-gradient(ellipse 80% 60% at 50% -10%, rgba(47,107,255,0.22) 0%, transparent 60%); }
+  .hero-bg-asa { background-image: radial-gradient(ellipse 70% 55% at 50% -5%, rgba(124,58,237,0.18) 0%, transparent 60%); }
+  .hero-bg-mx  { background-image: radial-gradient(ellipse 80% 60% at 50% -10%, rgba(79,70,229,0.20) 0%, transparent 60%); }
+  .hero-bg-siv { background-image: radial-gradient(ellipse 80% 60% at 50% -10%, rgba(6,182,212,0.20) 0%, transparent 60%); }
 
-  /* Badges — product-named */
+  /* ─ Badges ───────────────────────────────────────────────────────────────── */
   .badge-cp {
-    background: rgba(255, 0, 168, 0.12);
+    background: rgba(255, 0, 168, 0.10);
     color: #FF00A8;
     border: 1px solid rgba(255, 0, 168, 0.22);
   }
   .badge-vg {
-    background: rgba(0, 213, 255, 0.12);
+    background: rgba(0, 213, 255, 0.10);
     color: #00D5FF;
     border: 1px solid rgba(0, 213, 255, 0.22);
   }
   .badge-sig {
-    background: rgba(47, 107, 255, 0.12);
+    background: rgba(47, 107, 255, 0.10);
     color: #2F6BFF;
     border: 1px solid rgba(47, 107, 255, 0.22);
   }
-
-  /* ── OPERATIONAL SYSTEM — Canonical visual direction ─────────────────── */
-
-  /* System label typography — mono, tracked, all-caps, dim */
-  .sys-label {
-    font-family: ui-monospace, SFMono-Regular, "Fira Code", monospace;
-    font-size: 10px;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: rgba(255, 255, 255, 0.35);
-    font-weight: 400;
+  .badge-asa {
+    background: rgba(124, 58, 237, 0.10);
+    color: #8B5CF6;
+    border: 1px solid rgba(124, 58, 237, 0.22);
+  }
+  .badge-mx {
+    background: rgba(79, 70, 229, 0.10);
+    color: #818CF8;
+    border: 1px solid rgba(79, 70, 229, 0.22);
+  }
+  .badge-siv {
+    background: rgba(6, 182, 212, 0.10);
+    color: #06B6D4;
+    border: 1px solid rgba(6, 182, 212, 0.22);
   }
 
-  /* Telemetry panel — operational dark border + slight bg */
-  .tel-panel {
-    border: 1px solid rgba(255, 255, 255, 0.07);
-    background: rgba(255, 255, 255, 0.018);
+  /* ─ Touch interaction: minimum 44px targets ─────────────────────────────── */
+  .touch-target {
+    min-height: 44px;
+    min-width: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
-  /* HUD grid background */
-  .hud-grid {
-    background-image:
-      linear-gradient(rgba(47, 107, 255, 0.025) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(47, 107, 255, 0.025) 1px, transparent 1px);
-    background-size: 50px 50px;
+  /* ─ Safe area padding ────────────────────────────────────────────────────── */
+  .safe-x {
+    padding-left: max(env(safe-area-inset-left), 1.25rem);
+    padding-right: max(env(safe-area-inset-right), 1.25rem);
   }
-
+  .safe-bottom {
+    padding-bottom: max(env(safe-area-inset-bottom), 1rem);
+  }
 }
 
-/* ── Global utilities ───────────────────────────────────────────────────── */
+/* ── 4. Utility Classes ────────────────────────────────────────────────────── */
 @layer utilities {
   .text-balance { text-wrap: balance; }
 
-  /* Noise overlay */
+  /* ─ Glow utilities — standard + per-system ──────────────────────────────── */
+
+  /* Standard product glows — standard desktop intensity */
+  .glow-cp  { box-shadow: 0 0 18px rgba(255, 0, 168, 0.28),  0 0 60px rgba(255, 0, 168, 0.10); }
+  .glow-vg  { box-shadow: 0 0 18px rgba(0, 213, 255, 0.28),  0 0 60px rgba(0, 213, 255, 0.10); }
+  .glow-sig { box-shadow: 0 0 18px rgba(47, 107, 255, 0.28), 0 0 60px rgba(47, 107, 255, 0.10); }
+  .glow-asa { box-shadow: 0 0 22px rgba(124, 58, 237, 0.28), 0 0 60px rgba(124, 58, 237, 0.10); }
+  .glow-mx  { box-shadow: 0 0 18px rgba(79, 70, 229, 0.28),  0 0 60px rgba(79, 70, 229, 0.10); }
+  .glow-siv { box-shadow: 0 0 18px rgba(6, 182, 212, 0.32),  0 0 60px rgba(6, 182, 212, 0.12); }
+
+  /* Legacy aliases */
+  .glow-blue   { box-shadow: 0 0 18px rgba(47, 107, 255, 0.40),  0 0 40px rgba(47, 107, 255, 0.20); }
+  .glow-pink   { box-shadow: 0 0 18px rgba(255, 0, 168, 0.40),   0 0 40px rgba(255, 0, 168, 0.20); }
+  .glow-violet { box-shadow: 0 0 30px rgba(124, 58, 237, 0.20),  0 0 60px rgba(124, 58, 237, 0.08); }
+  .glow-cyan   { box-shadow: 0 0 30px rgba(6, 182, 212, 0.20),   0 0 60px rgba(6, 182, 212, 0.08); }
+
+  /* ─ Text gradient aliases ────────────────────────────────────────────────── */
+  .text-gradient-blue {
+    background: linear-gradient(135deg, #2F6BFF 0%, #00D5FF 100%);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+  }
+  .text-gradient-pink {
+    background: linear-gradient(135deg, #FF00A8 0%, #FF1FB8 100%);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+  }
+  .text-gradient-teal {
+    background: linear-gradient(135deg, #00D5FF 0%, #00FFA3 100%);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+  }
+  .text-gradient-violet {
+    background: linear-gradient(135deg, #7C3AED 0%, #FF00A8 100%);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+  }
+  .text-gradient-indigo {
+    background: linear-gradient(135deg, #4F46E5 0%, #818CF8 100%);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+  }
+  .text-gradient-cyan {
+    background: linear-gradient(135deg, #00D5FF 0%, #06B6D4 100%);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+  }
+
+  /* ─ Overlay utilities ───────────────────────────────────────────────────── */
   .noise::after {
     content: '';
     position: absolute;
@@ -135,7 +347,6 @@
     border-radius: inherit;
   }
 
-  /* Scanline atmospheric overlay — barely perceptible horizontal lines */
   .scanline::before {
     content: '';
     position: absolute;
@@ -151,56 +362,25 @@
     z-index: 0;
     border-radius: inherit;
   }
-
-  /* ── Glow utilities ─────────────────────────────────────────────────── */
-  .glow-cp  { box-shadow: 0 0 16px rgba(255, 0, 168, 0.50), 0 0 40px rgba(255, 0, 168, 0.20); }
-  .glow-vg  { box-shadow: 0 0 16px rgba(0, 213, 255, 0.45), 0 0 40px rgba(0, 255, 163, 0.18); }
-  .glow-sig { box-shadow: 0 0 16px rgba(47, 107, 255, 0.50), 0 0 40px rgba(47, 107, 255, 0.20); }
-  .glow-blue  { box-shadow: 0 0 16px rgba(47, 107, 255, 0.50), 0 0 40px rgba(47, 107, 255, 0.20); }
-  .glow-pink  { box-shadow: 0 0 16px rgba(255, 0, 168, 0.50), 0 0 40px rgba(255, 0, 168, 0.20); }
-  .glow-violet { box-shadow: 0 0 30px rgba(167, 139, 250, 0.18), 0 0 60px rgba(167, 139, 250, 0.08); }
-  .glow-cyan   { box-shadow: 0 0 30px rgba(34, 211, 238, 0.18), 0 0 60px rgba(34, 211, 238, 0.08); }
-
-  /* ── Gradient text — legacy aliases (kept for compat) ───────────────── */
-  .text-gradient-blue {
-    background: linear-gradient(135deg, #2F6BFF 0%, #00D5FF 100%);
-    -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
-  }
-  .text-gradient-pink {
-    background: linear-gradient(135deg, #FF00A8 0%, #FF1FB8 100%);
-    -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
-  }
-  .text-gradient-teal {
-    background: linear-gradient(135deg, #00D5FF 0%, #00FFA3 100%);
-    -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
-  }
-  .text-gradient-violet {
-    background: linear-gradient(135deg, #a78bfa 0%, #e879f9 100%);
-    -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
-  }
-  .text-gradient-cyan {
-    background: linear-gradient(135deg, #22d3ee 0%, #818cf8 100%);
-    -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
-  }
 }
 
-/* ── Operational system animations ────────────────────────────────────── */
+/* ── 5. Animations ─────────────────────────────────────────────────────────── */
 
-/* Status pulse — for live system dots */
+/* System heartbeat — live state indicator */
 @keyframes status-pulse {
   0%, 100% { opacity: 1; }
   50%       { opacity: 0.2; }
 }
 .status-pulse { animation: status-pulse 2.8s ease-in-out infinite; }
 
-/* Atmospheric drift — ambient decorative elements */
+/* Atmospheric drift — presence without pressure */
 @keyframes atm-drift {
   0%, 100% { transform: translateY(0px);   opacity: 0.45; }
   50%       { transform: translateY(-10px); opacity: 0.75; }
 }
 .atm-drift { animation: atm-drift 12s ease-in-out infinite; }
 
-/* Slow radar rotation — for sigil ring elements */
+/* Radar scan — slow environmental monitoring */
 @keyframes radar-scan {
   from { transform: rotate(0deg); }
   to   { transform: rotate(360deg); }
@@ -213,14 +393,36 @@
 }
 .radar-counter { animation: radar-counter 24s linear infinite; }
 
-/* Glow breathe — focal elements */
+/* Glow breathe — system awareness indicator */
 @keyframes glow-breathe {
   0%, 100% { opacity: 0.35; }
   50%       { opacity: 0.85; }
 }
 .glow-breathe { animation: glow-breathe 5s ease-in-out infinite; }
 
-/* Cooked Pilot legacy keyframes */
+/* SIV-specific: signal pulse — fast, reactive */
+@keyframes signal-pulse {
+  0%   { transform: scale(1);   opacity: 1;    }
+  40%  { transform: scale(1.6); opacity: 0;    }
+  100% { transform: scale(1.6); opacity: 0;    }
+}
+.signal-pulse { animation: signal-pulse 1.8s ease-out infinite; }
+
+/* SIV-specific: waveform trace scroll */
+@keyframes wave-scroll {
+  from { background-position: 0 0; }
+  to   { background-position: -100px 0; }
+}
+.wave-scroll { animation: wave-scroll 8s linear infinite; }
+
+/* Matrix-specific: node activation */
+@keyframes node-activate {
+  0%, 100% { opacity: 0.2; }
+  50%       { opacity: 0.6; }
+}
+.node-activate { animation: node-activate 4s ease-in-out infinite; }
+
+/* Cooked Pilot legacy */
 @keyframes cp-float {
   0%, 100% { transform: translateY(0px); }
   50%       { transform: translateY(-8px); }
@@ -232,8 +434,122 @@
 .cp-float      { animation: cp-float 6s ease-in-out infinite; }
 .cp-glow-pulse { animation: cp-glow-pulse 3s ease-in-out infinite; }
 
-/* Scrollbar */
-::-webkit-scrollbar          { width: 6px; }
-::-webkit-scrollbar-track    { background: #0d0d0d; }
-::-webkit-scrollbar-thumb    { background: #2a2a2a; border-radius: 3px; }
-::-webkit-scrollbar-thumb:hover { background: #3a3a3a; }
+/* Nav overlay — 220ms entrance */
+@keyframes overlay-in {
+  from { opacity: 0; transform: translateY(-6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.overlay-in { animation: overlay-in 220ms cubic-bezier(0.4, 0, 0.2, 1) forwards; }
+
+/* ── 6. OLED Safety — Mobile Glow Attenuation ─────────────────────────────── */
+/*
+   On mobile (< 640px), reduce all glow intensities by ~40%.
+   OLED panels are sensitive to over-saturated light blooms.
+   The ecosystem still feels atmospheric — never flat.
+*/
+@media (max-width: 640px) {
+  .glow-cp  { box-shadow: 0 0 10px rgba(255, 0, 168, 0.20),  0 0 30px rgba(255, 0, 168, 0.07); }
+  .glow-vg  { box-shadow: 0 0 10px rgba(0, 213, 255, 0.20),  0 0 30px rgba(0, 213, 255, 0.07); }
+  .glow-sig { box-shadow: 0 0 10px rgba(47, 107, 255, 0.20), 0 0 30px rgba(47, 107, 255, 0.07); }
+  .glow-asa { box-shadow: 0 0 12px rgba(124, 58, 237, 0.20), 0 0 30px rgba(124, 58, 237, 0.07); }
+  .glow-mx  { box-shadow: 0 0 10px rgba(79, 70, 229, 0.20),  0 0 30px rgba(79, 70, 229, 0.07); }
+  .glow-siv { box-shadow: 0 0 10px rgba(6, 182, 212, 0.22),  0 0 30px rgba(6, 182, 212, 0.08); }
+  .glow-blue   { box-shadow: 0 0 10px rgba(47, 107, 255, 0.25), 0 0 25px rgba(47, 107, 255, 0.12); }
+  .glow-pink   { box-shadow: 0 0 10px rgba(255, 0, 168, 0.25),  0 0 25px rgba(255, 0, 168, 0.12); }
+  .glow-violet { box-shadow: 0 0 14px rgba(124, 58, 237, 0.14), 0 0 30px rgba(124, 58, 237, 0.06); }
+  .glow-cyan   { box-shadow: 0 0 14px rgba(6, 182, 212, 0.14),  0 0 30px rgba(6, 182, 212, 0.06); }
+
+  /* Throttle expensive animations on mobile */
+  .atm-drift     { animation-duration: 16s; }
+  .radar-scan    { animation-duration: 24s; }
+  .radar-counter { animation-duration: 30s; }
+  .glow-breathe  { animation-duration: 7s; }
+  .wave-scroll   { animation-duration: 12s; }
+
+  /* scanline disabled on mobile — cost vs gain not worth it */
+  .scanline::before { display: none; }
+}
+
+/* ── 7. Reduced Motion ─────────────────────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 100ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  /* Keep status pulse but make it very subtle */
+  .status-pulse { animation: none; opacity: 0.7; }
+  .glow-breathe { animation: none; opacity: 0.5; }
+  .atm-drift    { animation: none; }
+  .radar-scan   { animation: none; }
+  .radar-counter { animation: none; }
+  .cp-float     { animation: none; }
+  .signal-pulse { animation: none; opacity: 0.5; }
+}
+
+/* ── 8. Typography Scaling System ─────────────────────────────────────────── */
+/*
+   Mobile-first fluid type. All key display sizes use clamp().
+   Hierarchy: display → subsystem → operational → body → sys-label
+   Breakpoints: 320px minimum, 1280px maximum.
+*/
+
+/* Display headings — page heroes */
+.display-xl {
+  font-size: clamp(2.25rem, 7vw, 4.75rem);
+  line-height: 0.93;
+  letter-spacing: -0.03em;
+  font-weight: 900;
+}
+.display-lg {
+  font-size: clamp(1.875rem, 5vw, 3.5rem);
+  line-height: 1.0;
+  letter-spacing: -0.025em;
+  font-weight: 800;
+}
+.display-md {
+  font-size: clamp(1.5rem, 3.5vw, 2.5rem);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  font-weight: 700;
+}
+
+/* System name display — product hero titles (e.g., "ASA") */
+.system-display {
+  font-size: clamp(3rem, 9vw, 6rem);
+  line-height: 0.9;
+  letter-spacing: -0.04em;
+  font-weight: 900;
+}
+
+/* Subsystem heading — section titles */
+.subsystem-heading {
+  font-size: clamp(1.125rem, 2.5vw, 1.625rem);
+  line-height: 1.2;
+  letter-spacing: -0.015em;
+  font-weight: 700;
+}
+
+/* Body operational — primary readable content */
+.body-op {
+  font-size: clamp(14px, 1.5vw, 15px);
+  line-height: 1.78;
+}
+
+/* HUD metadata — telemetry panel labels, status readouts */
+.hud-meta {
+  font-family: ui-monospace, SFMono-Regular, "Fira Code", monospace;
+  font-size: clamp(10px, 1.1vw, 12px);
+  line-height: 1.5;
+  letter-spacing: 0.08em;
+}
+
+/* ── 9. Scrollbar ──────────────────────────────────────────────────────────── */
+::-webkit-scrollbar          { width: 4px; }
+::-webkit-scrollbar-track    { background: #0a0a0a; }
+::-webkit-scrollbar-thumb    { background: #222; border-radius: 2px; }
+::-webkit-scrollbar-thumb:hover { background: #333; }
