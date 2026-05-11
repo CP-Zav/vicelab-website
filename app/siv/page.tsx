@@ -19,7 +19,7 @@ export default function SIVPage() {
   return (
     <div className="min-h-screen">
       {/* ── Hero ─────────────────────────────────────────────────────────── */}
-      <section className="relative overflow-hidden pt-32 pb-18 lg:pt-44 lg:pb-24">
+      <section className="relative overflow-hidden min-h-[100svh] flex flex-col justify-center pt-24 xs:pt-28 pb-18 lg:pt-44 lg:pb-24">
         <div className="absolute inset-0 bg-hero-radial-blue pointer-events-none" />
         <div
           className="absolute inset-0 bg-grid-faint bg-grid opacity-[0.35] pointer-events-none"
@@ -29,7 +29,7 @@ export default function SIVPage() {
           <div className="max-w-2xl">
             <div className="mb-5"><Badge variant="blue">Coming Soon</Badge></div>
             <h1 className="text-display-lg text-balance mb-5">SIV</h1>
-            <p className="text-[17px] text-white/45 leading-relaxed mb-9">
+            <p className="text-body-op text-white/45 leading-relaxed mb-9">
               Substance Intelligence Vault. Field intelligence infrastructure — connecting harm reduction data, pharmacological risk, and response protocols into one operational picture.
             </p>
             <ButtonPrimary href="mailto:hello@thevicelab.com" gradient="bg-gradient-sig">

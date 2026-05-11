@@ -55,7 +55,7 @@ export default function VibeGuardPage() {
   return (
     <div className="min-h-screen">
       {/* ── Hero ─────────────────────────────────────────────────────────── */}
-      <section className="relative overflow-hidden pt-32 pb-18 lg:pt-44 lg:pb-24">
+      <section className="relative overflow-hidden min-h-[100svh] flex flex-col justify-center pt-24 xs:pt-28 pb-18 lg:pt-44 lg:pb-24">
         {/* VibeGuard = cyan → neon green — never orange */}
         <div className="absolute inset-0 bg-hero-radial-teal pointer-events-none" />
         <div
@@ -80,7 +80,7 @@ export default function VibeGuardPage() {
               />
             </div>
             <h1 className="text-display-lg text-balance mb-5">VibeGuard</h1>
-            <p className="text-[17px] text-white/45 leading-relaxed mb-9 max-w-lg">
+            <p className="text-body-op text-white/45 leading-relaxed mb-9 max-w-lg">
               Organiser-side safety intelligence. Compliance done with clarity, not paperwork. Data, reporting tools, and monitoring infrastructure — built to close the gap between duty of care and on-ground reality.
             </p>
             {/* VG button: cyan → neon green gradient */}

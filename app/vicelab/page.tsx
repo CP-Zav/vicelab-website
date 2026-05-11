@@ -18,7 +18,7 @@ export default function ViceLabPage() {
   return (
     <div className="min-h-screen">
       {/* ── Hero ─────────────────────────────────────────────────────────── */}
-      <section className="relative overflow-hidden pt-32 pb-18 lg:pt-44 lg:pb-24">
+      <section className="relative overflow-hidden min-h-[100svh] flex flex-col justify-center pt-24 xs:pt-28 pb-18 lg:pt-44 lg:pb-24">
         {/* ViceLab = electric blue */}
         <div className="absolute inset-0 bg-hero-radial-blue pointer-events-none" />
         <Container>
@@ -36,7 +36,7 @@ export default function ViceLabPage() {
               />
             </div>
             <h1 className="text-display-lg text-balance mb-5">VICELAB</h1>
-            <p className="text-[17px] text-white/45 leading-relaxed">
+            <p className="text-body-op text-white/45 leading-relaxed">
               The intelligence layer for festival safety. Where harm reduction meets operational reality — built from real incidents, real debriefs, real outcomes. Non-preachy.
               Evidence-informed. Built for the people who actually show up.
             </p>

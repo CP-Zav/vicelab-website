@@ -38,7 +38,7 @@ export default function MatrixPage() {
   return (
     <div className="min-h-screen">
       {/* ── Hero ────────────────────────────────────────────────────────── */}
-      <section className="relative overflow-hidden pt-32 pb-18 lg:pt-44 lg:pb-24">
+      <section className="relative overflow-hidden min-h-[100svh] flex flex-col justify-center pt-24 xs:pt-28 pb-18 lg:pt-44 lg:pb-24">
         <div className="absolute inset-0 bg-hero-radial-blue pointer-events-none" />
         <div
           className="absolute inset-0 bg-grid-faint bg-grid opacity-[0.35] pointer-events-none"
@@ -54,7 +54,7 @@ export default function MatrixPage() {
             <p className="text-[18px] font-semibold text-white/80 leading-snug mb-4">
               Know what happens when substances meet.
             </p>
-            <p className="text-[17px] text-white/45 leading-relaxed mb-9">
+            <p className="text-body-op text-white/45 leading-relaxed mb-9">
               Matrix is a substance interaction risk engine — pharmacological cross-referencing
               across compounds, routes, and dose patterns. Built for harm reduction services,
               festival medics, and safety operators who need accurate data, not approximations.

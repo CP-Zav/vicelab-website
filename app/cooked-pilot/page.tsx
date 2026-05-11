@@ -427,7 +427,7 @@ export default function CookedPilotPage() {
       <div className="min-h-screen">
 
         {/* ── Hero ─────────────────────────────────────────────────────────── */}
-        <section className="relative overflow-hidden pt-32 pb-16 lg:pt-44 lg:pb-24">
+        <section className="relative overflow-hidden min-h-[100svh] flex flex-col justify-center pt-24 xs:pt-28 pb-16 lg:pt-44 lg:pb-24">
           {/* Background layers */}
           <div className="absolute inset-0 bg-hero-radial-pink pointer-events-none" />
           <div
@@ -478,7 +478,7 @@ export default function CookedPilotPage() {
                 </div>
                 <h1 className="text-display-lg text-balance mb-5">Cooked Pilot</h1>
                 <p
-                  className="text-[17px] leading-relaxed mb-9 max-w-md"
+                  className="text-body-op leading-relaxed mb-9 max-w-md"
                   style={{ color: "rgba(255,255,255,0.52)" }}
                 >
                   Peer-based situational awareness for nights that push the edge.
