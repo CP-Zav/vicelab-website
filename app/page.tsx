@@ -313,7 +313,6 @@ export default function HomePage() {
           {/* Panel grid */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-2.5">
             {systems.map((sys) => {
-              const dot = statusDot[sys.status];
               return (
                 <Link
                   key={sys.id}
