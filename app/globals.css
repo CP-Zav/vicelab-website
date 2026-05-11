@@ -553,3 +553,167 @@
 ::-webkit-scrollbar-track    { background: #0a0a0a; }
 ::-webkit-scrollbar-thumb    { background: #222; border-radius: 2px; }
 ::-webkit-scrollbar-thumb:hover { background: #333; }
+/* ── 10. Phase 2 — Operational Motion Layer ────────────────────────────────── */
+
+/* ── 10a. Ambient Telemetry Drift ─────────────────────────────────────────── */
+@keyframes tel-drift-y {
+  0%, 100% { transform: translateY(0px) scale(1);     opacity: 0.40; }
+  33%       { transform: translateY(-8px) scale(1.02); opacity: 0.60; }
+  66%       { transform: translateY(-4px) scale(0.99); opacity: 0.50; }
+}
+@keyframes tel-drift-x {
+  0%, 100% { transform: translateX(0px);  opacity: 0.35; }
+  50%       { transform: translateX(-6px); opacity: 0.55; }
+}
+@keyframes tel-drift-xy {
+  0%   { transform: translate(0px, 0px)   scale(1);    opacity: 0.38; }
+  25%  { transform: translate(-5px, -7px) scale(1.01); opacity: 0.55; }
+  50%  { transform: translate(3px, -12px) scale(1.02); opacity: 0.62; }
+  75%  { transform: translate(-4px, -5px) scale(1.0);  opacity: 0.48; }
+  100% { transform: translate(0px, 0px)   scale(1);    opacity: 0.38; }
+}
+.tel-drift      { animation: tel-drift-y  14s ease-in-out infinite; }
+.tel-drift-x    { animation: tel-drift-x  18s ease-in-out infinite; }
+.tel-drift-slow { animation: tel-drift-xy 22s ease-in-out infinite; }
+.tel-drift-d1   { animation-delay: -3s; }
+.tel-drift-d2   { animation-delay: -7s; }
+.tel-drift-d3   { animation-delay: -11s; }
+.tel-drift-d4   { animation-delay: -16s; }
+
+/* ── 10b. HUD Pulse Timing ────────────────────────────────────────────────── */
+@keyframes hud-pulse {
+  0%, 100% { opacity: 0.55; }
+  50%       { opacity: 0.85; }
+}
+@keyframes hud-pulse-slow {
+  0%, 100% { opacity: 0.30; }
+  50%       { opacity: 0.60; }
+}
+@keyframes hud-tick {
+  0%, 89% { opacity: 1; }
+  90%      { opacity: 0.15; }
+  100%     { opacity: 1; }
+}
+.hud-pulse      { animation: hud-pulse      6s ease-in-out infinite; }
+.hud-pulse-slow { animation: hud-pulse-slow 9s ease-in-out infinite; }
+.hud-tick       { animation: hud-tick       4s steps(1) infinite; }
+.hud-d1 { animation-delay: -2s; }
+.hud-d2 { animation-delay: -4.5s; }
+.hud-d3 { animation-delay: -6s; }
+
+/* ── 10c. Radar Sweep ─────────────────────────────────────────────────────── */
+@keyframes radar-sweep      { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+@keyframes radar-sweep-slow { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+.radar-sweep      { animation: radar-sweep      20s linear infinite; }
+.radar-sweep-slow { animation: radar-sweep-slow 32s linear infinite; }
+.radar-arm {
+  position: absolute; inset: 0; border-radius: 50%; pointer-events: none;
+  background: conic-gradient(from -20deg, transparent 0deg, rgba(47,107,255,0.12) 20deg, rgba(47,107,255,0.04) 40deg, transparent 60deg);
+}
+.radar-arm-cp  { position: absolute; inset: 0; border-radius: 50%; pointer-events: none; background: conic-gradient(from -20deg, transparent 0deg, rgba(255,0,168,0.12) 20deg, rgba(255,0,168,0.04) 40deg, transparent 60deg); }
+.radar-arm-vg  { position: absolute; inset: 0; border-radius: 50%; pointer-events: none; background: conic-gradient(from -20deg, transparent 0deg, rgba(0,213,255,0.12) 20deg, rgba(0,213,255,0.04) 40deg, transparent 60deg); }
+.radar-arm-asa { position: absolute; inset: 0; border-radius: 50%; pointer-events: none; background: conic-gradient(from -20deg, transparent 0deg, rgba(124,58,237,0.14) 20deg, rgba(124,58,237,0.05) 40deg, transparent 60deg); }
+.radar-arm-mx  { position: absolute; inset: 0; border-radius: 50%; pointer-events: none; background: conic-gradient(from -20deg, transparent 0deg, rgba(79,70,229,0.14) 20deg, rgba(79,70,229,0.05) 40deg, transparent 60deg); }
+.radar-arm-siv { position: absolute; inset: 0; border-radius: 50%; pointer-events: none; background: conic-gradient(from -20deg, transparent 0deg, rgba(6,182,212,0.14) 20deg, rgba(6,182,212,0.05) 40deg, transparent 60deg); }
+
+/* ── 10d. Scanline Movement ───────────────────────────────────────────────── */
+@keyframes scanline-crawl {
+  from { background-position: 0 0; }
+  to   { background-position: 0 80px; }
+}
+.scanline-move::before {
+  content: '';
+  position: absolute; inset: 0; border-radius: inherit; pointer-events: none; z-index: 0;
+  background: repeating-linear-gradient(0deg, transparent, transparent 3px, rgba(255,255,255,0.006) 3px, rgba(255,255,255,0.006) 4px);
+  animation: scanline-crawl 8s linear infinite;
+}
+
+/* ── 10e. Signal Propagation ──────────────────────────────────────────────── */
+@keyframes signal-ring      { 0% { transform: scale(1); opacity: 0.7; } 100% { transform: scale(2.4); opacity: 0; } }
+@keyframes signal-ring-slow { 0% { transform: scale(1); opacity: 0.5; } 100% { transform: scale(2.8); opacity: 0; } }
+.signal-ring {
+  position: absolute; inset: -2px; border-radius: 50%; border: 1px solid currentColor; pointer-events: none;
+  animation: signal-ring 2.2s ease-out infinite;
+}
+.signal-ring-slow {
+  position: absolute; inset: -2px; border-radius: 50%; border: 1px solid currentColor; pointer-events: none;
+  animation: signal-ring-slow 3.6s ease-out infinite;
+}
+.signal-ring-2 { animation-delay: -1.1s; }
+.signal-ring-3 { animation-delay: -0.7s; }
+.signal-cp  { color: rgba(255,0,168,0.55); }
+.signal-vg  { color: rgba(0,213,255,0.55); }
+.signal-sig { color: rgba(47,107,255,0.55); }
+.signal-asa { color: rgba(124,58,237,0.55); }
+.signal-mx  { color: rgba(79,70,229,0.55); }
+.signal-siv { color: rgba(6,182,212,0.55); }
+
+/* ── 10f. Hover Response Language ─────────────────────────────────────────── */
+.panel-hover {
+  transition: border-color 220ms cubic-bezier(0.4,0,0.2,1), background-color 220ms cubic-bezier(0.4,0,0.2,1), box-shadow 350ms cubic-bezier(0.4,0,0.2,1), transform 220ms cubic-bezier(0.4,0,0.2,1);
+}
+.panel-hover:hover { border-color: rgba(255,255,255,0.12); background-color: rgba(255,255,255,0.032); transform: translateY(-1px); }
+.panel-hover-cp:hover  { border-color: rgba(255,0,168,0.22);  box-shadow: 0 0 0 1px rgba(255,0,168,0.08),  0 4px 16px rgba(255,0,168,0.08); }
+.panel-hover-vg:hover  { border-color: rgba(0,213,255,0.22);  box-shadow: 0 0 0 1px rgba(0,213,255,0.08),  0 4px 16px rgba(0,213,255,0.08); }
+.panel-hover-sig:hover { border-color: rgba(47,107,255,0.22); box-shadow: 0 0 0 1px rgba(47,107,255,0.08), 0 4px 16px rgba(47,107,255,0.08); }
+.panel-hover-asa:hover { border-color: rgba(124,58,237,0.22); box-shadow: 0 0 0 1px rgba(124,58,237,0.08), 0 4px 16px rgba(124,58,237,0.08); }
+.panel-hover-mx:hover  { border-color: rgba(79,70,229,0.22);  box-shadow: 0 0 0 1px rgba(79,70,229,0.08),  0 4px 16px rgba(79,70,229,0.08); }
+.panel-hover-siv:hover { border-color: rgba(6,182,212,0.22);  box-shadow: 0 0 0 1px rgba(6,182,212,0.08),  0 4px 16px rgba(6,182,212,0.08); }
+.op-link { position: relative; transition: color 200ms cubic-bezier(0.4,0,0.2,1); }
+.op-link::after { content: ''; position: absolute; bottom: -1px; left: 0; width: 0; height: 1px; background: currentColor; transition: width 300ms cubic-bezier(0.3,0,0.15,1); }
+.op-link:hover::after { width: 100%; }
+.glow-hover-cp:hover  { box-shadow: 0 0 24px rgba(255,0,168,0.40),  0 0 80px rgba(255,0,168,0.15)  !important; }
+.glow-hover-vg:hover  { box-shadow: 0 0 24px rgba(0,213,255,0.40),  0 0 80px rgba(0,213,255,0.15)  !important; }
+.glow-hover-sig:hover { box-shadow: 0 0 24px rgba(47,107,255,0.40), 0 0 80px rgba(47,107,255,0.15) !important; }
+.glow-hover-asa:hover { box-shadow: 0 0 28px rgba(124,58,237,0.40), 0 0 80px rgba(124,58,237,0.15) !important; }
+.glow-hover-mx:hover  { box-shadow: 0 0 24px rgba(79,70,229,0.40),  0 0 80px rgba(79,70,229,0.15)  !important; }
+.glow-hover-siv:hover { box-shadow: 0 0 24px rgba(6,182,212,0.44),  0 0 80px rgba(6,182,212,0.18)  !important; }
+
+/* ── 10g. Layered Atmospheric Depth ──────────────────────────────────────── */
+.atm-layer-1 { animation: tel-drift-xy 28s ease-in-out infinite;          animation-delay: 0s;   opacity: 0.30; filter: blur(60px); }
+.atm-layer-2 { animation: tel-drift-xy 18s ease-in-out infinite reverse;  animation-delay: -9s;  opacity: 0.45; filter: blur(40px); }
+.atm-layer-3 { animation: tel-drift-y  12s ease-in-out infinite;          animation-delay: -5s;  opacity: 0.60; filter: blur(24px); }
+
+/* ── 10h. System Wake Transitions ────────────────────────────────────────── */
+@keyframes sys-wake       { from { opacity: 0; transform: translateY(12px); filter: blur(4px); } to { opacity: 1; transform: translateY(0); filter: blur(0px); } }
+@keyframes sys-wake-fast  { from { opacity: 0; transform: translateY(6px);  } to { opacity: 1; transform: translateY(0); } }
+@keyframes sys-wake-slide { from { opacity: 0; transform: translateX(-8px); } to { opacity: 1; transform: translateX(0); } }
+.sys-wake       { animation: sys-wake       600ms cubic-bezier(0.3,0,0.15,1) both; }
+.sys-wake-fast  { animation: sys-wake-fast  220ms cubic-bezier(0.4,0,0.2,1)  both; }
+.sys-wake-slide { animation: sys-wake-slide 400ms cubic-bezier(0.3,0,0.15,1) both; }
+.wake-d1 { animation-delay: 80ms; }
+.wake-d2 { animation-delay: 160ms; }
+.wake-d3 { animation-delay: 240ms; }
+.wake-d4 { animation-delay: 320ms; }
+.wake-d5 { animation-delay: 400ms; }
+.wake-d6 { animation-delay: 480ms; }
+
+/* ── 10. Mobile throttling ────────────────────────────────────────────────── */
+@media (max-width: 640px) {
+  .tel-drift      { animation-duration: 20s; }
+  .tel-drift-x    { animation-duration: 26s; }
+  .tel-drift-slow { animation-duration: 32s; }
+  .hud-pulse      { animation-duration: 9s; }
+  .hud-pulse-slow { animation-duration: 14s; }
+  .radar-sweep      { animation-duration: 28s; }
+  .radar-sweep-slow { animation-duration: 44s; }
+  .scanline-move::before { animation: none; }
+  .sys-wake      { animation-duration: 400ms; }
+  .sys-wake-fast { animation-duration: 160ms; }
+  .atm-layer-1 { animation-duration: 38s; filter: blur(50px); }
+  .atm-layer-2 { animation-duration: 26s; filter: blur(32px); }
+  .atm-layer-3 { animation-duration: 18s; filter: blur(18px); }
+}
+
+/* ── 10. Reduced Motion ───────────────────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  .tel-drift, .tel-drift-x, .tel-drift-slow            { animation: none !important; }
+  .hud-pulse, .hud-pulse-slow, .hud-tick               { animation: none !important; opacity: 0.55 !important; }
+  .radar-sweep, .radar-sweep-slow                      { animation: none !important; }
+  .scanline-move::before                               { animation: none !important; }
+  .signal-ring, .signal-ring-slow                      { animation: none !important; opacity: 0 !important; }
+  .sys-wake, .sys-wake-fast, .sys-wake-slide           { animation: none !important; opacity: 1 !important; transform: none !important; filter: none !important; }
+  .atm-layer-1, .atm-layer-2, .atm-layer-3            { animation: none !important; }
+  .panel-hover                                         { transition-duration: 0ms !important; }
+  .op-link::after                                      { transition-duration: 0ms !important; }
+}
