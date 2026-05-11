@@ -365,7 +365,6 @@ function CPFeatureCard({ title, body, Icon, featured = false }: Feature) {
         border: "1px solid rgba(255,255,255,0.07)",
         boxShadow: "0 1px 8px rgba(0,0,0,0.30), 0 0 0 1px rgba(255,255,255,0.03)",
       }}
-      onMouseEnter={() => {}} // static — hover via CSS
     >
       {/* Icon container */}
       <div
