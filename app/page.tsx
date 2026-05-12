@@ -62,18 +62,18 @@ const products = [
     href: "/matrix",
     status: "In Development",
     badgeVariant: "mx" as const,
-    role: "Substance interaction engine",
-    tagline: "Risk-stratified interaction intelligence for practitioners.",
+    role: "Interaction engine",
+    tagline: "Interactions create outcomes.",
     description:
-      "Built for people who need accurate pharmacological context quickly, without moralising noise.",
+      "Understand how substances, medicines, conditions, and timing may interact before the outcome changes.",
     logo: "/logos/matrix.svg",
     logoWidth: 120,
     logoHeight: 120,
     logoClass: "h-16",
     panel:
-      "border-mx-gold/34 bg-mx-gold/[0.045] hover:border-mx-gold/70 hover:shadow-glow-mx",
-    glow: "bg-mx-ember/18",
-    line: "bg-mx-gold",
+      "border-[#7A2BFF]/36 bg-[#1E58FF]/[0.045] hover:border-[#7A2BFF]/72 hover:shadow-glow-mx",
+    glow: "bg-[#7A2BFF]/22",
+    line: "bg-gradient-mx",
   },
   {
     name: "ASA",
@@ -99,16 +99,16 @@ const products = [
     status: "Coming Soon",
     badgeVariant: "siv" as const,
     role: "Substance Intelligence Vault",
-    tagline: "A secure vault for substance risk signals and field intelligence.",
+    tagline: "Radical transparency saves lives.",
     description:
-      "Structures reports, batch flags, interaction context, and evidence trails for harm reduction teams.",
+      "A secret-vault archive for substance identity, appearance, effects, context, and evidence trails.",
     logo: "/logos/siv.svg",
     logoWidth: 120,
     logoHeight: 120,
     logoClass: "h-16",
     panel:
-      "border-siv-ice/34 bg-siv-slate/[0.07] hover:border-siv-ice/70 hover:shadow-glow-siv",
-    glow: "bg-siv-ice/20",
+      "border-[#E6C27A]/32 bg-[#0F2A28]/[0.12] hover:border-[#16F0C6]/62 hover:shadow-glow-siv",
+    glow: "bg-[#16F0C6]/18",
     line: "bg-gradient-siv",
   },
 ];
@@ -126,22 +126,16 @@ export default function HomePage() {
               <span className="h-1.5 w-1.5 rounded-full bg-vl-blue" />
               ViceLab // Field Intelligence Build
             </div>
-
             <h1 className="text-display-xl text-balance mb-6 leading-none">
               This is not merch.<br />
               <span className="text-gradient-sig">This is field intelligence.</span>
             </h1>
-
             <p className="max-w-2xl text-[17px] sm:text-[19px] leading-relaxed text-white/66 mb-8">
               ViceLab builds safety infrastructure for nightlife and festival culture — real-time,
               non-judgmental, privacy-conscious tools for environments where information can change the outcome.
             </p>
-
             <div className="flex flex-wrap gap-3 mb-9">
-              <Link
-                href="#ecosystem"
-                className="inline-flex items-center gap-2 rounded-[12px] bg-gradient-sig px-6 py-3 text-sm font-bold text-white shadow-glow-sig transition-all duration-200 hover:-translate-y-px hover:opacity-95"
-              >
+              <Link href="#ecosystem" className="inline-flex items-center gap-2 rounded-[12px] bg-gradient-sig px-6 py-3 text-sm font-bold text-white shadow-glow-sig transition-all duration-200 hover:-translate-y-px hover:opacity-95">
                 Enter the ecosystem
                 <ArrowRight />
               </Link>
@@ -157,43 +151,23 @@ export default function HomePage() {
               <Eyebrow color="muted">The Ecosystem</Eyebrow>
               <h2 className="text-display-md text-white mb-3">Operational systems, not placeholder cards.</h2>
             </div>
-
             <div className="grid gap-4 lg:grid-cols-3">
               {products.map((product) => (
-                <Link
-                  key={product.name}
-                  href={product.href}
-                  className={`group relative min-h-[285px] overflow-hidden rounded-[22px] border p-6 shadow-panel transition-all duration-300 hover:-translate-y-1 ${product.panel}`}
-                >
+                <Link key={product.name} href={product.href} className={`group relative min-h-[285px] overflow-hidden rounded-[22px] border p-6 shadow-panel transition-all duration-300 hover:-translate-y-1 ${product.panel}`}>
                   <div className={`absolute -right-10 -top-10 h-40 w-40 rounded-full blur-[70px] ${product.glow}`} />
                   <div className={`absolute inset-x-5 top-0 h-px ${product.line} opacity-80`} />
-
                   <div className="relative flex h-full flex-col">
                     <div className="mb-8 flex items-start justify-between gap-4">
                       <div className="min-w-0 flex-1">
                         <div className="mb-4 flex h-24 items-center rounded-2xl border border-white/10 bg-black/30 px-5 py-5 shadow-panel">
-                          <Image
-                            src={product.logo}
-                            alt={`${product.name} logo`}
-                            width={product.logoWidth}
-                            height={product.logoHeight}
-                            className={`${product.logoClass} w-auto max-w-full brightness-110 contrast-105`}
-                            style={{ width: "auto" }}
-                          />
+                          <Image src={product.logo} alt={`${product.name} logo`} width={product.logoWidth} height={product.logoHeight} className={`${product.logoClass} w-auto max-w-full brightness-110 contrast-105`} style={{ width: "auto" }} />
                         </div>
-                        <p className="text-[11px] font-black uppercase tracking-[0.18em] text-white/42">
-                          {product.role}
-                        </p>
+                        <p className="text-[11px] font-black uppercase tracking-[0.18em] text-white/42">{product.role}</p>
                       </div>
                       <Badge variant={product.badgeVariant}>{product.status}</Badge>
                     </div>
-
-                    <p className="mb-3 text-[16px] font-bold leading-snug text-white/84">
-                      {product.tagline}
-                    </p>
-                    <p className="text-sm leading-[1.68] text-white/54">
-                      {product.description}
-                    </p>
+                    <p className="mb-3 text-[16px] font-bold leading-snug text-white/84">{product.tagline}</p>
+                    <p className="text-sm leading-[1.68] text-white/54">{product.description}</p>
                   </div>
                 </Link>
               ))}
