@@ -1,8 +1,22 @@
 import type { Metadata } from "next";
+import { Cinzel, IBM_Plex_Mono } from "next/font/google";
 import "./globals.css";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import { Analytics } from "@vercel/analytics/next";
+
+const cinzel = Cinzel({
+  subsets: ["latin"],
+  variable: "--font-cinzel",
+  display: "swap",
+});
+
+const ibmPlexMono = IBM_Plex_Mono({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-ibm-plex-mono",
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   title: {
@@ -48,7 +62,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className="scroll-smooth">
-      <body className="bg-canvas font-sans text-white antialiased selection:bg-vl-blue/25">
+      <body className={`${cinzel.variable} ${ibmPlexMono.variable} bg-canvas font-sans text-white antialiased selection:bg-vl-blue/25`}>
         <Nav />
         <main className="min-h-screen">{children}</main>
         <Footer />
