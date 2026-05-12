@@ -1,8 +1,11 @@
 // Shared UI primitives — server-safe (no hooks)
-// Token-aligned: cp / vg / sig namespaces
+// Token-aligned: cp / vg / sig / mx / siv namespaces
 
 import Link from "next/link";
 import type { ReactNode } from "react";
+
+type Accent = "blue" | "pink" | "teal" | "green" | "mx" | "siv";
+type BadgeVariant = Accent | "live";
 
 // ── Container ────────────────────────────────────────────────────────────────
 export function Container({ children, className = "" }: { children: ReactNode; className?: string }) {
@@ -36,14 +39,16 @@ export function Eyebrow({
   color = "blue",
 }: {
   children: ReactNode;
-  color?: "blue" | "pink" | "teal" | "green" | "muted";
+  color?: Accent | "muted";
 }) {
-  // cp=pink | vg=teal | sig=blue (never orange, never purple)
+  // cp=pink | vg=teal | sig=blue | mx=Matrix | siv=Safety Intelligence Vessel
   const colorMap: Record<string, string> = {
-    blue:  "text-vl-blue",   // Signal / ViceLab — electric blue
-    pink:  "text-cp-pink",   // Cooked Pilot — neon magenta
-    teal:  "text-vg-teal",   // VibeGuard — cyan
+    blue:  "text-vl-blue",
+    pink:  "text-cp-pink",
+    teal:  "text-vg-teal",
     green: "text-vl-green",
+    mx:    "text-mx-gold",
+    siv:   "text-siv-ice",
     muted: "text-white/40",
   };
   return (
@@ -63,7 +68,6 @@ export function SectionHeader({ children }: { children: ReactNode }) {
 }
 
 // ── Card ─────────────────────────────────────────────────────────────────────
-// accent maps directly to product: pink=cp | teal=vg | blue=sig
 export function Card({
   children,
   className = "",
@@ -71,14 +75,15 @@ export function Card({
 }: {
   children: ReactNode;
   className?: string;
-  accent?: "blue" | "pink" | "teal" | "green";
+  accent?: Accent;
 }) {
-  // Border accent + shadow glow on hover — product-scoped
   const accentClasses: Record<string, string> = {
     blue:  "hover:border-vl-blue/[0.30] hover:shadow-glow-sig",
     pink:  "hover:border-cp-pink/[0.30] hover:shadow-glow-cp",
     teal:  "hover:border-vg-teal/[0.30] hover:shadow-glow-vg",
     green: "hover:border-vl-green/[0.25]",
+    mx:    "hover:border-mx-gold/[0.32] hover:shadow-glow-mx",
+    siv:   "hover:border-siv-ice/[0.28] hover:shadow-glow-siv",
   };
   return (
     <div
@@ -96,10 +101,6 @@ export function Card({
 }
 
 // ── Primary Button ────────────────────────────────────────────────────────────
-// gradient prop accepts canonical product gradient class:
-//   bg-gradient-cp  → Cooked Pilot neon magenta
-//   bg-gradient-vg  → VibeGuard cyan → neon green
-//   bg-gradient-sig → Signal / ViceLab electric blue → cyan
 export function ButtonPrimary({
   href,
   children,
@@ -138,20 +139,21 @@ export function ButtonGhost({ href, children }: { href: string; children: ReactN
 }
 
 // ── Status Badge ──────────────────────────────────────────────────────────────
-// variant maps to product: pink/live=cp | teal=vg | blue=sig
 export function Badge({
   children,
   variant = "blue",
 }: {
   children: ReactNode;
-  variant?: "blue" | "pink" | "teal" | "live" | "green";
+  variant?: BadgeVariant;
 }) {
   const styles: Record<string, string> = {
-    blue:  "bg-vl-blue/[0.12]  text-vl-blue  border-vl-blue/[0.22]",   // sig
-    pink:  "bg-cp-pink/[0.12]  text-cp-pink  border-cp-pink/[0.22]",   // cp
-    teal:  "bg-vg-teal/[0.12]  text-vg-teal  border-vg-teal/[0.22]",   // vg
-    live:  "bg-cp-pink/[0.12]  text-cp-pink  border-cp-pink/[0.22]",   // cp (live = cp)
+    blue:  "bg-vl-blue/[0.12]  text-vl-blue  border-vl-blue/[0.22]",
+    pink:  "bg-cp-pink/[0.12]  text-cp-pink  border-cp-pink/[0.22]",
+    teal:  "bg-vg-teal/[0.12]  text-vg-teal  border-vg-teal/[0.22]",
+    live:  "bg-cp-pink/[0.12]  text-cp-pink  border-cp-pink/[0.22]",
     green: "bg-vl-green/[0.12] text-vl-green border-vl-green/[0.22]",
+    mx:    "bg-mx-gold/[0.12] text-mx-gold border-mx-gold/[0.24]",
+    siv:   "bg-siv-slate/[0.12] text-siv-ice border-siv-ice/[0.20]",
   };
   const dot = variant === "live";
   return (
@@ -168,7 +170,6 @@ export function Badge({
 }
 
 // ── Feature Card ─────────────────────────────────────────────────────────────
-// accent maps to product: pink=cp | teal=vg | blue=sig
 export function FeatureCard({
   title,
   body,
@@ -176,13 +177,15 @@ export function FeatureCard({
 }: {
   title: string;
   body: string;
-  accent?: "blue" | "pink" | "teal" | "green";
+  accent?: Accent;
 }) {
   const titleColor: Record<string, string> = {
-    blue:  "text-vl-blue",   // sig
-    pink:  "text-cp-pink",   // cp — neon magenta
-    teal:  "text-vg-teal",   // vg — cyan
+    blue:  "text-vl-blue",
+    pink:  "text-cp-pink",
+    teal:  "text-vg-teal",
     green: "text-vl-green",
+    mx:    "text-mx-gold",
+    siv:   "text-siv-ice",
   };
   return (
     <Card accent={accent}>
