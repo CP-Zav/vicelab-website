@@ -1,138 +1,115 @@
+import Image from "next/image";
 import type { Metadata } from "next";
 import { Container, Section, Eyebrow, Badge, FeatureCard, ButtonPrimary, ButtonGhost } from "@/components/ui";
 
 export const metadata: Metadata = {
   title: "Matrix — Substance Interaction Engine",
   description:
-    "Pharmacological risk mapping for substance combinations. Matrix models interaction risk across compounds, routes, and dose patterns — built for harm reduction services and safety operators.",
+    "A substance interaction engine for understanding how inputs combine, interact, and create outcomes.",
 };
 
 const features = [
-  {
-    title: "Interaction mapping",
-    body: "Cross-reference engine covering pharmacological interactions across 200+ substance pairs — stimulants, depressants, psychedelics, empathogens, and combinations thereof.",
-  },
-  {
-    title: "Risk scoring",
-    body: "Severity-weighted outputs for every combination: additive, synergistic, dangerous, or contraindicated — with plain-language guidance attached.",
-  },
-  {
-    title: "Route and dose awareness",
-    body: "Risk profiles that account for administration route and dose range. Oral MDMA and insufflated MDMA carry different risk windows. Matrix knows the difference.",
-  },
-  {
-    title: "Evidence confidence levels",
-    body: "Every interaction output flagged by evidence strength — case report, observational, clinical study, or established pharmacology. No false precision.",
-  },
-  {
-    title: "Integration-ready API",
-    body: "Queryable by other ViceLab tools and third-party safety platforms. Matrix is an engine, not just a lookup table.",
-  },
-  {
-    title: "Harm reduction context",
-    body: "Outputs include actionable harm reduction guidance — not just a risk flag. Because knowing the risk is only useful if you know what to do with it.",
-  },
+  { title: "Check", body: "Map substances, medicines, conditions, timing, and context before they combine." },
+  { title: "Analyze", body: "Surface likely interaction pathways without collapsing uncertainty into false certainty." },
+  { title: "Understand", body: "Translate mechanisms into readable outcomes: load, duration, risk, and confidence." },
+  { title: "Protect", body: "Give operators and individuals practical next steps without moralising or panic language." },
+  { title: "Emergent outcomes", body: "Show how two or more inputs can create a third risk profile that neither input carries alone." },
+  { title: "Evidence trace", body: "Keep source confidence visible so Matrix reads like a decision tool, not a magic answer machine." },
 ];
 
-const rites = ["compound", "route", "dose", "timing", "history", "evidence"];
+const inputs = [
+  ["Substance A", "#1E58FF"],
+  ["Substance B", "#FF2828"],
+  ["Emergent outcome", "#7A2BFF"],
+];
 
 export default function MatrixPage() {
   return (
-    <div className="min-h-screen overflow-hidden">
-      {/* ── Hero ────────────────────────────────────────────────────────── */}
+    <div className="min-h-screen overflow-hidden bg-[#070A0B]">
       <section className="relative overflow-hidden pt-32 pb-18 lg:pt-44 lg:pb-24">
         <div className="absolute inset-0 bg-hero-radial-mx pointer-events-none" />
-        <div className="absolute inset-0 mx-orbit-grid opacity-[0.52] pointer-events-none" />
-        <div className="absolute right-[-8rem] top-28 hidden h-[28rem] w-[28rem] rounded-full border border-mx-gold/15 lg:block">
-          <div className="absolute inset-8 rounded-full border border-mx-gold/10" />
-          <div className="absolute inset-16 rounded-full border border-mx-ember/10" />
-          <div className="absolute inset-0 mx-sigil-ring opacity-70" />
-        </div>
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_20%,rgba(122,43,255,0.18),transparent_32%),radial-gradient(circle_at_28%_44%,rgba(30,88,255,0.13),transparent_28%),linear-gradient(rgba(255,255,255,0.022)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.018)_1px,transparent_1px)] bg-[length:100%_100%,100%_100%,56px_56px,56px_56px] opacity-80 pointer-events-none" />
         <Container>
-          <div className="relative max-w-3xl">
-            <div className="mb-5 flex items-center gap-3">
-              <Eyebrow color="mx">Ritual Risk Intelligence</Eyebrow>
-              <Badge variant="mx">In Development</Badge>
+          <div className="grid gap-12 lg:grid-cols-[0.78fr_1.22fr] lg:items-center">
+            <div className="relative max-w-xl">
+              <div className="mb-5 flex items-center gap-3">
+                <Eyebrow color="mx">Interaction Engine</Eyebrow>
+                <Badge variant="mx">In Development</Badge>
+              </div>
+              <div className="mb-6 flex items-center gap-5">
+                <Image src="/logos/matrix.svg" alt="Matrix logo" width={92} height={92} className="h-20 w-20" />
+                <h1 className="font-cinzel text-[clamp(3.2rem,8vw,6.6rem)] font-normal leading-[0.9] tracking-[0.18em] text-white/90">
+                  MATRIX
+                </h1>
+              </div>
+              <p className="text-[19px] font-semibold text-white/78 leading-snug mb-4">
+                Interactions create outcomes.
+              </p>
+              <p className="max-w-xl text-[17px] text-white/52 leading-relaxed mb-9">
+                Matrix helps you understand how substances, medicines, conditions, and timing may interact —
+                so you can make informed decisions with confidence.
+              </p>
+              <div className="flex flex-wrap gap-3">
+                <ButtonPrimary href="mailto:hello@thevicelab.com" gradient="bg-gradient-mx">
+                  Check interactions
+                </ButtonPrimary>
+                <ButtonGhost href="/siv">Explore SIV</ButtonGhost>
+              </div>
             </div>
-            <h1 className="font-cinzel text-[clamp(3.25rem,9vw,7rem)] font-bold leading-[0.9] tracking-[-0.04em] text-balance mb-5">
-              Matrix
-            </h1>
-            <p className="text-[19px] font-semibold text-mx-gold/90 leading-snug mb-4">
-              Know what happens when substances meet.
-            </p>
-            <p className="max-w-2xl text-[17px] text-white/48 leading-relaxed mb-9">
-              Matrix is a substance interaction risk engine — part pharmacology map, part decision altar.
-              It cross-references compounds, routes, dose patterns, and evidence strength so safety teams
-              can read the signal before the night turns.
-            </p>
-            <div className="flex flex-wrap gap-3">
-              <ButtonPrimary href="mailto:hello@thevicelab.com" gradient="bg-gradient-mx">
-                Register interest
-              </ButtonPrimary>
-              <ButtonGhost href="/vicelab">About ViceLab</ButtonGhost>
+
+            <div className="relative min-h-[420px] overflow-hidden rounded-[32px] border border-white/10 bg-black/40 p-6 shadow-glow-mx">
+              <div className="absolute inset-0 bg-[radial-gradient(circle_at_22%_50%,rgba(30,88,255,0.24),transparent_24%),radial-gradient(circle_at_54%_50%,rgba(255,40,40,0.20),transparent_22%),radial-gradient(circle_at_78%_50%,rgba(122,43,255,0.26),transparent_26%)]" />
+              <div className="absolute inset-0 bg-[linear-gradient(115deg,rgba(5,8,9,0.92),rgba(5,8,9,0.35),rgba(5,8,9,0.88))]" />
+              <div className="relative flex h-full min-h-[380px] flex-col justify-between">
+                <div className="flex justify-end">
+                  <div className="rounded-full border border-[#7A2BFF]/30 bg-[#7A2BFF]/10 px-4 py-2 font-plex text-[11px] uppercase tracking-[0.22em] text-white/62">
+                    portal unlocked
+                  </div>
+                </div>
+                <div className="grid items-center gap-4 sm:grid-cols-[1fr_auto_1fr_auto_1fr]">
+                  {inputs.map(([label, color], index) => (
+                    <div key={label} className="flex flex-col items-center gap-3">
+                      <div className="h-24 w-24 rounded-full border bg-black/45 shadow-[0_0_34px_var(--glow)]" style={{ borderColor: color, "--glow": `${color}66` } as React.CSSProperties} />
+                      <p className="font-plex text-[10px] uppercase tracking-[0.18em] text-white/62">{label}</p>
+                    </div>
+                  )).flatMap((node, index) => index < 2 ? [node, <span key={`op-${index}`} className="hidden text-3xl text-white/34 sm:block">{index === 0 ? "+" : "="}</span>] : [node])}
+                </div>
+                <div className="grid gap-3 sm:grid-cols-4">
+                  {["Check", "Analyze", "Understand", "Protect"].map((item) => (
+                    <div key={item} className="rounded-2xl border border-white/10 bg-black/45 p-4">
+                      <p className="font-plex text-[11px] uppercase tracking-[0.2em] text-white/70">{item}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
             </div>
           </div>
         </Container>
       </section>
 
-      {/* ── Ritual model ─────────────────────────────────────────────────── */}
-      <Section>
-        <Container>
-          <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
-            <div>
-              <Eyebrow color="mx">The model</Eyebrow>
-              <h2 className="font-cinzel text-display-sm mb-4 max-w-xl text-gradient-mx">
-                No generic warnings. A readable risk ritual.
-              </h2>
-              <p className="text-white/42 text-[15px] leading-relaxed max-w-xl">
-                Matrix does not flatten a combination into a single fear label. It weighs context,
-                mechanism, timing, and confidence — then returns language an operator can act on.
-              </p>
-            </div>
-            <div className="grid grid-cols-2 gap-3 sm:grid-cols-3">
-              {rites.map((item, index) => (
-                <div key={item} className="rounded-card border border-mx-gold/14 bg-mx-gold/[0.045] p-4 shadow-panel">
-                  <p className="font-plex text-[11px] uppercase tracking-[0.22em] text-mx-gold/55">0{index + 1}</p>
-                  <p className="mt-5 font-cinzel text-lg capitalize text-white/86">{item}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </Container>
-      </Section>
-
-      {/* ── Features ─────────────────────────────────────────────────────── */}
       <Section>
         <Container>
           <Eyebrow color="mx">How it works</Eyebrow>
-          <h2 className="font-cinzel text-display-sm mb-4 max-w-xl">Interaction intelligence that doesn&apos;t guess.</h2>
-          <p className="text-white/40 text-[15px] leading-relaxed mb-12 max-w-xl">
-            Every output is evidence-graded and context-aware. Matrix doesn&apos;t return a
-            generic warning — it returns a risk model.
+          <h2 className="font-cinzel text-display-sm mb-4 max-w-xl tracking-[0.04em]">Check. Analyze. Understand. Protect.</h2>
+          <p className="text-white/42 text-[15px] leading-relaxed mb-12 max-w-xl">
+            Matrix is a clear interaction layer: not an oracle, not a scare screen, and not a ritual system.
+            It shows how inputs combine and what outcomes may emerge.
           </p>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            {features.map((f) => (
-              <FeatureCard key={f.title} title={f.title} body={f.body} accent="mx" />
-            ))}
+            {features.map((f) => <FeatureCard key={f.title} title={f.title} body={f.body} accent="mx" />)}
           </div>
         </Container>
       </Section>
 
-      {/* ── CTA ──────────────────────────────────────────────────────────── */}
       <Section border>
         <Container>
           <div className="max-w-xl">
-            <h2 className="font-cinzel text-display-sm mb-5 text-gradient-mx">
-              Built for people who operate in the real world.
-            </h2>
-            <p className="text-white/40 text-[15px] leading-relaxed mb-8">
-              If you run harm reduction services, festival medical teams, or safety infrastructure —
-              Matrix is designed for your environment. Get in touch to discuss integration or early access.
+            <h2 className="font-cinzel text-display-sm mb-5 text-gradient-mx tracking-[0.03em]">When inputs meet, outcomes change.</h2>
+            <p className="text-white/42 text-[15px] leading-relaxed mb-8">
+              Matrix is being built for harm reduction services, festival medical teams, and people who need practical substance interaction context.
             </p>
             <div className="flex flex-wrap gap-3">
-              <ButtonPrimary href="mailto:hello@thevicelab.com" gradient="bg-gradient-mx">
-                Get in touch
-              </ButtonPrimary>
+              <ButtonPrimary href="mailto:hello@thevicelab.com" gradient="bg-gradient-mx">Get in touch</ButtonPrimary>
               <ButtonGhost href="/siv">Explore SIV</ButtonGhost>
             </div>
           </div>
