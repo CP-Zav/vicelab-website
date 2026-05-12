@@ -9,7 +9,7 @@
    VibeGuard     (vg)  — cyan → neon green #00D5FF → #00FFA3
    Signal / VL   (sig) — electric blue     #2F6BFF → #00D5FF
    Matrix        (mx)  — occult gold       #D8B35A → #FF5A1F
-   SIV           (siv) — vault slate/ice   #9FB6C8 → #D7F3FF
+   SIV           (siv) — galaxy chemistry  #8B5CF6 → #7DF9FF → #00FFA3
    ═══════════════════════════════════════════════════════════════════════ */
 
 :root {
@@ -23,9 +23,9 @@
   --mx-color:       #D8B35A;
   --mx-ember:       #FF5A1F;
   --mx-color-dim:   rgba(216, 179, 90, 0.15);
-  --siv-slate:      #9FB6C8;
-  --siv-ice:        #D7F3FF;
-  --siv-color-dim:  rgba(215, 243, 255, 0.12);
+  --siv-slate:      #8B5CF6;
+  --siv-ice:        #7DF9FF;
+  --siv-color-dim:  rgba(125, 249, 255, 0.14);
   /* Legacy */
   --cp-cyan:        #22d3ee;
   --vg-violet:      #a78bfa;
@@ -87,7 +87,7 @@
     background-clip: text;
   }
   .text-gradient-siv {
-    background: linear-gradient(135deg, #9FB6C8 0%, #D7F3FF 100%);
+    background: linear-gradient(135deg, #8B5CF6 0%, #7DF9FF 58%, #00FFA3 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -98,7 +98,7 @@
   .hero-bg-vg  { background-image: radial-gradient(ellipse 80% 60% at 50% -10%, rgba(0,213,255,0.20) 0%, rgba(0,255,163,0.06) 50%, transparent 65%); }
   .hero-bg-sig { background-image: radial-gradient(ellipse 80% 60% at 50% -10%, rgba(47,107,255,0.22) 0%, transparent 60%); }
   .hero-bg-mx  { background-image: radial-gradient(ellipse 82% 62% at 50% -10%, rgba(216,179,90,0.22) 0%, rgba(255,90,31,0.09) 42%, transparent 66%); }
-  .hero-bg-siv { background-image: radial-gradient(ellipse 82% 62% at 50% -10%, rgba(159,182,200,0.18) 0%, rgba(215,243,255,0.08) 46%, transparent 68%); }
+  .hero-bg-siv { background-image: radial-gradient(ellipse 82% 62% at 50% -10%, rgba(139,92,246,0.24) 0%, rgba(125,249,255,0.14) 42%, rgba(0,255,163,0.06) 58%, transparent 72%); }
 
   /* Badges — product-named */
   .badge-cp {
@@ -122,9 +122,9 @@
     border: 1px solid rgba(216, 179, 90, 0.24);
   }
   .badge-siv {
-    background: rgba(159, 182, 200, 0.12);
-    color: #D7F3FF;
-    border: 1px solid rgba(215, 243, 255, 0.20);
+    background: rgba(139, 92, 246, 0.16);
+    color: #7DF9FF;
+    border: 1px solid rgba(125, 249, 255, 0.28);
   }
 
 }
@@ -149,7 +149,7 @@
   .glow-vg  { box-shadow: 0 0 16px rgba(0, 213, 255, 0.45), 0 0 40px rgba(0, 255, 163, 0.18); }
   .glow-sig { box-shadow: 0 0 16px rgba(47, 107, 255, 0.50), 0 0 40px rgba(47, 107, 255, 0.20); }
   .glow-mx  { box-shadow: 0 0 16px rgba(216, 179, 90, 0.42), 0 0 42px rgba(255, 90, 31, 0.14); }
-  .glow-siv { box-shadow: 0 0 16px rgba(215, 243, 255, 0.24), 0 0 42px rgba(159, 182, 200, 0.14); }
+  .glow-siv { box-shadow: 0 0 18px rgba(125, 249, 255, 0.35), 0 0 52px rgba(139, 92, 246, 0.18); }
   /* Legacy aliases (still used in some utilities) */
   .glow-blue  { box-shadow: 0 0 16px rgba(47, 107, 255, 0.50), 0 0 40px rgba(47, 107, 255, 0.20); }
   .glow-pink  { box-shadow: 0 0 16px rgba(255, 0, 168, 0.50), 0 0 40px rgba(255, 0, 168, 0.20); }
@@ -172,24 +172,25 @@
     background-size: 28px 28px, 56px 56px, 56px 56px;
   }
 
-  /* ── SIV vault utilities ─────────────────────────────────────────────── */
+  /* ── SIV galaxy chemistry utilities ─────────────────────────────────── */
   .siv-vault-grid {
     background-image:
-      linear-gradient(rgba(215,243,255,0.045) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(215,243,255,0.045) 1px, transparent 1px),
-      radial-gradient(circle at 50% 0%, rgba(215,243,255,0.12), transparent 45%);
-    background-size: 52px 52px, 52px 52px, 100% 100%;
+      radial-gradient(circle at 20% 18%, rgba(139,92,246,0.20), transparent 30%),
+      radial-gradient(circle at 76% 22%, rgba(125,249,255,0.15), transparent 28%),
+      linear-gradient(rgba(125,249,255,0.045) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(139,92,246,0.045) 1px, transparent 1px);
+    background-size: 100% 100%, 100% 100%, 52px 52px, 52px 52px;
   }
 
   .siv-scanline {
-    background: linear-gradient(180deg, transparent 0%, rgba(215,243,255,0.12) 50%, transparent 100%);
+    background: linear-gradient(180deg, transparent 0%, rgba(125,249,255,0.18) 50%, transparent 100%);
     animation: siv-scanline 5.5s ease-in-out infinite;
   }
 
   @keyframes siv-scanline {
     0%, 100% { transform: translateY(-120%); opacity: 0; }
-    20%, 70% { opacity: 0.55; }
-    50% { transform: translateY(120%); opacity: 0.18; }
+    20%, 70% { opacity: 0.65; }
+    50% { transform: translateY(120%); opacity: 0.22; }
   }
 
   /* ── Gradient text — legacy aliases (kept for compat) ───────────────── */
@@ -210,7 +211,7 @@
     -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
   }
   .text-gradient-siv {
-    background: linear-gradient(135deg, #9FB6C8 0%, #D7F3FF 100%);
+    background: linear-gradient(135deg, #8B5CF6 0%, #7DF9FF 58%, #00FFA3 100%);
     -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
   }
   .text-gradient-violet {
