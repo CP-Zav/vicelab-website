@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { Container, Section, Eyebrow, ArrowRight, Badge } from "@/components/ui";
 
@@ -11,7 +12,10 @@ const products = [
     tagline: "Real-time alerts for festivals, nightlife, and people on the floor.",
     description:
       "Anonymous by default. No account. No tracking. Fast field intelligence when information matters most.",
-    logoClass: "text-cp-pink",
+    logo: "/logos/cookedpilot.svg",
+    logoWidth: 361,
+    logoHeight: 273,
+    logoClass: "h-16",
     panel:
       "border-cp-pink/40 bg-cp-pink/[0.06] hover:border-cp-pink/80 hover:shadow-glow-cp",
     glow: "bg-cp-pink/25",
@@ -26,7 +30,10 @@ const products = [
     tagline: "Crowd safety and compliance tools for event organisers.",
     description:
       "Density monitoring, threshold alerts, and audit-ready reporting for high-pressure event environments.",
-    logoClass: "text-transparent bg-clip-text bg-gradient-to-r from-[#5CFF75] to-[#00E9FF]",
+    logo: "/logos/vibeguard.svg",
+    logoWidth: 516,
+    logoHeight: 229,
+    logoClass: "h-16",
     panel:
       "border-vg-teal/40 bg-vg-teal/[0.05] hover:border-vg-teal/80 hover:shadow-glow-vg",
     glow: "bg-vg-teal/25",
@@ -41,7 +48,10 @@ const products = [
     tagline: "Research, education, and harm reduction resources.",
     description:
       "The intelligence layer behind the ecosystem: non-preachy, privacy-conscious, and field-tested.",
-    logoClass: "text-vl-blue",
+    logo: "/logos/vicelab.svg",
+    logoWidth: 232,
+    logoHeight: 282,
+    logoClass: "h-16",
     panel:
       "border-vl-blue/40 bg-vl-blue/[0.06] hover:border-vl-blue/80 hover:shadow-glow-sig",
     glow: "bg-vl-blue/25",
@@ -51,16 +61,19 @@ const products = [
     name: "Matrix",
     href: "/matrix",
     status: "In Development",
-    badgeVariant: "blue" as const,
+    badgeVariant: "mx" as const,
     role: "Substance interaction engine",
     tagline: "Risk-stratified interaction intelligence for practitioners.",
     description:
       "Built for people who need accurate pharmacological context quickly, without moralising noise.",
-    logoClass: "text-vl-blue",
+    logo: "/logos/matrix.svg",
+    logoWidth: 120,
+    logoHeight: 120,
+    logoClass: "h-16",
     panel:
-      "border-vl-blue/28 bg-white/[0.035] hover:border-vl-blue/65 hover:shadow-glow-sig",
-    glow: "bg-vl-blue/18",
-    line: "bg-vl-blue",
+      "border-mx-gold/34 bg-mx-gold/[0.045] hover:border-mx-gold/70 hover:shadow-glow-mx",
+    glow: "bg-mx-ember/18",
+    line: "bg-mx-gold",
   },
   {
     name: "ASA",
@@ -71,7 +84,10 @@ const products = [
     tagline: "Lived experience meets harm reduction science.",
     description:
       "A curated knowledge layer of experience data cross-referenced with research and practice.",
-    logoClass: "text-vl-blue",
+    logo: "/logos/asa.svg",
+    logoWidth: 120,
+    logoHeight: 120,
+    logoClass: "h-16",
     panel:
       "border-vl-blue/28 bg-white/[0.035] hover:border-vl-blue/65 hover:shadow-glow-sig",
     glow: "bg-vl-blue/18",
@@ -81,16 +97,19 @@ const products = [
     name: "SIV",
     href: "/siv",
     status: "Coming Soon",
-    badgeVariant: "teal" as const,
+    badgeVariant: "siv" as const,
     role: "Safety intelligence vehicle",
     tagline: "Infrastructure for high-risk environments and response teams.",
     description:
       "Connects field intelligence, pharmacological risk, and operational response protocols.",
-    logoClass: "text-vg-teal",
+    logo: "/logos/siv.svg",
+    logoWidth: 120,
+    logoHeight: 120,
+    logoClass: "h-16",
     panel:
-      "border-vg-teal/28 bg-white/[0.035] hover:border-vg-teal/65 hover:shadow-glow-vg",
-    glow: "bg-vg-teal/18",
-    line: "bg-vg-teal",
+      "border-siv-ice/34 bg-siv-slate/[0.07] hover:border-siv-ice/70 hover:shadow-glow-siv",
+    glow: "bg-siv-ice/20",
+    line: "bg-gradient-siv",
   },
 ];
 
@@ -152,10 +171,15 @@ export default function HomePage() {
                   <div className="relative flex h-full flex-col">
                     <div className="mb-8 flex items-start justify-between gap-4">
                       <div className="min-w-0 flex-1">
-                        <div className="mb-4 rounded-2xl border border-white/10 bg-black/30 px-5 py-5 shadow-panel">
-                          <div className={`font-black leading-none tracking-[-0.08em] text-[38px] sm:text-[44px] ${product.logoClass}`}>
-                            {product.name}
-                          </div>
+                        <div className="mb-4 flex h-24 items-center rounded-2xl border border-white/10 bg-black/30 px-5 py-5 shadow-panel">
+                          <Image
+                            src={product.logo}
+                            alt={`${product.name} logo`}
+                            width={product.logoWidth}
+                            height={product.logoHeight}
+                            className={`${product.logoClass} w-auto max-w-full brightness-110 contrast-105`}
+                            style={{ width: "auto" }}
+                          />
                         </div>
                         <p className="text-[11px] font-black uppercase tracking-[0.18em] text-white/42">
                           {product.role}
