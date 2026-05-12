@@ -1,8 +1,6 @@
 import Link from "next/link";
 import { Container, Section, Eyebrow, ArrowRight, Badge } from "@/components/ui";
 
-const SHOP_URL = "https://vicelab-collective.bigcartel.com/";
-
 const products = [
   {
     name: "Cooked Pilot",
@@ -102,14 +100,6 @@ const products = [
   },
 ];
 
-const principles = [
-  "Research-informed",
-  "Peer-developed",
-  "Non-preachy",
-  "Privacy-conscious",
-  "Built for real environments",
-];
-
 export default function HomePage() {
   return (
     <div className="min-h-screen overflow-hidden bg-canvas">
@@ -169,6 +159,7 @@ export default function HomePage() {
                     <div className="mb-7 flex items-start justify-between gap-4">
                       <div className="flex items-center gap-4">
                         <div className="flex h-[78px] w-[78px] shrink-0 items-center justify-center rounded-2xl border border-white/10 bg-black/30 shadow-panel">
+                          {/* eslint-disable-next-line @next/next/no-img-element */}
                           <img
                             src={product.logo}
                             alt=""
@@ -188,6 +179,13 @@ export default function HomePage() {
                       </div>
                       <Badge variant={product.badgeVariant}>{product.status}</Badge>
                     </div>
+
+                    <p className="mb-3 text-[16px] font-bold leading-snug text-white/84">
+                      {product.tagline}
+                    </p>
+                    <p className="text-sm leading-[1.68] text-white/54">
+                      {product.description}
+                    </p>
                   </div>
                 </Link>
               ))}
