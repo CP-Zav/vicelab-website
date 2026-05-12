@@ -67,7 +67,7 @@ const products = [
   {
     name: "ASA",
     shortName: "ASA",
-    logo: null,
+    logo: "/logos/asa.svg",
     href: "/asa",
     tagline: "Altered State Archives — lived experience meets harm reduction science.",
     description:
