@@ -20,8 +20,8 @@ const config: Config = {
         "vl-green": "#00FFA3",   // VibeGuard gradient end + live dot
         "mx-gold":  "#D8B35A",   // Matrix — occult gold
         "mx-ember": "#FF5A1F",   // Matrix — ritual ember
-        "siv-slate": "#9FB6C8",  // SIV — vault slate
-        "siv-ice":   "#D7F3FF",  // SIV — cold intelligence light
+        "siv-slate": "#8B5CF6",  // SIV — galaxy violet
+        "siv-ice":   "#7DF9FF",  // SIV — chem cyan
         // Legacy — only kept until all pages corrected
         "cp-cyan":   "#22d3ee",
         "vg-violet": "#a78bfa",
@@ -55,13 +55,13 @@ const config: Config = {
         "gradient-vg":      "linear-gradient(135deg, #00D5FF 0%, #00FFA3 100%)",          // VibeGuard: cyan → neon green
         "gradient-sig":     "linear-gradient(135deg, #2F6BFF 0%, #00D5FF 100%)",          // Signal / ViceLab: electric blue → cyan
         "gradient-mx":      "linear-gradient(135deg, #D8B35A 0%, #FF5A1F 100%)",          // Matrix: gold → ember
-        "gradient-siv":     "linear-gradient(135deg, #9FB6C8 0%, #D7F3FF 100%)",          // SIV: vault slate → ice
+        "gradient-siv":     "linear-gradient(135deg, #8B5CF6 0%, #7DF9FF 58%, #00FFA3 100%)", // SIV: galaxy → chem cyan → bio signal
         // Hero radials — v2: tighter, more saturated
         "hero-radial-blue": "radial-gradient(ellipse 80% 60% at 50% -10%, rgba(47,107,255,0.22) 0%, transparent 60%)",
         "hero-radial-pink": "radial-gradient(ellipse 80% 60% at 50% -10%, rgba(255,0,168,0.22) 0%, transparent 60%)",
         "hero-radial-teal": "radial-gradient(ellipse 80% 60% at 50% -10%, rgba(0,213,255,0.20) 0%, rgba(0,255,163,0.06) 50%, transparent 65%)",
         "hero-radial-mx":   "radial-gradient(ellipse 82% 62% at 50% -10%, rgba(216,179,90,0.22) 0%, rgba(255,90,31,0.09) 42%, transparent 66%)",
-        "hero-radial-siv":  "radial-gradient(ellipse 82% 62% at 50% -10%, rgba(159,182,200,0.18) 0%, rgba(215,243,255,0.08) 46%, transparent 68%)",
+        "hero-radial-siv":  "radial-gradient(ellipse 82% 62% at 50% -10%, rgba(139,92,246,0.24) 0%, rgba(125,249,255,0.14) 42%, rgba(0,255,163,0.06) 58%, transparent 72%)",
         // Legacy
         "hero-radial":      "radial-gradient(ellipse 80% 60% at 50% -10%, rgba(167,139,250,0.15) 0%, transparent 60%)",
         "hero-radial-cyan": "radial-gradient(ellipse 80% 60% at 50% -10%, rgba(34,211,238,0.12) 0%, transparent 60%)",
@@ -76,7 +76,7 @@ const config: Config = {
         "glow-vg":  "0 0 18px rgba(0,213,255,0.28), 0 0 60px rgba(0,213,255,0.10)",
         "glow-sig": "0 0 18px rgba(47,107,255,0.28), 0 0 60px rgba(47,107,255,0.10)",
         "glow-mx":  "0 0 18px rgba(216,179,90,0.24), 0 0 60px rgba(255,90,31,0.09)",
-        "glow-siv": "0 0 18px rgba(159,182,200,0.20), 0 0 60px rgba(215,243,255,0.08)",
+        "glow-siv": "0 0 20px rgba(125,249,255,0.25), 0 0 70px rgba(139,92,246,0.14)",
       },
       transitionTimingFunction: {
         smooth: "cubic-bezier(0.4, 0, 0.2, 1)",
