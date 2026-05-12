@@ -8,6 +8,8 @@
    Cooked Pilot  (cp)  — neon magenta      #FF00A8 → #FF1FB8
    VibeGuard     (vg)  — cyan → neon green #00D5FF → #00FFA3
    Signal / VL   (sig) — electric blue     #2F6BFF → #00D5FF
+   Matrix        (mx)  — occult gold       #D8B35A → #FF5A1F
+   SIV           (siv) — vault slate/ice   #9FB6C8 → #D7F3FF
    ═══════════════════════════════════════════════════════════════════════ */
 
 :root {
@@ -18,6 +20,12 @@
   --sig-color:      #2F6BFF;
   --sig-color-dim:  rgba(47, 107, 255, 0.15);
   --vl-green:       #00FFA3;
+  --mx-color:       #D8B35A;
+  --mx-ember:       #FF5A1F;
+  --mx-color-dim:   rgba(216, 179, 90, 0.15);
+  --siv-slate:      #9FB6C8;
+  --siv-ice:        #D7F3FF;
+  --siv-color-dim:  rgba(215, 243, 255, 0.12);
   /* Legacy */
   --cp-cyan:        #22d3ee;
   --vg-violet:      #a78bfa;
@@ -50,6 +58,8 @@
   .text-accent-cp  { color: var(--cp-color); }
   .text-accent-vg  { color: var(--vg-color); }
   .text-accent-sig { color: var(--sig-color); }
+  .text-accent-mx  { color: var(--mx-color); }
+  .text-accent-siv { color: var(--siv-ice); }
 
   /* Gradient text — product-named */
   .text-gradient-cp {
@@ -70,11 +80,25 @@
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
+  .text-gradient-mx {
+    background: linear-gradient(135deg, #D8B35A 0%, #FF5A1F 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .text-gradient-siv {
+    background: linear-gradient(135deg, #9FB6C8 0%, #D7F3FF 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
 
   /* Hero radial backgrounds — product-named semantic aliases */
   .hero-bg-cp  { background-image: radial-gradient(ellipse 80% 60% at 50% -10%, rgba(255,0,168,0.22) 0%, transparent 60%); }
   .hero-bg-vg  { background-image: radial-gradient(ellipse 80% 60% at 50% -10%, rgba(0,213,255,0.20) 0%, rgba(0,255,163,0.06) 50%, transparent 65%); }
   .hero-bg-sig { background-image: radial-gradient(ellipse 80% 60% at 50% -10%, rgba(47,107,255,0.22) 0%, transparent 60%); }
+  .hero-bg-mx  { background-image: radial-gradient(ellipse 82% 62% at 50% -10%, rgba(216,179,90,0.22) 0%, rgba(255,90,31,0.09) 42%, transparent 66%); }
+  .hero-bg-siv { background-image: radial-gradient(ellipse 82% 62% at 50% -10%, rgba(159,182,200,0.18) 0%, rgba(215,243,255,0.08) 46%, transparent 68%); }
 
   /* Badges — product-named */
   .badge-cp {
@@ -91,6 +115,16 @@
     background: rgba(47, 107, 255, 0.12);
     color: #2F6BFF;
     border: 1px solid rgba(47, 107, 255, 0.22);
+  }
+  .badge-mx {
+    background: rgba(216, 179, 90, 0.12);
+    color: #D8B35A;
+    border: 1px solid rgba(216, 179, 90, 0.24);
+  }
+  .badge-siv {
+    background: rgba(159, 182, 200, 0.12);
+    color: #D7F3FF;
+    border: 1px solid rgba(215, 243, 255, 0.20);
   }
 
 }
@@ -114,11 +148,49 @@
   .glow-cp  { box-shadow: 0 0 16px rgba(255, 0, 168, 0.50), 0 0 40px rgba(255, 0, 168, 0.20); }
   .glow-vg  { box-shadow: 0 0 16px rgba(0, 213, 255, 0.45), 0 0 40px rgba(0, 255, 163, 0.18); }
   .glow-sig { box-shadow: 0 0 16px rgba(47, 107, 255, 0.50), 0 0 40px rgba(47, 107, 255, 0.20); }
+  .glow-mx  { box-shadow: 0 0 16px rgba(216, 179, 90, 0.42), 0 0 42px rgba(255, 90, 31, 0.14); }
+  .glow-siv { box-shadow: 0 0 16px rgba(215, 243, 255, 0.24), 0 0 42px rgba(159, 182, 200, 0.14); }
   /* Legacy aliases (still used in some utilities) */
   .glow-blue  { box-shadow: 0 0 16px rgba(47, 107, 255, 0.50), 0 0 40px rgba(47, 107, 255, 0.20); }
   .glow-pink  { box-shadow: 0 0 16px rgba(255, 0, 168, 0.50), 0 0 40px rgba(255, 0, 168, 0.20); }
   .glow-violet { box-shadow: 0 0 30px rgba(167, 139, 250, 0.18), 0 0 60px rgba(167, 139, 250, 0.08); }
   .glow-cyan   { box-shadow: 0 0 30px rgba(34, 211, 238, 0.18), 0 0 60px rgba(34, 211, 238, 0.08); }
+
+  /* ── Matrix ritual utilities ─────────────────────────────────────────── */
+  .mx-sigil-ring {
+    background:
+      radial-gradient(circle at center, rgba(216,179,90,0.16) 0 2px, transparent 3px),
+      conic-gradient(from 22deg, transparent 0deg, rgba(216,179,90,0.52) 38deg, transparent 68deg, rgba(255,90,31,0.28) 112deg, transparent 152deg, rgba(216,179,90,0.42) 238deg, transparent 288deg, rgba(216,179,90,0.52) 338deg, transparent 360deg);
+    mask: radial-gradient(circle at center, transparent 0 42%, black 43% 45%, transparent 46% 100%);
+  }
+
+  .mx-orbit-grid {
+    background-image:
+      radial-gradient(circle at center, rgba(216,179,90,0.10) 0 1px, transparent 1px),
+      linear-gradient(rgba(216,179,90,0.035) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(216,179,90,0.035) 1px, transparent 1px);
+    background-size: 28px 28px, 56px 56px, 56px 56px;
+  }
+
+  /* ── SIV vault utilities ─────────────────────────────────────────────── */
+  .siv-vault-grid {
+    background-image:
+      linear-gradient(rgba(215,243,255,0.045) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(215,243,255,0.045) 1px, transparent 1px),
+      radial-gradient(circle at 50% 0%, rgba(215,243,255,0.12), transparent 45%);
+    background-size: 52px 52px, 52px 52px, 100% 100%;
+  }
+
+  .siv-scanline {
+    background: linear-gradient(180deg, transparent 0%, rgba(215,243,255,0.12) 50%, transparent 100%);
+    animation: siv-scanline 5.5s ease-in-out infinite;
+  }
+
+  @keyframes siv-scanline {
+    0%, 100% { transform: translateY(-120%); opacity: 0; }
+    20%, 70% { opacity: 0.55; }
+    50% { transform: translateY(120%); opacity: 0.18; }
+  }
 
   /* ── Gradient text — legacy aliases (kept for compat) ───────────────── */
   .text-gradient-blue {
@@ -131,6 +203,14 @@
   }
   .text-gradient-teal {
     background: linear-gradient(135deg, #00D5FF 0%, #00FFA3 100%);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+  }
+  .text-gradient-mx {
+    background: linear-gradient(135deg, #D8B35A 0%, #FF5A1F 100%);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+  }
+  .text-gradient-siv {
+    background: linear-gradient(135deg, #9FB6C8 0%, #D7F3FF 100%);
     -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
   }
   .text-gradient-violet {
