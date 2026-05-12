@@ -98,10 +98,10 @@ const products = [
     href: "/siv",
     status: "Coming Soon",
     badgeVariant: "siv" as const,
-    role: "Safety intelligence vehicle",
-    tagline: "Infrastructure for high-risk environments and response teams.",
+    role: "Substance Intelligence Vault",
+    tagline: "A secure vault for substance risk signals and field intelligence.",
     description:
-      "Connects field intelligence, pharmacological risk, and operational response protocols.",
+      "Structures reports, batch flags, interaction context, and evidence trails for harm reduction teams.",
     logo: "/logos/siv.svg",
     logoWidth: 120,
     logoHeight: 120,
