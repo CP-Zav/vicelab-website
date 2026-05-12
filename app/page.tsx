@@ -4,7 +4,6 @@ import { Container, Section, Eyebrow, ArrowRight, Badge } from "@/components/ui"
 const products = [
   {
     name: "Cooked Pilot",
-    logo: "/logos/cookedpilot.svg",
     href: "/cooked-pilot",
     status: "Live",
     badgeVariant: "live" as const,
@@ -12,7 +11,7 @@ const products = [
     tagline: "Real-time alerts for festivals, nightlife, and people on the floor.",
     description:
       "Anonymous by default. No account. No tracking. Fast field intelligence when information matters most.",
-    accentText: "text-cp-pink",
+    logoClass: "text-cp-pink",
     panel:
       "border-cp-pink/40 bg-cp-pink/[0.06] hover:border-cp-pink/80 hover:shadow-glow-cp",
     glow: "bg-cp-pink/25",
@@ -20,7 +19,6 @@ const products = [
   },
   {
     name: "VibeGuard",
-    logo: "/logos/vibeguard.svg",
     href: "/vibeguard",
     status: "Coming Soon",
     badgeVariant: "teal" as const,
@@ -28,7 +26,7 @@ const products = [
     tagline: "Crowd safety and compliance tools for event organisers.",
     description:
       "Density monitoring, threshold alerts, and audit-ready reporting for high-pressure event environments.",
-    accentText: "text-vg-teal",
+    logoClass: "text-transparent bg-clip-text bg-gradient-to-r from-[#5CFF75] to-[#00E9FF]",
     panel:
       "border-vg-teal/40 bg-vg-teal/[0.05] hover:border-vg-teal/80 hover:shadow-glow-vg",
     glow: "bg-vg-teal/25",
@@ -36,7 +34,6 @@ const products = [
   },
   {
     name: "ViceLab",
-    logo: "/logos/vicelab.svg",
     href: "/vicelab",
     status: "Research",
     badgeVariant: "blue" as const,
@@ -44,7 +41,7 @@ const products = [
     tagline: "Research, education, and harm reduction resources.",
     description:
       "The intelligence layer behind the ecosystem: non-preachy, privacy-conscious, and field-tested.",
-    accentText: "text-vl-blue",
+    logoClass: "text-vl-blue",
     panel:
       "border-vl-blue/40 bg-vl-blue/[0.06] hover:border-vl-blue/80 hover:shadow-glow-sig",
     glow: "bg-vl-blue/25",
@@ -52,7 +49,6 @@ const products = [
   },
   {
     name: "Matrix",
-    logo: "/logos/matrix.svg",
     href: "/matrix",
     status: "In Development",
     badgeVariant: "blue" as const,
@@ -60,7 +56,7 @@ const products = [
     tagline: "Risk-stratified interaction intelligence for practitioners.",
     description:
       "Built for people who need accurate pharmacological context quickly, without moralising noise.",
-    accentText: "text-vl-blue",
+    logoClass: "text-vl-blue",
     panel:
       "border-vl-blue/28 bg-white/[0.035] hover:border-vl-blue/65 hover:shadow-glow-sig",
     glow: "bg-vl-blue/18",
@@ -68,7 +64,6 @@ const products = [
   },
   {
     name: "ASA",
-    logo: "/logos/asa.svg",
     href: "/asa",
     status: "In Development",
     badgeVariant: "blue" as const,
@@ -76,7 +71,7 @@ const products = [
     tagline: "Lived experience meets harm reduction science.",
     description:
       "A curated knowledge layer of experience data cross-referenced with research and practice.",
-    accentText: "text-vl-blue",
+    logoClass: "text-vl-blue",
     panel:
       "border-vl-blue/28 bg-white/[0.035] hover:border-vl-blue/65 hover:shadow-glow-sig",
     glow: "bg-vl-blue/18",
@@ -84,7 +79,6 @@ const products = [
   },
   {
     name: "SIV",
-    logo: "/logos/siv.svg",
     href: "/siv",
     status: "Coming Soon",
     badgeVariant: "teal" as const,
@@ -92,7 +86,7 @@ const products = [
     tagline: "Infrastructure for high-risk environments and response teams.",
     description:
       "Connects field intelligence, pharmacological risk, and operational response protocols.",
-    accentText: "text-vg-teal",
+    logoClass: "text-vg-teal",
     panel:
       "border-vg-teal/28 bg-white/[0.035] hover:border-vg-teal/65 hover:shadow-glow-vg",
     glow: "bg-vg-teal/18",
@@ -150,32 +144,22 @@ export default function HomePage() {
                 <Link
                   key={product.name}
                   href={product.href}
-                  className={`group relative min-h-[265px] overflow-hidden rounded-[22px] border p-5 shadow-panel transition-all duration-300 hover:-translate-y-1 ${product.panel}`}
+                  className={`group relative min-h-[285px] overflow-hidden rounded-[22px] border p-6 shadow-panel transition-all duration-300 hover:-translate-y-1 ${product.panel}`}
                 >
                   <div className={`absolute -right-10 -top-10 h-40 w-40 rounded-full blur-[70px] ${product.glow}`} />
                   <div className={`absolute inset-x-5 top-0 h-px ${product.line} opacity-80`} />
 
                   <div className="relative flex h-full flex-col">
-                    <div className="mb-7 flex items-start justify-between gap-4">
-                      <div className="flex items-center gap-4">
-                        <div className="flex h-[78px] w-[78px] shrink-0 items-center justify-center rounded-2xl border border-white/10 bg-black/30 shadow-panel">
-                          {/* eslint-disable-next-line @next/next/no-img-element */}
-                          <img
-                            src={product.logo}
-                            alt=""
-                            aria-hidden="true"
-                            className="h-16 w-16 object-contain brightness-125 contrast-125 saturate-150"
-                            loading="lazy"
-                          />
-                        </div>
-                        <div>
-                          <h3 className={`text-[27px] font-black leading-none tracking-[-0.06em] ${product.accentText}`}>
+                    <div className="mb-8 flex items-start justify-between gap-4">
+                      <div className="min-w-0 flex-1">
+                        <div className="mb-4 rounded-2xl border border-white/10 bg-black/30 px-5 py-5 shadow-panel">
+                          <div className={`font-black leading-none tracking-[-0.08em] text-[38px] sm:text-[44px] ${product.logoClass}`}>
                             {product.name}
-                          </h3>
-                          <p className="mt-2 text-[11px] font-black uppercase tracking-[0.18em] text-white/42">
-                            {product.role}
-                          </p>
+                          </div>
                         </div>
+                        <p className="text-[11px] font-black uppercase tracking-[0.18em] text-white/42">
+                          {product.role}
+                        </p>
                       </div>
                       <Badge variant={product.badgeVariant}>{product.status}</Badge>
                     </div>
