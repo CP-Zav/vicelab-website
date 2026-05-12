@@ -1,27 +1,27 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" fill="none" role="img" aria-label="Matrix interaction key logo">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 140 140" fill="none" role="img" aria-label="Matrix key and lock logo">
   <defs>
-    <linearGradient id="mx" x1="12" y1="60" x2="108" y2="60" gradientUnits="userSpaceOnUse">
+    <linearGradient id="mx" x1="14" y1="70" x2="126" y2="70" gradientUnits="userSpaceOnUse">
       <stop stop-color="#1E58FF"/>
-      <stop offset="0.52" stop-color="#FF2828"/>
+      <stop offset="0.5" stop-color="#FF2828"/>
       <stop offset="1" stop-color="#7A2BFF"/>
     </linearGradient>
-    <filter id="glow" x="-55%" y="-55%" width="210%" height="210%">
-      <feGaussianBlur stdDeviation="2.4" result="blur"/>
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="2.2" result="blur"/>
       <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
     </filter>
   </defs>
-  <g stroke="url(#mx)" stroke-linecap="round" stroke-linejoin="round" filter="url(#glow)">
-    <circle cx="29" cy="60" r="15" stroke-width="3"/>
-    <path d="M44 60h28" stroke-width="4"/>
-    <path d="M55 60v-10h10v10" stroke-width="3"/>
-    <path d="M72 45h18c7.2 0 13 5.8 13 13v4c0 7.2-5.8 13-13 13H72V45Z" stroke-width="3"/>
-    <path d="M88 56v-7M88 71v-7" stroke-width="1.6" opacity="0.72"/>
-    <path d="M95 60h10" stroke-width="2" opacity="0.64"/>
-    <circle cx="29" cy="60" r="5" stroke-width="1.5" opacity="0.7"/>
-    <path d="M18 32c10-7 22-7 32 0M70 91c11 5 24 3 34-6" stroke-width="1.2" opacity="0.32"/>
-    <path d="M25 94c14-11 29-13 45-6M56 29c16-7 32-4 46 8" stroke-width="1.2" opacity="0.24"/>
+  <path d="M18 70c0 28.7 23.3 52 52 52s52-23.3 52-52S98.7 18 70 18 18 41.3 18 70Z" stroke="#E7E1D0" stroke-width="1.2" opacity="0.18"/>
+  <g filter="url(#glow)">
+    <path d="M21 70a20 20 0 1 0 40 0 20 20 0 0 0-40 0Z" stroke="#1E58FF" stroke-width="5"/>
+    <path d="M61 70h30" stroke="url(#mx)" stroke-width="8" stroke-linecap="round"/>
+    <path d="M75 70v-13h14v13" stroke="#E7E1D0" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" opacity="0.7"/>
+    <path d="M91 50h18c9.4 0 17 7.6 17 17v6c0 9.4-7.6 17-17 17H91V50Z" fill="#071013" stroke="#FF2828" stroke-width="5" stroke-linejoin="round"/>
+    <path d="M107 63a7 7 0 0 1 4 12v8h-8v-8a7 7 0 0 1 4-12Z" fill="#050607" stroke="#E7E1D0" stroke-width="2" opacity="0.88"/>
+    <path d="M53 70h54" stroke="url(#mx)" stroke-width="2" stroke-linecap="round" opacity="0.92"/>
   </g>
-  <g fill="#E8ECFF" opacity="0.72">
-    <circle cx="16" cy="32" r="1.4"/><circle cx="51" cy="32" r="1.2"/><circle cx="102" cy="37" r="1.2"/><circle cx="70" cy="88" r="1.2"/><circle cx="104" cy="85" r="1.4"/>
+  <g stroke="#8FE8A2" stroke-linecap="round" opacity="0.32">
+    <path d="M34 41c9-5 18-6 28-3"/>
+    <path d="M88 103c10 2 20-1 28-8"/>
+    <path d="M45 104c13-8 27-9 40-3"/>
   </g>
 </svg>
