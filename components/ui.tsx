@@ -4,7 +4,7 @@
 import Link from "next/link";
 import type { ReactNode } from "react";
 
-type Accent = "blue" | "pink" | "teal" | "green" | "mx" | "siv";
+type Accent = "blue" | "pink" | "teal" | "green" | "mx" | "siv" | "asa";
 type BadgeVariant = Accent | "live";
 
 // ── Container ────────────────────────────────────────────────────────────────
@@ -41,7 +41,7 @@ export function Eyebrow({
   children: ReactNode;
   color?: Accent | "muted";
 }) {
-  // cp=pink | vg=teal | sig=blue | mx=Matrix | siv=Safety Intelligence Vessel
+  // cp=pink | vg=teal | sig=blue | mx=Matrix | siv=Substance Intelligence Vault | asa=Altered State Archives
   const colorMap: Record<string, string> = {
     blue:  "text-vl-blue",
     pink:  "text-cp-pink",
@@ -49,6 +49,7 @@ export function Eyebrow({
     green: "text-vl-green",
     mx:    "text-mx-gold",
     siv:   "text-siv-ice",
+    asa:   "text-[#c084fc]",
     muted: "text-white/40",
   };
   return (
@@ -84,6 +85,7 @@ export function Card({
     green: "hover:border-vl-green/[0.25]",
     mx:    "hover:border-mx-gold/[0.32] hover:shadow-glow-mx",
     siv:   "hover:border-siv-ice/[0.28] hover:shadow-glow-siv",
+    asa:   "hover:border-[#9b5de5]/[0.34] hover:shadow-[0_0_28px_rgba(155,93,229,0.22)]",
   };
   return (
     <div
@@ -154,6 +156,7 @@ export function Badge({
     green: "bg-vl-green/[0.12] text-vl-green border-vl-green/[0.22]",
     mx:    "bg-mx-gold/[0.12] text-mx-gold border-mx-gold/[0.24]",
     siv:   "bg-siv-slate/[0.12] text-siv-ice border-siv-ice/[0.20]",
+    asa:   "bg-[#9b5de5]/[0.12] text-[#c084fc] border-[#9b5de5]/[0.24]",
   };
   const dot = variant === "live";
   return (
@@ -186,6 +189,7 @@ export function FeatureCard({
     green: "text-vl-green",
     mx:    "text-mx-gold",
     siv:   "text-siv-ice",
+    asa:   "text-[#c084fc]",
   };
   return (
     <Card accent={accent}>
