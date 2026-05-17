@@ -1,23 +1,26 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 140 140" fill="none">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="none" role="img" aria-label="SIV phoenix vault logo">
   <defs>
-    <linearGradient id="a" x1="25" y1="18" x2="115" y2="122" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#E6C27A"/>
-      <stop offset="0.58" stop-color="#16F0C6"/>
-      <stop offset="1" stop-color="#0F2A28"/>
+    <linearGradient id="sivGold" x1="46" y1="222" x2="210" y2="28" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#8B5A1E"/>
+      <stop offset="0.45" stop-color="#E8C16D"/>
+      <stop offset="1" stop-color="#FFF0B7"/>
     </linearGradient>
+    <filter id="sivGlow" x="-35%" y="-35%" width="170%" height="170%">
+      <feGaussianBlur stdDeviation="2.4" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
   </defs>
-  <circle cx="70" cy="70" r="55" stroke="#E6C27A" stroke-width="2.2" opacity="0.82"/>
-  <circle cx="70" cy="70" r="45" stroke="#16F0C6" stroke-width="1.1" opacity="0.34"/>
-  <circle cx="70" cy="70" r="32" stroke="#E6C27A" stroke-width="0.9" opacity="0.28"/>
-  <path d="M70 33v48" stroke="url(#a)" stroke-width="4" stroke-linecap="round"/>
-  <path d="M55 53c0-8.3 6.7-15 15-15s15 6.7 15 15c0 5-2.5 9.6-6.5 12.3" stroke="url(#a)" stroke-width="2.8" stroke-linecap="round"/>
-  <path d="M56 82h28" stroke="url(#a)" stroke-width="4" stroke-linecap="round"/>
-  <path d="M61 91h18" stroke="#E6C27A" stroke-width="2.4" opacity="0.82" stroke-linecap="round"/>
-  <path d="M70 33l-8 12h16L70 33Z" fill="#07100F" stroke="#E6C27A" stroke-width="2"/>
-  <path d="M42 43h13M85 43h13M40 99h60" stroke="#E6C27A" stroke-width="1.5" opacity="0.46" stroke-linecap="round"/>
-  <path d="M42 70h11M87 70h11" stroke="#16F0C6" stroke-width="1.4" opacity="0.52" stroke-linecap="round"/>
-  <circle cx="70" cy="10" r="1.5" fill="#E6C27A" opacity="0.72"/>
-  <circle cx="70" cy="130" r="1.5" fill="#E6C27A" opacity="0.72"/>
-  <circle cx="10" cy="70" r="1.5" fill="#E6C27A" opacity="0.72"/>
-  <circle cx="130" cy="70" r="1.5" fill="#E6C27A" opacity="0.72"/>
+  <circle cx="128" cy="128" r="101" stroke="#E8C16D" stroke-width="4" opacity="0.26"/>
+  <circle cx="128" cy="128" r="83" stroke="#E8C16D" stroke-width="2" opacity="0.18"/>
+  <g filter="url(#sivGlow)" stroke="url(#sivGold)" stroke-width="8" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M128 204c-18-25-27-50-22-75 4-20 17-37 38-52-8 24-1 39 18 50 18 10 31 25 31 46 0 28-24 48-65 31Z"/>
+    <path d="M128 204c18-24 21-47 9-70-7-13-19-23-37-31 3 24-7 43-30 58 8 28 28 43 58 43Z"/>
+    <path d="M128 204c-2-31 5-57 22-77" opacity="0.72"/>
+    <path d="M128 204c-6-27-20-48-43-62" opacity="0.72"/>
+    <path d="M111 82c6-18 17-31 33-39-4 22 2 38 19 48" opacity="0.86"/>
+    <path d="M88 102c-19 5-34 15-47 30 27 4 48 14 64 30" opacity="0.7"/>
+    <path d="M168 105c21 4 37 15 48 32-25 1-44 10-57 28" opacity="0.7"/>
+  </g>
+  <path d="M71 218h114" stroke="#E8C16D" stroke-width="3" stroke-linecap="round" opacity="0.44"/>
+  <path d="M55 47h146M55 47v35M201 47v35" stroke="#E8C16D" stroke-width="2" stroke-linecap="round" opacity="0.28"/>
 </svg>
