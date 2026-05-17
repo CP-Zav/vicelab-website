@@ -1,21 +1,22 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="none" role="img" aria-label="ASA eye logo">
   <defs>
-    <linearGradient id="asaGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#7C3AED"/>
-      <stop offset="100%" stop-color="#8B5CF6"/>
+    <linearGradient id="asaEye" x1="35" y1="176" x2="221" y2="70" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#37E6FF"/>
+      <stop offset="0.48" stop-color="#7C5CFF"/>
+      <stop offset="1" stop-color="#FF45D5"/>
     </linearGradient>
+    <filter id="asaGlow" x="-45%" y="-45%" width="190%" height="190%">
+      <feGaussianBlur stdDeviation="3.2" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
   </defs>
-  <g stroke="url(#asaGradient)" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5">
-    <!-- Layered ellipses representing stacked archive slabs -->
-    <ellipse cx="150" cy="175" rx="56" ry="14"/>
-    <line x1="94" y1="175" x2="94" y2="155"/>
-    <line x1="206" y1="175" x2="206" y2="155"/>
-    <ellipse cx="150" cy="155" rx="56" ry="14"/>
-    <line x1="94" y1="155" x2="94" y2="135"/>
-    <line x1="206" y1="155" x2="206" y2="135"/>
-    <ellipse cx="150" cy="135" rx="56" ry="14"/>
-    <line x1="94" y1="135" x2="94" y2="125"/>
-    <line x1="206" y1="135" x2="206" y2="125"/>
-    <ellipse cx="150" cy="125" rx="56" ry="14"/>
+  <rect width="256" height="256" rx="54" fill="#080611" opacity="0"/>
+  <g filter="url(#asaGlow)" stroke="url(#asaEye)" stroke-width="9" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M30 132c29-44 64-66 101-66 39 0 71 25 95 62-27 37-60 56-97 56-38 0-70-18-99-52Z"/>
+    <path d="M55 132c20-26 45-39 74-39 30 0 55 14 74 39" opacity="0.66"/>
+    <path d="M78 134c15-15 32-23 51-23 20 0 37 8 51 23" opacity="0.58"/>
+    <circle cx="130" cy="134" r="17" fill="#080611"/>
+    <path d="M123 184c0 14 6 25 16 35 9-10 13-21 10-35" opacity="0.92"/>
   </g>
+  <circle cx="150" cy="115" r="7" fill="#FF7AF0" opacity="0.95"/>
 </svg>
