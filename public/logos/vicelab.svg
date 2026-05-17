@@ -1,9 +1,19 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="95 95 110 110">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="none" role="img" aria-label="ViceLab waveform logo">
   <defs>
-    <linearGradient id="vicelabGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#0044CC"/>
-      <stop offset="100%" stop-color="#00AAFF"/>
+    <linearGradient id="vl" x1="32" y1="170" x2="224" y2="82" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#37E6FF"/>
+      <stop offset="0.48" stop-color="#7C5CFF"/>
+      <stop offset="1" stop-color="#FF3EDB"/>
     </linearGradient>
+    <filter id="glow" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="3" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
   </defs>
-  <path d="M150 100a50 50 0 100 100 50 50 0 100-100zm18.3 46.5l3.4 3.3-3.4 3.4M128 141.6h17.6v23.2H128z" stroke="url(#vicelabGradient)" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  <g filter="url(#glow)" stroke="url(#vl)" stroke-width="10" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M31 131h32l16-45 31 103 35-122 27 82 15-34h38"/>
+    <path d="M33 180h190" opacity="0.18"/>
+    <path d="M33 76h190" opacity="0.16"/>
+    <circle cx="128" cy="128" r="92" opacity="0.22" stroke-width="4"/>
+  </g>
 </svg>
