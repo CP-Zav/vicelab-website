@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512" fill="none">
+  <defs>
+    <linearGradient id="asaGradient" x1="80" y1="64" x2="432" y2="448" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#8A5CFF"/>
+      <stop offset="0.5" stop-color="#FF5CF6"/>
+      <stop offset="1" stop-color="#5CE6FF"/>
+    </linearGradient>
+    <radialGradient id="asaGlow" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(256 256) rotate(90) scale(220)">
+      <stop stop-color="#8A5CFF" stop-opacity="0.35"/>
+      <stop offset="1" stop-color="#0A0711" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="512" height="512" rx="96" fill="#0A0711"/>
+  <circle cx="256" cy="256" r="210" fill="url(#asaGlow)"/>
+  <path d="M256 96L388 168V344L256 416L124 344V168L256 96Z" stroke="url(#asaGradient)" stroke-width="18"/>
+  <circle cx="256" cy="256" r="74" stroke="url(#asaGradient)" stroke-width="14"/>
+  <path d="M256 152V360M164 204L348 308M348 204L164 308" stroke="url(#asaGradient)" stroke-width="10" stroke-linecap="round" opacity="0.88"/>
+</svg>
