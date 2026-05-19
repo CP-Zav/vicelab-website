@@ -9,9 +9,6 @@ const links = [
   { href: "/vicelab", label: "VICELAB" },
   { href: "/cooked-pilot", label: "Cooked Pilot" },
   { href: "/vibeguard", label: "VibeGuard" },
-  { href: "/matrix", label: "MATRIX" },
-  { href: "/siv", label: "SIV" },
-  { href: "/asa", label: "ASA" },
   { href: "/help", label: "Get Help" },
 ];
 
