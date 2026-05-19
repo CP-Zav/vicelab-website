@@ -35,6 +35,22 @@ const products = [
     glow: "bg-vg-teal/25",
     line: "bg-gradient-vg",
   },
+  {
+    name: "Altered State Archives",
+    href: "/altered-state-archives",
+    status: "Brand Pack Merged",
+    badgeVariant: "asa" as const,
+    role: "Knowledge archive",
+    tagline: "A cyber-archive layer for altered-state research, memory, and pattern capture.",
+    description: "ASA brings violet, electric pink, and cyan archive aesthetics into the ViceLab ecosystem without breaking the dark-system safety language.",
+    logo: "/logos/asa-mark.svg",
+    logoWidth: 512,
+    logoHeight: 512,
+    logoClass: "h-16",
+    panel: "border-asa-violet/40 bg-asa-violet/[0.06] hover:border-asa-pink/70 hover:shadow-glow-asa",
+    glow: "bg-asa-pink/20",
+    line: "bg-gradient-asa",
+  },
 ];
 
 export default function HomePage() {
@@ -59,7 +75,7 @@ export default function HomePage() {
             </h1>
 
             <p className="max-w-3xl text-[18px] sm:text-[20px] leading-relaxed text-white/62 mb-10">
-              VICELAB connects Cooked Pilot and VibeGuard into one dark-system safety layer for real environments: privacy-conscious, evidence-informed, and built for the moments where timing matters.
+              VICELAB connects Cooked Pilot, VibeGuard, MATRIX, SIV, and Altered State Archives into one dark-system safety layer: privacy-conscious, evidence-informed, and built for moments where timing matters.
             </p>
 
             <div className="flex flex-wrap gap-3 mb-12">
@@ -81,8 +97,8 @@ export default function HomePage() {
           <div id="ecosystem" className="scroll-mt-24">
             <div className="mb-8 max-w-2xl">
               <Eyebrow color="muted">The Ecosystem</Eyebrow>
-              <h2 className="text-display-md text-white mb-4">Three canonical systems. One coherent safety layer.</h2>
-              <p className="text-white/52 leading-relaxed">The brand system defines ViceLab, Cooked Pilot, and VibeGuard as the official ecosystem. Each visual layer now stays traceable to that source of truth.</p>
+              <h2 className="text-display-md text-white mb-4">Merged brand systems. One coherent safety layer.</h2>
+              <p className="text-white/52 leading-relaxed">The uploaded MATRIX, SIV, and ASA packs are now represented as canonical site tokens, archive docs, and visible product-system surfaces.</p>
             </div>
 
             <div className="mb-6 overflow-hidden rounded-[28px] border border-vl-blue/20 bg-vl-blue/[0.05] p-8 shadow-panel">
@@ -90,7 +106,7 @@ export default function HomePage() {
                 <div className="max-w-2xl">
                   <p className="text-[12px] uppercase tracking-[0.22em] text-vl-blue mb-4">Parent Ecosystem</p>
                   <h3 className="text-4xl font-black tracking-tight text-white mb-4">VICELAB</h3>
-                  <p className="text-white/58 leading-relaxed">The precision geometry and electric-blue intelligence layer connecting nightlife guidance and crowd protection into one coherent dark-system interface.</p>
+                  <p className="text-white/58 leading-relaxed">The precision geometry and electric-blue intelligence layer connecting nightlife guidance, crowd protection, MATRIX reaction logic, SIV chemistry, and ASA archival memory.</p>
                 </div>
                 <div className="rounded-3xl border border-white/10 bg-black/30 p-8 shadow-glow-sig">
                   <Image src="/logos/vicelab.svg" alt="ViceLab logo" width={240} height={240} className="h-24 w-auto" />
@@ -98,9 +114,9 @@ export default function HomePage() {
               </div>
             </div>
 
-            <div className="grid gap-4 lg:grid-cols-2">
+            <div className="grid gap-4 lg:grid-cols-3">
               {products.map((product) => (
-                <Link key={product.name} href={product.href} className={`group relative min-h-[285px] overflow-hidden rounded-[24px] border p-6 shadow-panel transition-all duration-300 hover:-translate-y-1 ${product.panel}`}>
+                <Link key={product.name} href={product.href} className={`group relative min-h-[305px] overflow-hidden rounded-[24px] border p-6 shadow-panel transition-all duration-300 hover:-translate-y-1 ${product.panel}`}>
                   <div className={`absolute -right-10 -top-10 h-40 w-40 rounded-full blur-[70px] ${product.glow}`} />
                   <div className={`absolute inset-x-5 top-0 h-px ${product.line} opacity-80`} />
                   <div className="relative flex h-full flex-col">
