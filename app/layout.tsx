@@ -24,7 +24,7 @@ export const metadata: Metadata = {
     template: "%s | ViceLab",
   },
   description:
-    "ViceLab builds safety technology for nightlife and festival culture. Non-judgmental, privacy-conscious, evidence-informed.",
+    "ViceLab connects Cooked Pilot and VibeGuard into a privacy-conscious safety intelligence ecosystem for nightlife, festivals, and real-world field environments.",
   metadataBase: new URL("https://thevicelab.com"),
   openGraph: {
     type: "website",
@@ -33,7 +33,7 @@ export const metadata: Metadata = {
     siteName: "ViceLab",
     title: "ViceLab — Safety Tech for the Night",
     description:
-      "Festival safety intelligence. Harm reduction tools for the people who show up. Non-preachy. Privacy-conscious. Built for real environments.",
+      "A dark-system safety intelligence ecosystem connecting Cooked Pilot nightlife guidance with VibeGuard event protection infrastructure.",
     images: [
       {
         url: "/og-image.png",
@@ -47,7 +47,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "ViceLab — Safety Tech for the Night",
     description:
-      "Festival safety intelligence. Harm reduction tools for the people who show up.",
+      "Safety intelligence for nightlife, festivals, and real-world field environments.",
   },
   robots: {
     index: true,
