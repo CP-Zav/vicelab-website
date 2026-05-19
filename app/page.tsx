@@ -17,7 +17,7 @@ const products = [
     logoClass: "h-16",
     panel: "border-cp-pink/40 bg-cp-pink/[0.06] hover:border-cp-pink/80 hover:shadow-glow-cp",
     glow: "bg-cp-pink/25",
-    line: "bg-cp-pink",
+    line: "bg-gradient-cp",
   },
   {
     name: "VibeGuard",
@@ -33,55 +33,7 @@ const products = [
     logoClass: "h-16",
     panel: "border-vg-teal/40 bg-vg-teal/[0.05] hover:border-vg-teal/80 hover:shadow-glow-vg",
     glow: "bg-vg-teal/25",
-    line: "bg-vg-teal",
-  },
-  {
-    name: "MATRIX",
-    href: "/matrix",
-    status: "In Development",
-    badgeVariant: "mx" as const,
-    role: "Interaction intelligence",
-    tagline: "Interactions create outcomes.",
-    description: "Maps relationships between substances, medicines, environments, and human variables before situations escalate.",
-    logo: "/logos/matrix.svg",
-    logoWidth: 120,
-    logoHeight: 120,
-    logoClass: "h-16",
-    panel: "border-[#7A2BFF]/36 bg-[#1E58FF]/[0.045] hover:border-[#7A2BFF]/72 hover:shadow-glow-mx",
-    glow: "bg-[#7A2BFF]/22",
-    line: "bg-gradient-mx",
-  },
-  {
-    name: "ASA",
-    href: "/asa",
-    status: "In Development",
-    badgeVariant: "asa" as const,
-    role: "Altered-state awareness",
-    tagline: "The layer that watches consciousness itself.",
-    description: "A living archive of altered-state awareness, perception patterns, emotional intelligence, and field observations.",
-    logo: "/logos/asa.svg",
-    logoWidth: 120,
-    logoHeight: 120,
-    logoClass: "h-16",
-    panel: "border-[#9b5de5]/28 bg-[#1a0533]/[0.35] hover:border-[#9b5de5]/60 hover:shadow-[0_0_32px_rgba(155,93,229,0.20)]",
-    glow: "bg-[#9b5de5]/18",
-    line: "bg-gradient-to-r from-[#9b5de5] via-[#c084fc] to-[#06b6d4]",
-  },
-  {
-    name: "SIV",
-    href: "/siv",
-    status: "Coming Soon",
-    badgeVariant: "siv" as const,
-    role: "Substance Intelligence Vault",
-    tagline: "Radical transparency saves lives.",
-    description: "A classified archive system for substance identity, appearance, field intelligence, behavioural patterns, and evidence trails.",
-    logo: "/logos/siv.svg",
-    logoWidth: 120,
-    logoHeight: 120,
-    logoClass: "h-16",
-    panel: "border-[#E6C27A]/32 bg-[#0F2A28]/[0.12] hover:border-[#16F0C6]/62 hover:shadow-glow-siv",
-    glow: "bg-[#16F0C6]/18",
-    line: "bg-gradient-siv",
+    line: "bg-gradient-vg",
   },
 ];
 
@@ -91,12 +43,14 @@ export default function HomePage() {
       <section className="relative pt-28 pb-20 sm:pt-36 sm:pb-24 lg:pt-48 lg:pb-32">
         <div className="absolute inset-0 bg-hero-radial-blue pointer-events-none" />
         <div className="absolute left-1/2 top-12 h-[32rem] w-[32rem] -translate-x-1/2 rounded-full bg-vl-blue/10 blur-[120px] pointer-events-none" />
+        <div className="absolute right-[12%] top-44 h-56 w-56 rounded-full bg-cp-pink/10 blur-[100px] pointer-events-none" />
+        <div className="absolute left-[8%] bottom-10 h-60 w-60 rounded-full bg-vg-teal/10 blur-[110px] pointer-events-none" />
 
         <Container>
           <div className="max-w-5xl">
             <div className="mb-8 inline-flex items-center gap-2 rounded-full border border-vl-blue/30 bg-vl-blue/[0.10] px-4 py-2 text-[11px] font-black uppercase tracking-[0.22em] text-vl-blue shadow-glow-sig">
               <span className="h-1.5 w-1.5 rounded-full bg-vl-blue" />
-              VICELAB // FIELD INTELLIGENCE ECOSYSTEM
+              VICELAB // CANONICAL FIELD INTELLIGENCE ECOSYSTEM
             </div>
 
             <h1 className="text-display-xl text-balance mb-8 leading-none">
@@ -105,7 +59,7 @@ export default function HomePage() {
             </h1>
 
             <p className="max-w-3xl text-[18px] sm:text-[20px] leading-relaxed text-white/62 mb-10">
-              VICELAB is an ecosystem of operational tools designed for environments where information, timing, and awareness can change outcomes.
+              VICELAB connects Cooked Pilot and VibeGuard into one dark-system safety layer for real environments: privacy-conscious, evidence-informed, and built for the moments where timing matters.
             </p>
 
             <div className="flex flex-wrap gap-3 mb-12">
@@ -127,8 +81,8 @@ export default function HomePage() {
           <div id="ecosystem" className="scroll-mt-24">
             <div className="mb-8 max-w-2xl">
               <Eyebrow color="muted">The Ecosystem</Eyebrow>
-              <h2 className="text-display-md text-white mb-4">Connected systems designed to work together.</h2>
-              <p className="text-white/52 leading-relaxed">Each layer focuses on a different part of nightlife safety, altered-state awareness, interaction intelligence, and operational support.</p>
+              <h2 className="text-display-md text-white mb-4">Three canonical systems. One coherent safety layer.</h2>
+              <p className="text-white/52 leading-relaxed">The brand system defines ViceLab, Cooked Pilot, and VibeGuard as the official ecosystem. Each visual layer now stays traceable to that source of truth.</p>
             </div>
 
             <div className="mb-6 overflow-hidden rounded-[28px] border border-vl-blue/20 bg-vl-blue/[0.05] p-8 shadow-panel">
@@ -136,15 +90,15 @@ export default function HomePage() {
                 <div className="max-w-2xl">
                   <p className="text-[12px] uppercase tracking-[0.22em] text-vl-blue mb-4">Parent Ecosystem</p>
                   <h3 className="text-4xl font-black tracking-tight text-white mb-4">VICELAB</h3>
-                  <p className="text-white/58 leading-relaxed">The intelligence layer connecting nightlife guidance, interaction systems, altered-state awareness, and support infrastructure into one coherent ecosystem.</p>
+                  <p className="text-white/58 leading-relaxed">The precision geometry and electric-blue intelligence layer connecting nightlife guidance and crowd protection into one coherent dark-system interface.</p>
                 </div>
-                <div className="rounded-3xl border border-white/10 bg-black/30 p-8">
+                <div className="rounded-3xl border border-white/10 bg-black/30 p-8 shadow-glow-sig">
                   <Image src="/logos/vicelab.svg" alt="ViceLab logo" width={240} height={240} className="h-24 w-auto" />
                 </div>
               </div>
             </div>
 
-            <div className="grid gap-4 lg:grid-cols-2 xl:grid-cols-3">
+            <div className="grid gap-4 lg:grid-cols-2">
               {products.map((product) => (
                 <Link key={product.name} href={product.href} className={`group relative min-h-[285px] overflow-hidden rounded-[24px] border p-6 shadow-panel transition-all duration-300 hover:-translate-y-1 ${product.panel}`}>
                   <div className={`absolute -right-10 -top-10 h-40 w-40 rounded-full blur-[70px] ${product.glow}`} />
