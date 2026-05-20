@@ -14,7 +14,7 @@ const products = [
     logo: "/logos/cookedpilot.svg",
     logoWidth: 361,
     logoHeight: 273,
-    logoClass: "h-16",
+    logoClass: "h-16 max-h-16",
     panel: "border-cp-pink/40 bg-cp-pink/[0.06] hover:border-cp-pink/80 hover:shadow-glow-cp",
     glow: "bg-cp-pink/25",
     line: "bg-gradient-cp",
@@ -30,7 +30,7 @@ const products = [
     logo: "/logos/vibeguard.svg",
     logoWidth: 516,
     logoHeight: 229,
-    logoClass: "h-16",
+    logoClass: "h-16 max-h-16",
     panel: "border-vg-teal/40 bg-vg-teal/[0.05] hover:border-vg-teal/80 hover:shadow-glow-vg",
     glow: "bg-vg-teal/25",
     line: "bg-gradient-vg",
@@ -46,7 +46,7 @@ const products = [
     logo: "/logos/asa-mark.svg",
     logoWidth: 512,
     logoHeight: 512,
-    logoClass: "h-16",
+    logoClass: "h-16 max-h-16",
     panel: "border-asa-violet/40 bg-asa-violet/[0.06] hover:border-asa-pink/70 hover:shadow-glow-asa",
     glow: "bg-asa-pink/20",
     line: "bg-gradient-asa",
@@ -122,10 +122,10 @@ export default function HomePage() {
                   <div className="relative flex h-full flex-col">
                     <div className="mb-8 flex items-start justify-between gap-4">
                       <div className="min-w-0 flex-1">
-                        <div className="mb-4 flex h-24 items-center rounded-2xl border border-white/10 bg-black/30 px-5 py-5 shadow-panel">
-                          <Image src={product.logo} alt={`${product.name} logo`} width={product.logoWidth} height={product.logoHeight} className={`${product.logoClass} w-auto max-w-full brightness-110 contrast-105`} style={{ width: "auto" }} />
+                        <div className="mb-4 flex h-24 items-center justify-center rounded-2xl border border-white/10 bg-black/30 px-5 py-5 shadow-panel">
+                          <Image src={product.logo} alt={`${product.name} logo`} width={product.logoWidth} height={product.logoHeight} className={`${product.logoClass} w-auto max-w-full object-contain brightness-110 contrast-105`} sizes="(min-width: 1024px) 28vw, 100vw" />
                         </div>
-                        <p className="text-[11px] font-black uppercase tracking-[0.18em] text-white/42">{product.role}</p>
+                        <p className="text-center text-[11px] font-black uppercase tracking-[0.18em] text-white/42">{product.role}</p>
                       </div>
                       <Badge variant={product.badgeVariant}>{product.status}</Badge>
                     </div>
