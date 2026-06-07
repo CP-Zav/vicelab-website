@@ -1,7 +1,6 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
@@ -9,6 +8,9 @@ const links = [
   { href: "/vicelab", label: "VICELAB" },
   { href: "/cooked-pilot", label: "Cooked Pilot" },
   { href: "/vibeguard", label: "VibeGuard" },
+  { href: "/matrix", label: "MATRIX" },
+  { href: "/siv", label: "SIV" },
+  { href: "/altered-state-archives", label: "ASA" },
   { href: "/help", label: "Get Help" },
 ];
 
@@ -28,8 +30,8 @@ export default function Nav() {
   return (
     <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? "bg-[#06070B]/92 backdrop-blur-xl border-b border-white/[0.06]" : "bg-transparent"}`}>
       <div className="max-w-site mx-auto px-5 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-4">
-        <Link href="/" className="shrink-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-vl-blue/60 rounded-sm" aria-label="ViceLab home">
-          <Image src="/logos/vicelab.svg" alt="ViceLab logo" width={232} height={282} className="h-9 w-auto block" style={{ width: "auto" }} priority />
+        <Link href="/" className="shrink-0 rounded-sm text-[15px] font-black tracking-[0.22em] text-gradient-sig" aria-label="ViceLab home">
+          VICELAB
         </Link>
 
         <div className="hidden md:flex items-center gap-1 flex-1 justify-center">
@@ -39,7 +41,7 @@ export default function Nav() {
               <Link
                 key={link.href}
                 href={link.href}
-                className={`relative px-3.5 py-2 text-[12px] tracking-[0.08em] uppercase rounded-md transition-all duration-200 ${active ? "text-white bg-white/[0.07]" : "text-white/45 hover:text-white/90 hover:bg-white/[0.04]"}`}
+                className={`relative px-3 py-2 text-[11px] tracking-[0.08em] uppercase rounded-md transition-all duration-200 ${active ? "text-white bg-white/[0.07]" : "text-white/45 hover:text-white/90 hover:bg-white/[0.04]"}`}
               >
                 {link.label}
                 {active && <span className="absolute bottom-1 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full bg-vl-blue" />}
