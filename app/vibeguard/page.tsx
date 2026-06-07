@@ -1,15 +1,14 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import { Container, Section, Eyebrow, Badge, FeatureCard, ButtonPrimary, ButtonGhost } from "@/components/ui";
 
 export const metadata: Metadata = {
-  title: "VibeGuard — Real-Time Harm Reduction | ViceLab",
+  title: "VibeGuard — Event Compliance & Crowd Safety | ViceLab",
   description:
-    "Physiological monitoring for festivals, raves, and nightlife. Track heart rate, temperature, and hydration signals in real time — data without judgment.",
+    "Event compliance and crowd-safety infrastructure for nightlife, festivals, venues, and live environments.",
   openGraph: {
-    title: "VibeGuard — Real-Time Harm Reduction | ViceLab",
+    title: "VibeGuard — Event Compliance & Crowd Safety | ViceLab",
     description:
-      "Physiological monitoring for festivals, raves, and nightlife. Track heart rate, temperature, and hydration signals in real time — data without judgment.",
+      "Operational infrastructure for incident visibility, welfare workflows, escalation pathways, crowd/site awareness, and post-event reporting.",
     url: "https://thevicelab.com/vibeguard",
     siteName: "ViceLab",
     images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "ViceLab" }],
@@ -17,46 +16,44 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "VibeGuard — Real-Time Harm Reduction | ViceLab",
+    title: "VibeGuard — Event Compliance & Crowd Safety | ViceLab",
     description:
-      "Physiological monitoring for festivals, raves, and nightlife. Track heart rate, temperature, and hydration signals in real time — data without judgment.",
+      "Operational infrastructure for incident visibility, welfare workflows, escalation pathways, crowd/site awareness, and post-event reporting.",
     images: ["/og-image.png"],
   },
 };
 
 const features = [
   {
-    title: "Heart rate monitoring",
-    body: "Continuous heart rate tracking across the night. See patterns, not just snapshots — so you know when something is building, not just when it peaks.",
+    title: "Compliance oversight",
+    body: "Keep key event safety obligations visible before, during, and after operations.",
   },
   {
-    title: "Temperature awareness",
-    body: "Body heat signals tracked in context. Festival conditions run hot — VibeGuard accounts for environment so the data actually means something.",
+    title: "Incident logging",
+    body: "Capture welfare, security, medical, patron, and environmental incidents in one structured flow.",
   },
   {
-    title: "Hydration intelligence",
-    body: "Flags dehydration risk before it becomes critical. Tracks patterns over time, not just point readings — the window to act stays open longer.",
+    title: "Escalation pathways",
+    body: "Route issues to the right person or team before small problems become operational failures.",
   },
   {
-    title: "Smart threshold alerts",
-    body: "Configurable risk thresholds fire when physiological signals move into danger territory. No noise. No false alarms. Just the moments that matter.",
+    title: "Crowd and site awareness",
+    body: "Support density checks, zone monitoring, welfare visibility, and risk-pattern recognition.",
   },
   {
-    title: "Cooked Pilot integration",
-    body: "Pairs directly with Cooked Pilot. Physiological data meets harm reduction intelligence — full-stack safety for the people in the crowd.",
+    title: "Post-event reporting",
+    body: "Turn event activity into clean records for review, compliance, and continuous improvement.",
   },
   {
-    title: "Privacy-first by design",
-    body: "No account required for core monitoring. Anonymous by default. Your body data belongs to you — not a platform, not an operator.",
+    title: "Audit-ready records",
+    body: "Maintain a clear operational trail for internal governance, venue requirements, and event safety review.",
   },
 ];
 
 export default function VibeGuardPage() {
   return (
     <div className="min-h-screen">
-      {/* ── Hero ─────────────────────────────────────────────────────────── */}
       <section className="relative overflow-hidden pt-32 pb-18 lg:pt-44 lg:pb-24">
-        {/* VibeGuard = cyan → neon green — never orange */}
         <div className="absolute inset-0 bg-hero-radial-teal pointer-events-none" />
         <div
           className="absolute inset-0 bg-grid-faint bg-grid opacity-[0.35] pointer-events-none"
@@ -64,28 +61,22 @@ export default function VibeGuardPage() {
         />
         <Container>
           <div className="max-w-2xl">
-            <Eyebrow color="teal">Real-Time Harm Reduction</Eyebrow>
+            <Eyebrow color="teal">Crowd Safety Infrastructure</Eyebrow>
             <div className="mb-5">
               <Badge variant="teal">Coming Soon</Badge>
             </div>
-            <div className="mb-6">
-              <Image
-                src="/logos/vibeguard.svg"
-                alt="VibeGuard"
-                height={229}
-                width={516}
-                className="h-16 w-auto brightness-110 contrast-105"
-                style={{ width: "auto" }}
-                priority
-              />
+            <div className="mb-6 inline-flex rounded-2xl border border-vg-teal/20 bg-vg-teal/[0.06] px-5 py-3 text-sm font-black uppercase tracking-[0.22em] text-vg-teal shadow-glow-vg">
+              VIBEGUARD
             </div>
             <h1 className="text-display-lg text-balance mb-5">VibeGuard</h1>
             <p className="text-[17px] text-white/45 leading-relaxed mb-9 max-w-lg">
-              Real-time physiological monitoring for festivals, raves, and nightlife.
-              Heart rate, temperature, hydration — tracked continuously and flagged before
-              they become emergencies. Built for recreational environments, not clinical ones.
+              Event compliance and crowd-safety infrastructure for nightlife, festivals,
+              venues, and live environments. Built for incident visibility, welfare workflows,
+              escalation pathways, crowd/site awareness, and post-event reporting.
             </p>
-            {/* VG button: cyan → neon green gradient */}
+            <div className="rounded-2xl border border-vg-teal/20 bg-vg-teal/[0.05] px-5 py-4 text-sm leading-relaxed text-white/56 mb-9">
+              Operational accountability — not biometric tracking.
+            </div>
             <div className="flex flex-wrap gap-3">
               <ButtonPrimary href="mailto:hello@thevicelab.com" gradient="bg-gradient-vg">
                 Get early access
@@ -96,7 +87,6 @@ export default function VibeGuardPage() {
         </Container>
       </section>
 
-      {/* ── Features ─────────────────────────────────────────────────────── */}
       <Section border>
         <Container>
           <h2 className="text-[11px] font-semibold tracking-[0.2em] uppercase text-white/25 mb-8">
@@ -110,7 +100,6 @@ export default function VibeGuardPage() {
         </Container>
       </Section>
 
-      {/* ── CTA ──────────────────────────────────────────────────────────── */}
       <Section border>
         <Container>
           <div className="relative rounded-card border border-white/[0.07] bg-white/[0.025] overflow-hidden p-8 sm:p-12 md:p-14 text-center shadow-panel">
@@ -124,11 +113,11 @@ export default function VibeGuardPage() {
             <div className="relative">
               <Eyebrow color="teal">In Development</Eyebrow>
               <h2 className="text-display-md text-balance mb-4">
-                Data without judgment.
+                Safety operations without noise.
               </h2>
               <p className="text-white/38 text-base leading-relaxed max-w-md mx-auto mb-8">
                 VibeGuard is in active development. If you work in harm reduction, events,
-                or festival safety — we want to hear from you.
+                compliance, venue operations, or festival safety — we want to hear from you.
               </p>
               <div className="flex flex-wrap justify-center gap-3">
                 <ButtonPrimary href="mailto:hello@thevicelab.com" gradient="bg-gradient-vg">
