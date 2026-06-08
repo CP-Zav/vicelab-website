@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import { Container, Section, SectionHeader, Badge, FeatureCard, ButtonPrimary, ButtonGhost } from "@/components/ui";
+import { Container, Section, SectionHeader, FeatureCard, ButtonPrimary, ButtonGhost } from "@/components/ui";
 
 export const metadata: Metadata = {
   title: "Cooked Pilot — Real-time Harm Reduction",
@@ -19,43 +19,47 @@ const features = [
 export default function CookedPilotPage() {
   return (
     <div className="min-h-screen">
-      {/* ── Hero ─────────────────────────────────────────────────────────── */}
-      <section className="relative overflow-hidden pt-32 pb-18 lg:pt-44 lg:pb-24">
-        {/* Cooked Pilot = neon magenta — never purple */}
+      <section className="relative overflow-hidden pt-28 pb-18 lg:pt-36 lg:pb-24">
         <div className="absolute inset-0 bg-hero-radial-pink pointer-events-none" />
         <div
           className="absolute inset-0 bg-grid-faint bg-grid opacity-[0.35] pointer-events-none"
           style={{ maskImage: "radial-gradient(ellipse 70% 50% at 50% 0%, black 0%, transparent 80%)" }}
         />
         <Container>
-          <div className="max-w-2xl">
-            <div className="mb-5"><Badge variant="live">Live</Badge></div>
-            <div className="mb-6">
+          <div className="grid gap-10 lg:grid-cols-[0.88fr_1.12fr] lg:items-center">
+            <div className="max-w-2xl">
               <Image
-                src="/logos/cookedpilot.svg"
+                src="/brand/cookedpilot-polished.png"
                 alt="Cooked Pilot logo"
-                height={273}
-                width={361}
-                className="h-16 w-auto brightness-110 contrast-105"
-                style={{ width: "auto" }}
+                height={520}
+                width={820}
+                className="mb-8 h-auto w-[min(520px,90vw)] brightness-110 contrast-105"
                 priority
               />
+              <h1 className="sr-only">Cooked Pilot</h1>
+              <p className="text-[17px] text-white/50 leading-relaxed mb-9 max-w-xl">
+                Real-time harm reduction for festivals and nightlife. Live alerts on bad batches,
+                testing resources, and friend check-in — no judgment, no friction.
+              </p>
+              <div className="flex flex-wrap gap-3">
+                <ButtonPrimary href="#" gradient="bg-gradient-cp" className="text-white">Download on iOS</ButtonPrimary>
+                <ButtonGhost href="#">Get on Android</ButtonGhost>
+              </div>
             </div>
-            <h1 className="text-display-lg text-balance mb-5">Cooked Pilot</h1>
-            <p className="text-[17px] text-white/45 leading-relaxed mb-9">
-              Real-time harm reduction for festivals and nightlife. Live alerts on bad batches,
-              testing resources, and friend check-in — no judgment, no friction.
-            </p>
-            <div className="flex flex-wrap gap-3">
-              {/* CP buttons use neon magenta gradient */}
-              <ButtonPrimary href="#" gradient="bg-gradient-cp" className="text-white">Download on iOS</ButtonPrimary>
-              <ButtonGhost href="#">Get on Android</ButtonGhost>
+            <div className="rounded-[34px] border border-cp-pink/18 bg-black/28 p-4 shadow-glow-cp">
+              <Image
+                src="/brand/cookedpilot-polished.png"
+                alt="Cooked Pilot polished identity asset"
+                width={900}
+                height={900}
+                className="h-auto w-full rounded-[26px] object-contain"
+                priority
+              />
             </div>
           </div>
         </Container>
       </section>
 
-      {/* ── Features ─────────────────────────────────────────────────────── */}
       <Section>
         <Container>
           <SectionHeader>Features</SectionHeader>
@@ -65,7 +69,6 @@ export default function CookedPilotPage() {
         </Container>
       </Section>
 
-      {/* ── Mission ──────────────────────────────────────────────────────── */}
       <Section border>
         <Container>
           <div className="max-w-2xl mx-auto text-center">
