@@ -1,4 +1,4 @@
-const CACHE_NAME = "cp-shell-v1";
+const CACHE_NAME = "cp-shell-v2";
 
 const SHELL_ASSETS = [
   "/",

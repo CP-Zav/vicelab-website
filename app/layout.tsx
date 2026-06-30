@@ -5,6 +5,7 @@ import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import { Analytics } from "@vercel/analytics/next";
 import ServiceWorkerRegister from "@/components/ServiceWorkerRegister";
+import InstallPrompt from "@/components/InstallPrompt";
 
 const cinzel = Cinzel({
   subsets: ["latin"],
@@ -27,6 +28,14 @@ export const metadata: Metadata = {
   description:
     "ViceLab connects Cooked Pilot and VibeGuard into a privacy-conscious safety intelligence ecosystem for nightlife, festivals, and real-world field environments.",
   metadataBase: new URL("https://thevicelab.com"),
+  manifest: "/manifest.webmanifest",
+  icons: {
+    icon: [
+      { url: "/icons/icon-192.png", sizes: "192x192", type: "image/png" },
+      { url: "/icons/icon-512.png", sizes: "512x512", type: "image/png" },
+    ],
+    apple: [{ url: "/icons/apple-touch-icon.png", sizes: "180x180", type: "image/png" }],
+  },
   openGraph: {
     type: "website",
     locale: "en_AU",
@@ -69,6 +78,7 @@ export default function RootLayout({
         <Footer />
         <Analytics />
         <ServiceWorkerRegister />
+        <InstallPrompt />
       </body>
     </html>
   );
