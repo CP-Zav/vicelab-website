@@ -1,95 +1,72 @@
 import Image from "next/image";
+import Link from "next/link";
 import type { Metadata } from "next";
-import { Container, Section, Eyebrow, Badge, FeatureCard, ButtonPrimary, ButtonGhost } from "@/components/ui";
+import { Container, Section, Eyebrow, Badge, ButtonPrimary, ArrowRight } from "@/components/ui";
 
 export const metadata: Metadata = {
-  title: "ASA — Altered State Archive",
-  description:
-    "A cyber-archive layer for altered-state research, memory, pattern capture, substance intelligence, and field data.",
+  title: "ASA — Altered State Archives",
+  description: "Altered State Archives: documenting the unseen and preserving the altered, with S.I.V. and MATRIX inside the ASA environment.",
 };
 
-const features = [
-  { title: "Substance profiles", body: "Structured pharmacology, effects timelines, forms, names, patterns, and harm-reduction context." },
-  { title: "Evidence grading", body: "Every data point carries source type, confidence, and whether the signal is verified, anecdotal, or emerging." },
-  { title: "Field-calibrated data", body: "Profiles reflect real-world use patterns, dose ranges, routes, onset windows, and event-environment context." },
-  { title: "Practitioner outputs", body: "Built for peer workers, medics, safety teams, and crews who need usable context in the field." },
-  { title: "Queryable by systems", body: "ASA supports MATRIX and SIV as a structured knowledge layer across the ViceLab intelligence stack." },
-  { title: "Emerging alerts", body: "Flags can be triggered by field reports, drug-checking data, pattern shifts, and new adulterant signals." },
-];
+const modules = [
+  { name: "S.I.V.", expandedName: "Substance Intelligence Vault", href: "/siv", image: "/brand/siv-primary-logo-preview.png", imageAlt: "S.I.V. Substance Intelligence Vault logo", description: "The intelligence layer: substance identity, effects, context, evidence, uncertainty and emerging signals.", action: "Enter the vault", accent: "siv" },
+  { name: "MATRIX", expandedName: "Interaction & risk engine", href: "/matrix", image: "/brand/matrix-primary-logo-preview.png", imageAlt: "MATRIX interaction engine logo", description: "The analysis layer: substances, medications, health factors, timing and context considered together.", action: "Open MATRIX", accent: "matrix" },
+] as const;
 
 export default function AsaPage() {
   return (
-    <div className="min-h-screen overflow-hidden bg-[#06030F]">
-      <section className="relative overflow-hidden pt-28 pb-18 lg:pt-36 lg:pb-24">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_64%_18%,rgba(255,43,234,0.20),transparent_28%),radial-gradient(circle_at_36%_54%,rgba(0,232,255,0.12),transparent_30%),linear-gradient(112deg,#06030F,#090318,#06030F)] pointer-events-none" />
-        <Container>
-          <div className="grid gap-10 lg:grid-cols-[0.84fr_1.16fr] lg:items-center">
-            <div className="max-w-2xl">
-              <div className="mb-5 flex items-center gap-3">
-                <Eyebrow color="asa">Knowledge Archive</Eyebrow>
-                <Badge variant="asa">Brand Pack Merged</Badge>
+    <div className="min-h-screen overflow-hidden bg-[#06030F] text-white">
+      <section className="relative overflow-hidden pb-16 pt-28 lg:pb-24 lg:pt-36">
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_62%_18%,rgba(139,92,246,0.22),transparent_28%),radial-gradient(circle_at_36%_54%,rgba(125,249,255,0.10),transparent_30%),linear-gradient(112deg,#06030F,#090318,#06030F)]" />
+        <Container className="relative">
+          <div className="grid gap-8 lg:grid-cols-[1fr_0.82fr] lg:items-center lg:gap-12">
+            <div className="max-w-3xl">
+              <div className="mb-5 flex flex-wrap items-center gap-3">
+                <Eyebrow color="asa">ViceLab intelligence environment</Eyebrow>
+                <Badge variant="asa">Unified shell</Badge>
               </div>
-              <Image
-                src="/brand/asa-master-emblem-flaming-eye-512.png"
-                alt="ASA flaming eye emblem"
-                width={512}
-                height={512}
-                className="mb-7 h-auto w-[min(260px,70vw)] drop-shadow-[0_0_34px_rgba(255,43,234,0.34)]"
-                priority
-              />
-              <h1 className="font-cinzel text-[clamp(3.2rem,9vw,6.6rem)] font-normal leading-[0.9] tracking-[0.26em] text-gradient-asa">ASA</h1>
-              <p className="mt-5 text-[18px] font-semibold text-white/80 leading-snug">Altered State Archive.</p>
-              <p className="mt-4 text-[17px] text-white/48 leading-relaxed mb-9 max-w-xl">
-                A cyber-archive layer for altered-state research, memory, pattern capture, substance intelligence, and field data.
-              </p>
-              <div className="flex flex-wrap gap-3">
-                <ButtonPrimary href="mailto:hello@thevicelab.com" gradient="bg-gradient-asa">Register interest</ButtonPrimary>
-                <ButtonGhost href="/siv">Explore SIV</ButtonGhost>
-              </div>
+              <Image src="/brand/asa-primary-logo.png" alt="ASA — Altered State Archives" width={600} height={550} className="h-auto w-full max-w-[360px]" priority />
+              <p className="mt-5 text-[19px] font-semibold leading-snug text-white/85">Documenting the unseen. Preserving the altered.</p>
+              <p className="mb-8 mt-4 max-w-2xl text-[16px] leading-relaxed text-white/52 sm:text-[17px]">ASA is the connected archive and intelligence environment. S.I.V. and MATRIX are distinct modules inside ASA—not separate products floating outside it.</p>
+              <ButtonPrimary href="#modules" gradient="bg-gradient-asa">Choose a module</ButtonPrimary>
             </div>
-
-            <div className="relative overflow-hidden rounded-[34px] border border-asa-pink/24 bg-black/38 p-4 shadow-glow-asa">
-              <Image
-                src="/brand/asa-core-vector-eye-512.png"
-                alt="ASA eye mark"
-                width={512}
-                height={512}
-                className="mx-auto h-auto w-full max-w-[520px] rounded-[26px] object-contain"
-                priority
-              />
+            <div className="order-first -mx-5 w-[calc(100%+2.5rem)] lg:order-none lg:mx-auto lg:w-full lg:max-w-[520px]">
+              <Image src="/brand/asa-hero-eye.png" alt="A luminous purple, pink and cyan eye dripping into the dark" width={1031} height={1536} sizes="(min-width: 1024px) 42vw, 100vw" className="h-auto w-full drop-shadow-[0_0_70px_rgba(139,92,246,0.24)]" priority />
             </div>
           </div>
         </Container>
       </section>
 
-      <Section>
+      <Section border className="relative">
         <Container>
-          <Eyebrow color="asa">What it contains</Eyebrow>
-          <h2 className="text-display-sm mb-4 max-w-xl">Altered-state intelligence. Evidence-graded.</h2>
-          <p className="text-white/40 text-[15px] leading-relaxed mb-12 max-w-xl">
-            ASA is a structured archive built from pharmacological literature, field data, lived experience patterns, and harm-reduction practice.
-          </p>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            {features.map((f) => <FeatureCard key={f.title} title={f.title} body={f.body} accent="asa" />)}
+          <div className="mb-10 max-w-2xl">
+            <Eyebrow color="asa">How ASA is organised</Eyebrow>
+            <h2 className="text-display-sm mb-4">One archive. Two connected intelligence modules.</h2>
+            <p className="text-[15px] leading-relaxed text-white/44">Start with the vault when you need substance intelligence. Move into MATRIX when you need to examine what may happen when multiple inputs and personal factors meet.</p>
+          </div>
+          <div className="grid gap-3 sm:grid-cols-[1fr_auto_1fr] sm:items-stretch" aria-label="ASA module relationship">
+            <div className="rounded-2xl border border-[#7DF9FF]/16 bg-[#071414]/70 p-5"><p className="font-plex text-[11px] uppercase tracking-[0.18em] text-[#7DF9FF]">01 · Intelligence</p><p className="mt-3 text-lg font-semibold">S.I.V.</p><p className="mt-2 text-sm leading-relaxed text-white/42">Structured substance context and evidence.</p></div>
+            <div className="flex items-center justify-center py-1 text-white/22" aria-hidden="true"><span className="sm:hidden">↓</span><span className="hidden sm:inline">→</span></div>
+            <div className="rounded-2xl border border-[#D8B35A]/16 bg-[#100d07]/70 p-5"><p className="font-plex text-[11px] uppercase tracking-[0.18em] text-[#D8B35A]">02 · Analysis</p><p className="mt-3 text-lg font-semibold">MATRIX</p><p className="mt-2 text-sm leading-relaxed text-white/42">Interaction analysis informed by inputs and context.</p></div>
           </div>
         </Container>
       </Section>
 
-      <Section border>
+      <Section className="scroll-mt-20">
         <Container>
-          <div className="grid gap-8 lg:grid-cols-[0.7fr_1fr] lg:items-center">
-            <Image src="/brand/asa-locked-eye-archive-mark-512.png" alt="ASA locked eye archive mark" width={512} height={512} className="h-auto w-full max-w-[380px] rounded-[28px]" />
-            <div className="max-w-xl">
-              <h2 className="text-display-sm mb-5">The archive layer harm reduction has been missing.</h2>
-              <p className="text-white/40 text-[15px] leading-relaxed mb-8">
-                If you work in harm reduction, drug checking, festival safety, research, or peer support — ASA is designed to keep context visible without false certainty.
-              </p>
-              <div className="flex flex-wrap gap-3">
-                <ButtonPrimary href="mailto:hello@thevicelab.com" gradient="bg-gradient-asa">Get in touch</ButtonPrimary>
-                <ButtonGhost href="/matrix">Explore Matrix</ButtonGhost>
-              </div>
-            </div>
+          <div id="modules" className="scroll-mt-20"><Eyebrow color="asa">Inside ASA</Eyebrow></div>
+          <div className="grid gap-5 lg:grid-cols-2">
+            {modules.map((module) => (
+              <Link key={module.name} href={module.href} className={`group flex min-h-[330px] flex-col overflow-hidden rounded-[28px] border bg-black/35 p-5 transition duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/60 sm:p-7 ${module.accent === "siv" ? "border-[#7DF9FF]/14 hover:border-[#7DF9FF]/35 hover:shadow-glow-siv" : "border-[#D8B35A]/14 hover:border-[#D8B35A]/35 hover:shadow-glow-mx"}`}>
+                <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-white/30">ASA module</p>
+                <Image src={module.image} alt={module.imageAlt} width={620} height={260} className="my-5 h-24 w-full object-contain object-left" />
+                <h2 className="text-lg font-semibold text-white">{module.expandedName}</h2>
+                <p className="mt-3 flex-1 text-[14px] leading-relaxed text-white/45">{module.description}</p>
+                <span className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-white/72 transition group-hover:text-white">{module.action} <ArrowRight className="transition-transform group-hover:translate-x-1" /></span>
+              </Link>
+            ))}
           </div>
+          <p className="mt-8 max-w-3xl text-xs leading-relaxed text-white/28">ASA is in development. Its outputs provide harm-reduction context, not medical advice, diagnosis, or a guarantee of safety.</p>
         </Container>
       </Section>
     </div>

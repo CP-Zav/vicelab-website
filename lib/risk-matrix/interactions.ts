@@ -255,20 +255,52 @@ const CNS_DEPRESSANT_CLASSES = [
   'depressant', 'GABA-ergic', 'opioid receptor agonist', 'GHB-receptor agonist',
 ];
 
+const MECHANISMS: Array<{
+  type: Interaction['type'];
+  severity: Severity;
+  matches: (classes: string[]) => boolean;
+  minimum: number;
+  description: (names: string[]) => string;
+}> = [
+  {
+    type: 'cns_depression_stacking', severity: 'critical', minimum: 3,
+    matches: classes => hasAny(classes, CNS_DEPRESSANT_CLASSES),
+    description: names => `Multiple CNS depressants are present across the full selection (${names.join(', ')}). Sedation and breathing suppression may compound unpredictably.`,
+  },
+  {
+    type: 'stimulant_synergy', severity: 'high', minimum: 3,
+    matches: classes => hasAny(classes, ['stimulant', 'cathinone', 'amphetamine derivative']),
+    description: names => `Multiple stimulant mechanisms are present across the full selection (${names.join(', ')}), increasing cumulative cardiovascular, agitation and overheating load.`,
+  },
+  {
+    type: 'serotonergic_overload', severity: 'high', minimum: 3,
+    matches: classes => hasAny(classes, ['serotonergic', 'serotonin reuptake inhibitor', 'monoamine oxidase inhibitor']),
+    description: names => `Multiple serotonin-active inputs are present across the full selection (${names.join(', ')}). Effects may stack even where a specific combination is not documented in this dataset.`,
+  },
+  {
+    type: 'psychedelic_amplification', severity: 'high', minimum: 3,
+    matches: classes => hasAny(classes, ['psychedelic', 'mild psychedelic']),
+    description: names => `Multiple psychedelic mechanisms are present across the full selection (${names.join(', ')}), making intensity, duration and psychological effects harder to predict.`,
+  },
+  {
+    type: 'dissociative_potentiation', severity: 'high', minimum: 3,
+    matches: classes => hasAny(classes, ['dissociative', 'NMDA antagonist']),
+    description: names => `Multiple dissociative mechanisms are present across the full selection (${names.join(', ')}), increasing disorientation, impaired awareness and physical-safety risk.`,
+  },
+];
+
+function hasAny(classes: string[], needles: string[]): boolean {
+  return classes.some(value => needles.some(needle => value.toLowerCase().includes(needle.toLowerCase())));
+}
+
 /** Detect CNS-depressant stacking across 3+ substances */
 export function detectStackingInteractions(
   substances: Array<{ name: string; classes: string[] }>
 ): Interaction[] {
-  const depressants = substances.filter(s =>
-    s.classes.some(c =>
-      CNS_DEPRESSANT_CLASSES.some(dc => c.toLowerCase().includes(dc.toLowerCase()))
-    )
-  );
-  if (depressants.length < 3) return [];
-  return [{
-    combination: depressants.map(d => d.name),
-    type: 'cns_depression_stacking',
-    severity: 'critical',
-    description: `3+ CNS depressants combined (${depressants.map(d => d.name).join(', ')}). Respiratory depression risk is multiplicative, not additive. This stack is potentially fatal.`,
-  }];
+  return MECHANISMS.flatMap(mechanism => {
+    const matches = substances.filter(substance => mechanism.matches(substance.classes));
+    if (matches.length < mechanism.minimum) return [];
+    const names = matches.map(match => match.name);
+    return [{ combination: names, type: mechanism.type, severity: mechanism.severity, description: mechanism.description(names) }];
+  });
 }

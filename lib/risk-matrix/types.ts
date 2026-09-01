@@ -9,7 +9,25 @@ export type InteractionType =
   | 'psychedelic_amplification'
   | 'hyperthermia_risk'
   | 'dissociative_potentiation'
-  | 'cocaethylene_formation';
+  | 'cocaethylene_formation'
+  | 'health_context_modifier';
+
+export type HealthDomain =
+  | 'cardiovascular'
+  | 'respiratory'
+  | 'seizure'
+  | 'liver'
+  | 'kidney'
+  | 'mental_health'
+  | 'pregnancy'
+  | 'sleep_deprivation'
+  | 'dehydration_or_heat';
+
+export interface HealthProfile {
+  /** Only include factors the person has chosen to disclose. */
+  domains?: HealthDomain[];
+  notes?: string[];
+}
 
 export interface Interaction {
   combination: string[];
@@ -31,9 +49,15 @@ export interface SubstanceProfile {
 
 export interface AnalysisInput {
   substances: string[];
+  healthProfile?: HealthProfile;
 }
 
 export interface AnalysisResult {
+  assessmentScope: {
+    selectedCount: number;
+    assessedTogether: true;
+    combinationsChecked: number;
+  };
   riskLevel: Severity;
   interactions: Interaction[];
   effects: string[];
@@ -45,4 +69,5 @@ export interface AnalysisResult {
   seekHelpIf: string[];
   timeline: { substance: string; onset: string; peak: string; duration: string }[];
   notes: string[];
+  contextFindings: Interaction[];
 }

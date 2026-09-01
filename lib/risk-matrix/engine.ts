@@ -1,4 +1,4 @@
-import { AnalysisInput, AnalysisResult, Severity } from './types';
+import { AnalysisInput, AnalysisResult, HealthDomain, Interaction, Severity, SubstanceProfile } from './types';
 import { PROFILES, normalise } from './substances';
 import { getPairInteraction, detectStackingInteractions, WEIGHT } from './interactions';
 
@@ -15,13 +15,47 @@ function highestSeverity(severities: Severity[]): Severity {
   );
 }
 
+const CONTEXT_RULES: Record<HealthDomain, {
+  severity: Severity;
+  relevant: (profile: SubstanceProfile) => boolean;
+  description: string;
+}> = {
+  cardiovascular: { severity: 'high', relevant: p => hasClass(p, ['stimulant', 'noradrenergic', 'cannabinoid']), description: 'A disclosed cardiovascular condition may reduce the margin for heart-rate or blood-pressure strain from the selected inputs.' },
+  respiratory: { severity: 'high', relevant: p => hasClass(p, ['depressant', 'GABA-ergic', 'opioid receptor agonist', 'GHB-receptor agonist']), description: 'A disclosed respiratory condition may reduce breathing reserve when sedating or respiratory-depressant effects are present.' },
+  seizure: { severity: 'high', relevant: p => hasClass(p, ['stimulant', 'serotonergic', 'serotonin reuptake inhibitor', 'monoamine oxidase inhibitor']), description: 'A disclosed seizure history may make stimulant or serotonin-active effects more concerning.' },
+  liver: { severity: 'moderate', relevant: () => true, description: 'A disclosed liver condition can change how some substances or medicines are processed; this engine cannot estimate the person-specific effect.' },
+  kidney: { severity: 'moderate', relevant: () => true, description: 'A disclosed kidney condition can change clearance and fluid balance; this engine cannot estimate the person-specific effect.' },
+  mental_health: { severity: 'moderate', relevant: p => hasClass(p, ['stimulant', 'psychedelic', 'mild psychedelic', 'dissociative', 'cannabinoid']), description: 'A disclosed mental-health condition may affect vulnerability to anxiety, agitation, paranoia, confusion or psychological distress.' },
+  pregnancy: { severity: 'high', relevant: () => true, description: 'Pregnancy is a higher-uncertainty health context. This result cannot establish safety for the pregnant person or fetus; seek clinician or poisons-information advice.' },
+  sleep_deprivation: { severity: 'moderate', relevant: p => hasClass(p, ['stimulant', 'psychedelic', 'dissociative']), description: 'Sleep deprivation may compound confusion, agitation, cardiovascular load and impaired judgement across the selected inputs.' },
+  dehydration_or_heat: { severity: 'high', relevant: p => hasClass(p, ['stimulant', 'serotonergic', 'noradrenergic']), description: 'Current dehydration, heat exposure or heavy exertion may compound overheating and cardiovascular strain.' },
+};
+
+function hasClass(profile: SubstanceProfile, classes: string[]): boolean {
+  return profile.class.some(value => classes.some(candidate => value.toLowerCase().includes(candidate.toLowerCase())));
+}
+
+function buildContextFindings(domains: HealthDomain[], profiles: SubstanceProfile[]): Interaction[] {
+  return dedupe(domains).flatMap(domain => {
+    const rule = CONTEXT_RULES[domain];
+    const relevant = profiles.filter(rule.relevant).map(profile => profile.canonicalName);
+    if (relevant.length === 0) return [];
+    return [{ combination: relevant, type: 'health_context_modifier' as const, severity: rule.severity, description: rule.description }];
+  });
+}
+
 // ─── Main Analyser ──────────────────────────────────────────────────────────
 
 export function analyse(input: AnalysisInput): AnalysisResult {
-  const { substances: raw } = input;
+  const { substances: raw, healthProfile } = input;
 
-  if (!raw || raw.length === 0) throw new Error('Provide at least one substance.');
+  if (!Array.isArray(raw) || raw.length === 0) throw new Error('Provide at least one substance.');
   if (raw.length > 6) throw new Error('Maximum 6 substances supported.');
+  if (raw.some(value => typeof value !== 'string' || !value.trim())) throw new Error('Each substance must be a non-empty string.');
+  const requestedDomains = healthProfile?.domains ?? [];
+  if (!Array.isArray(requestedDomains) || requestedDomains.some(domain => !(domain in CONTEXT_RULES))) {
+    throw new Error('Health profile contains an unsupported context domain.');
+  }
 
   // Normalise
   const unknown: string[] = [];
@@ -33,26 +67,30 @@ export function analyse(input: AnalysisInput): AnalysisResult {
   }
 
   const notes: string[] = [];
+  notes.push('Prototype dataset: findings have not yet completed independent clinical or harm-reduction expert validation.');
   if (unknown.length > 0) {
     notes.push(`Unrecognised substance(s): ${unknown.join(', ')}. These could not be analysed — treat as unknown risk.`);
   }
 
   if (canonical.length === 0) {
     return {
-      riskLevel: 'low', interactions: [], effects: [],
+      assessmentScope: { selectedCount: raw.length, assessedTogether: true, combinationsChecked: 0 },
+      riskLevel: unknown.length ? 'moderate' : 'low', interactions: [], effects: [],
       guidance: { selfManagement: [], avoid: [] },
-      redFlags: buildRedFlags('low'), seekHelpIf: SEEK_HELP, timeline: [], notes,
+      redFlags: buildRedFlags(unknown.length ? 'moderate' : 'low'), seekHelpIf: SEEK_HELP, timeline: [], notes,
+      contextFindings: [],
     };
   }
 
   const profiles = canonical.map(name => PROFILES[name]).filter(Boolean);
 
-  // Matrix — pairwise
-  const pairInteractions = [];
+  // Check every two-input edge in the selected set against documented records.
+  // These component findings feed one whole-selection assessment below.
+  const componentInteractions = [];
   for (let i = 0; i < canonical.length; i++) {
     for (let j = i + 1; j < canonical.length; j++) {
       const interaction = getPairInteraction(canonical[i], canonical[j]);
-      if (interaction) pairInteractions.push(interaction);
+      if (interaction) componentInteractions.push(interaction);
     }
   }
 
@@ -61,18 +99,21 @@ export function analyse(input: AnalysisInput): AnalysisResult {
     profiles.map(p => ({ name: p.canonicalName, classes: p.class }))
   );
 
-  const allInteractions = [...pairInteractions, ...stackingInteractions];
+  const contextFindings = buildContextFindings(requestedDomains, profiles);
+
+  const allInteractions = [...componentInteractions, ...stackingInteractions];
 
   // Risk level
-  let overallSeverity = highestSeverity(allInteractions.map(i => i.severity));
-  if (canonical.length >= 3 && overallSeverity === 'high') {
-    overallSeverity = 'critical';
-    notes.push('3+ substances detected with high-severity interactions — overall risk escalated to critical.');
+  let overallSeverity = highestSeverity([...allInteractions, ...contextFindings].map(i => i.severity));
+  if (unknown.length > 0 && WEIGHT[overallSeverity] < WEIGHT.moderate) {
+    overallSeverity = 'moderate';
   }
   if (allInteractions.length === 0 && canonical.length >= 2) {
     overallSeverity = 'moderate' as Severity;
-    notes.push('No documented pairwise interactions found, but combining any substances carries unpredictable risk.');
+    notes.push('No documented interaction record matched this selection, but absence from this dataset does not establish safety.');
   }
+  if (healthProfile?.notes?.length) notes.push('Free-text health notes were retained as context but were not clinically interpreted by the rules engine.');
+  notes.push(`All ${canonical.length} recognised input${canonical.length === 1 ? '' : 's'} were assessed together; documented component interactions and whole-set mechanism stacking are reported separately.`);
 
   // ASA — Effects
   const effects = dedupe(profiles.flatMap(p => [...p.subjectiveEffects, ...p.physicalEffects]));
@@ -126,6 +167,11 @@ export function analyse(input: AnalysisInput): AnalysisResult {
   }));
 
   return {
+    assessmentScope: {
+      selectedCount: canonical.length,
+      assessedTogether: true,
+      combinationsChecked: canonical.length * (canonical.length - 1) / 2,
+    },
     riskLevel: overallSeverity,
     interactions: allInteractions,
     effects,
@@ -134,6 +180,7 @@ export function analyse(input: AnalysisInput): AnalysisResult {
     seekHelpIf: SEEK_HELP,
     timeline,
     notes,
+    contextFindings,
   };
 }
 

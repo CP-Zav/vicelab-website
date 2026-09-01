@@ -19,12 +19,16 @@ async function callClaudeOperator(
     .join('\n');
 
   const guidanceSummary = analysis.guidance.selfManagement.slice(0, 3).join('; ');
+  const contextSummary = analysis.contextFindings
+    .map(finding => `[${finding.severity}]: ${finding.description}`)
+    .join('\n');
 
   const userMessage = [
     `Substances: ${substances.join(', ')}`,
     `Risk level: ${analysis.riskLevel}`,
     `Interactions detected: ${analysis.interactions.length}`,
     interactionSummary ? `\n${interactionSummary}` : '',
+    contextSummary ? `\nHealth/context modifiers:\n${contextSummary}` : '',
     `\nKey guidance: ${guidanceSummary}`,
   ]
     .filter(Boolean)

@@ -22,6 +22,7 @@ const config: Config = {
         "mx-ember": "#FF5A1F",   // Matrix — ritual ember
         "siv-slate": "#8B5CF6",  // SIV — galaxy violet
         "siv-ice":   "#7DF9FF",  // SIV — chem cyan
+        "asa-violet": "#7C3AED", // ASA — parent architecture
         // Legacy — only kept until all pages corrected
         "cp-cyan":   "#22d3ee",
         "vg-violet": "#a78bfa",
@@ -56,6 +57,7 @@ const config: Config = {
         "gradient-sig":     "linear-gradient(135deg, #2F6BFF 0%, #00D5FF 100%)",          // Signal / ViceLab: electric blue → cyan
         "gradient-mx":      "linear-gradient(135deg, #D8B35A 0%, #FF5A1F 100%)",          // Matrix: gold → ember
         "gradient-siv":     "linear-gradient(135deg, #8B5CF6 0%, #7DF9FF 58%, #00FFA3 100%)", // SIV: galaxy → chem cyan → bio signal
+        "gradient-asa":     "linear-gradient(135deg, #7C3AED 0%, #A78BFA 100%)",       // ASA: architecture violet
         // Hero radials — v2: tighter, more saturated
         "hero-radial-blue": "radial-gradient(ellipse 80% 60% at 50% -10%, rgba(47,107,255,0.22) 0%, transparent 60%)",
         "hero-radial-pink": "radial-gradient(ellipse 80% 60% at 50% -10%, rgba(255,0,168,0.22) 0%, transparent 60%)",

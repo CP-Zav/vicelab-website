@@ -9,9 +9,7 @@ const links = [
   { href: "/quiz", label: "Quiz" },
   { href: "/cooked-pilot", label: "Cooked Pilot" },
   { href: "/vibeguard", label: "VibeGuard" },
-  { href: "/matrix", label: "MATRIX" },
-  { href: "/siv", label: "SIV" },
-  { href: "/altered-state-archives", label: "ASA" },
+  { href: "/asa", label: "ASA · SIV · MATRIX" },
   { href: "/help", label: "Get Help" },
 ];
 
@@ -37,7 +35,9 @@ export default function Nav() {
 
         <div className="hidden md:flex items-center gap-1 flex-1 justify-center">
           {links.map((link) => {
-            const active = pathname === link.href;
+            const active = link.href === "/asa"
+              ? pathname === "/asa" || pathname === "/siv" || pathname === "/matrix"
+              : pathname === link.href;
             return (
               <Link
                 key={link.href}
@@ -69,7 +69,9 @@ export default function Nav() {
       {menuOpen && (
         <div className="md:hidden bg-[#06070B]/98 backdrop-blur-xl border-t border-white/[0.07] px-5 pb-6 pt-2 flex flex-col gap-0.5">
           {links.map((link) => {
-            const active = pathname === link.href;
+            const active = link.href === "/asa"
+              ? pathname === "/asa" || pathname === "/siv" || pathname === "/matrix"
+              : pathname === link.href;
             return (
               <Link
                 key={link.href}

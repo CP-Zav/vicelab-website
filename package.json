@@ -6,7 +6,10 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "typecheck": "tsc --noEmit",
+    "verify:asa": "node scripts/verify-asa.mjs",
+    "verify:asa:all": "npm run verify:asa && npm run build"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "0.89.0",

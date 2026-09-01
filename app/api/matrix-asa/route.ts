@@ -42,7 +42,7 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    const result = await orchestrate(body.substances);
+    const result = await orchestrate(body.substances, body.healthProfile);
 
     // Fire-and-forget — response is returned before this resolves
     logRequest({
@@ -81,7 +81,7 @@ export async function POST(req: NextRequest) {
 
 export async function GET() {
   return NextResponse.json(
-    { error: 'POST only. Body: { "substances": ["A", "B", ...] }' },
+    { error: 'POST only. Body: { "substances": ["A", "B", ...], "healthProfile"?: { "domains": [...] } }' },
     { status: 405 }
   );
 }
