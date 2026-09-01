@@ -19,7 +19,7 @@ export default function AsaPage() {
       <section className="relative overflow-hidden pb-16 pt-28 lg:pb-24 lg:pt-36">
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_62%_18%,rgba(139,92,246,0.22),transparent_28%),radial-gradient(circle_at_36%_54%,rgba(125,249,255,0.10),transparent_30%),linear-gradient(112deg,#06030F,#090318,#06030F)]" />
         <Container className="relative">
-          <div className="grid gap-10 lg:grid-cols-[1fr_0.72fr] lg:items-center">
+          <div className="grid gap-8 lg:grid-cols-[1fr_0.82fr] lg:items-center lg:gap-12">
             <div className="max-w-3xl">
               <div className="mb-5 flex flex-wrap items-center gap-3">
                 <Eyebrow color="asa">ViceLab intelligence environment</Eyebrow>
@@ -30,8 +30,8 @@ export default function AsaPage() {
               <p className="mb-8 mt-4 max-w-2xl text-[16px] leading-relaxed text-white/52 sm:text-[17px]">ASA is the connected archive and intelligence environment. S.I.V. and MATRIX are distinct modules inside ASA—not separate products floating outside it.</p>
               <ButtonPrimary href="#modules" gradient="bg-gradient-asa">Choose a module</ButtonPrimary>
             </div>
-            <div className="mx-auto w-full max-w-[420px] overflow-hidden rounded-[28px] border border-[#8A5CFF]/20 bg-black/30 shadow-[0_0_70px_rgba(139,92,246,0.18)]">
-              <Image src="/brand/asa-hero-eye.png" alt="A luminous purple, pink and cyan eye dripping into the dark" width={1031} height={1536} sizes="(min-width: 1024px) 36vw, 88vw" className="h-auto w-full" priority />
+            <div className="order-first -mx-5 w-[calc(100%+2.5rem)] lg:order-none lg:mx-auto lg:w-full lg:max-w-[520px]">
+              <Image src="/brand/asa-hero-eye.png" alt="A luminous purple, pink and cyan eye dripping into the dark" width={1031} height={1536} sizes="(min-width: 1024px) 42vw, 100vw" className="h-auto w-full drop-shadow-[0_0_70px_rgba(139,92,246,0.24)]" priority />
             </div>
           </div>
         </Container>
