@@ -30,8 +30,8 @@ export default function AsaPage() {
               <p className="mb-8 mt-4 max-w-2xl text-[16px] leading-relaxed text-white/52 sm:text-[17px]">ASA is the connected archive and intelligence environment. S.I.V. and MATRIX are distinct modules inside ASA—not separate products floating outside it.</p>
               <ButtonPrimary href="#modules" gradient="bg-gradient-asa">Choose a module</ButtonPrimary>
             </div>
-            <div className="hidden lg:block" aria-hidden="true">
-              <Image src="/brand/asa-primary-logo.png" alt="" width={600} height={550} className="mx-auto h-auto w-full max-w-[330px] opacity-20 blur-[0.2px] drop-shadow-[0_0_38px_rgba(139,92,246,0.28)]" />
+            <div className="mx-auto w-full max-w-[420px] overflow-hidden rounded-[28px] border border-[#8A5CFF]/20 bg-black/30 shadow-[0_0_70px_rgba(139,92,246,0.18)]">
+              <Image src="/brand/asa-hero-eye.png" alt="A luminous purple, pink and cyan eye dripping into the dark" width={1031} height={1536} sizes="(min-width: 1024px) 36vw, 88vw" className="h-auto w-full" priority />
             </div>
           </div>
         </Container>
