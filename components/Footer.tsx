@@ -5,7 +5,7 @@ const ecosystemLinks = [
   { href: "/vicelab", label: "VICELAB" },
   { href: "/cooked-pilot", label: "Cooked Pilot" },
   { href: "/vibeguard", label: "VibeGuard" },
-  { href: "/asa", label: "ASA — Altered State Architecture" },
+  { href: "/asa", label: "ASA — Altered State Archives" },
   { href: "/siv", label: "↳ S.I.V. — Substance Intelligence Vault" },
   { href: "/matrix", label: "↳ MATRIX — Interaction Engine" },
   { href: "/help", label: "Where To Get Help" },

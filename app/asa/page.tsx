@@ -4,8 +4,8 @@ import type { Metadata } from "next";
 import { Container, Section, Eyebrow, Badge, ButtonPrimary, ArrowRight } from "@/components/ui";
 
 export const metadata: Metadata = {
-  title: "ASA — Altered State Architecture",
-  description: "The connected ViceLab intelligence environment containing the S.I.V. substance vault and MATRIX interaction engine.",
+  title: "ASA — Altered State Archives",
+  description: "Altered State Archives: documenting the unseen and preserving the altered, with S.I.V. and MATRIX inside the ASA environment.",
 };
 
 const modules = [
@@ -25,12 +25,14 @@ export default function AsaPage() {
                 <Eyebrow color="asa">ViceLab intelligence environment</Eyebrow>
                 <Badge variant="asa">Unified shell</Badge>
               </div>
-              <h1 className="font-cinzel text-[clamp(3rem,9vw,6.6rem)] font-normal leading-[0.9] tracking-[0.16em] text-gradient-asa sm:tracking-[0.24em]">ASA</h1>
-              <p className="mt-5 text-[19px] font-semibold leading-snug text-white/85">Altered State Architecture</p>
-              <p className="mb-8 mt-4 max-w-2xl text-[16px] leading-relaxed text-white/52 sm:text-[17px]">One connected environment for substance intelligence and interaction analysis. S.I.V. and MATRIX are distinct modules inside ASA—not separate products floating outside it.</p>
+              <Image src="/brand/asa-primary-logo.png" alt="ASA — Altered State Archives" width={600} height={550} className="h-auto w-full max-w-[360px]" priority />
+              <p className="mt-5 text-[19px] font-semibold leading-snug text-white/85">Documenting the unseen. Preserving the altered.</p>
+              <p className="mb-8 mt-4 max-w-2xl text-[16px] leading-relaxed text-white/52 sm:text-[17px]">ASA is the connected archive and intelligence environment. S.I.V. and MATRIX are distinct modules inside ASA—not separate products floating outside it.</p>
               <ButtonPrimary href="#modules" gradient="bg-gradient-asa">Choose a module</ButtonPrimary>
             </div>
-            <Image src="/brand/asa-core-vector-eye-512.png" alt="ASA eye mark" width={512} height={512} className="mx-auto h-auto w-full max-w-[390px] drop-shadow-[0_0_38px_rgba(139,92,246,0.28)]" priority />
+            <div className="hidden lg:block" aria-hidden="true">
+              <Image src="/brand/asa-primary-logo.png" alt="" width={600} height={550} className="mx-auto h-auto w-full max-w-[330px] opacity-20 blur-[0.2px] drop-shadow-[0_0_38px_rgba(139,92,246,0.28)]" />
+            </div>
           </div>
         </Container>
       </section>
@@ -39,7 +41,7 @@ export default function AsaPage() {
         <Container>
           <div className="mb-10 max-w-2xl">
             <Eyebrow color="asa">How ASA is organised</Eyebrow>
-            <h2 className="text-display-sm mb-4">One architecture. Two connected modules.</h2>
+            <h2 className="text-display-sm mb-4">One archive. Two connected intelligence modules.</h2>
             <p className="text-[15px] leading-relaxed text-white/44">Start with the vault when you need substance intelligence. Move into MATRIX when you need to examine what may happen when multiple inputs and personal factors meet.</p>
           </div>
           <div className="grid gap-3 sm:grid-cols-[1fr_auto_1fr] sm:items-stretch" aria-label="ASA module relationship">
