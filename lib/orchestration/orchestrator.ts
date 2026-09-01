@@ -2,6 +2,7 @@ import { randomUUID } from 'crypto';
 import { analyse } from '@/lib/risk-matrix';
 import { callClaudeWithRetry } from './claude-operator';
 import { TRACKER_ADAPTER, createJob, appendLog } from './tracker';
+import type { HealthProfile } from '@/lib/risk-matrix';
 import type { Job, OrchestrationResult } from './types';
 
 // ─── Hook: background job queue ──────────────────────────────────────────────────
@@ -29,7 +30,7 @@ export const CACHE_HOOK = {
 
 // ─── Main orchestration function ───────────────────────────────────────────────────
 
-export async function orchestrate(substances: string[]): Promise<OrchestrationResult> {
+export async function orchestrate(substances: string[], healthProfile?: HealthProfile): Promise<OrchestrationResult> {
   const requestId = randomUUID();
   const timestamp = new Date().toISOString();
 
@@ -42,7 +43,7 @@ export async function orchestrate(substances: string[]): Promise<OrchestrationRe
   const cacheKey = substances
     .map(s => s.trim().toLowerCase())
     .sort()
-    .join(':');
+    .join(':') + `:${JSON.stringify(healthProfile?.domains ?? [])}`;
   const cached = await CACHE_HOOK.get(cacheKey);
   if (cached) {
     appendLog({ requestId, substances, timestamp, status: 'complete' });
@@ -54,7 +55,7 @@ export async function orchestrate(substances: string[]): Promise<OrchestrationRe
     appendLog({ requestId, substances, timestamp: new Date().toISOString(), status: 'running' });
 
     // Step 1: Matrix-ASA engine (sync, in-process)
-    const analysis = analyse({ substances });
+    const analysis = analyse({ substances, healthProfile });
 
     // Step 2: Claude operator call with retry
     const { text: operatorBrief, attempts: claudeAttempts } = await callClaudeWithRetry(
