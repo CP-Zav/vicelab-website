@@ -26,6 +26,8 @@
   --siv-slate:      #8B5CF6;
   --siv-ice:        #7DF9FF;
   --siv-color-dim:  rgba(125, 249, 255, 0.14);
+  --asa-primary:    #7C3AED;
+  --asa-accent:     #8B5CF6;
   /* Legacy */
   --cp-cyan:        #22d3ee;
   --vg-violet:      #a78bfa;
@@ -88,6 +90,12 @@
   }
   .text-gradient-siv {
     background: linear-gradient(135deg, #8B5CF6 0%, #7DF9FF 58%, #00FFA3 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .text-gradient-asa {
+    background: linear-gradient(135deg, #7C3AED 0%, #A78BFA 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
