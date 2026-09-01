@@ -1,6 +1,8 @@
 import Image from "next/image";
+import Link from "next/link";
 import type { Metadata } from "next";
 import { Container, Section, Eyebrow, Badge, FeatureCard, ButtonPrimary, ButtonGhost } from "@/components/ui";
+import { MatrixChecker } from "./MatrixChecker";
 
 export const metadata: Metadata = {
   title: "Matrix — Interaction Engine",
@@ -26,6 +28,7 @@ export default function MatrixPage() {
           <div className="relative mx-auto max-w-7xl rounded-[38px] border border-[#c9d7bd]/10 bg-black/35 p-5 shadow-glow-mx backdrop-blur-sm lg:p-8">
             <div className="grid gap-9 lg:grid-cols-[0.72fr_1.28fr] lg:items-center">
               <div>
+                <Link href="/asa" className="mb-5 inline-flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.16em] text-white/38 transition hover:text-white/70">ASA <span aria-hidden="true">/</span> MATRIX</Link>
                 <div className="mb-5 flex flex-wrap items-center gap-3">
                   <Eyebrow color="mx">Interaction Engine</Eyebrow>
                   <Badge variant="mx">In Development</Badge>
@@ -47,6 +50,12 @@ export default function MatrixPage() {
           </div>
         </Container>
       </section>
+
+      <Section>
+        <Container>
+          <MatrixChecker />
+        </Container>
+      </Section>
 
       <Section>
         <Container>
